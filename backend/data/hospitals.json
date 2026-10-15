@@ -1,0 +1,3575 @@
+[
+  {
+    "id": "way/253403396",
+    "name": "Nagpur Government Hospital",
+    "latitude": 21.1278882,
+    "longitude": 79.097146,
+    "category": "hospital",
+    "source": "OpenStreetMap",
+    "verified": false
+  },
+  {
+    "id": "node/297648562",
+    "name": "Govt. Medical College",
+    "latitude": 21.1295149,
+    "longitude": 79.0974689,
+    "category": "hospital",
+    "source": "OpenStreetMap",
+    "verified": false
+  },
+  {
+    "id": "node/299190531",
+    "name": "Indira Gandhi Medical College & Hospital",
+    "latitude": 21.1541868,
+    "longitude": 79.0936492,
+    "category": "hospital",
+    "source": "OpenStreetMap",
+    "verified": false
+  },
+  {
+    "id": "way/388171913",
+    "name": "KMG Hospital",
+    "latitude": 21.1198767,
+    "longitude": 79.1044322,
+    "category": "hospital",
+    "source": "OpenStreetMap",
+    "verified": false
+  },
+  {
+    "id": "way/390612803",
+    "name": "Niyakshi Hospital",
+    "latitude": 21.122712,
+    "longitude": 79.1046923,
+    "category": "hospital",
+    "source": "OpenStreetMap",
+    "verified": false
+  },
+  {
+    "id": "way/444726451",
+    "name": "ALEXIS MULTISPECIALITY HOSPITAL PVT. LTD.",
+    "latitude": 21.1856964,
+    "longitude": 79.0795105,
+    "category": "hospital",
+    "source": "OpenStreetMap",
+    "verified": false
+  },
+  {
+    "id": "way/463130898",
+    "name": "Mental Hospital",
+    "latitude": 21.1755759,
+    "longitude": 79.0785295,
+    "category": "hospital",
+    "source": "OpenStreetMap",
+    "verified": false
+  },
+  {
+    "id": "way/658048548",
+    "name": "SevenStar Hospital",
+    "latitude": 21.1394594,
+    "longitude": 79.119997,
+    "category": "hospital",
+    "source": "OpenStreetMap",
+    "verified": false
+  },
+  {
+    "id": "way/756311320",
+    "name": "Wockhardt Heart Hospital",
+    "latitude": 21.1322239,
+    "longitude": 79.0541473,
+    "category": "hospital",
+    "source": "OpenStreetMap",
+    "verified": false
+  },
+  {
+    "id": "way/758158865",
+    "name": "Central India Institute Of Medical Sciences",
+    "latitude": 21.1286297,
+    "longitude": 79.0613924,
+    "category": "hospital",
+    "source": "OpenStreetMap",
+    "verified": false
+  },
+  {
+    "id": "way/958733124",
+    "name": "GMC building",
+    "latitude": 21.1263384,
+    "longitude": 79.0970532,
+    "category": "hospital",
+    "source": "OpenStreetMap",
+    "verified": false
+  },
+  {
+    "id": "way/1160425716",
+    "name": "Darda Hospital & Maternity Home",
+    "latitude": 21.1345765,
+    "longitude": 79.07737,
+    "category": "hospital",
+    "source": "OpenStreetMap",
+    "verified": false
+  },
+  {
+    "id": "way/1241317281",
+    "name": "Harishchandra Healthcare Pvt Ltd",
+    "latitude": 21.1497135,
+    "longitude": 79.0993242,
+    "category": "hospital",
+    "source": "OpenStreetMap",
+    "verified": false
+  },
+  {
+    "id": "way/1274052830",
+    "name": "Shree Multispecialtiy Hospital",
+    "latitude": 21.1360939,
+    "longitude": 79.1081718,
+    "category": "hospital",
+    "source": "OpenStreetMap",
+    "verified": false
+  },
+  {
+    "id": "way/1274055965",
+    "name": "Gastrologist and Liver Diseases",
+    "latitude": 21.1359553,
+    "longitude": 79.1081766,
+    "category": "hospital",
+    "source": "OpenStreetMap",
+    "verified": false
+  },
+  {
+    "id": "node/1834257603",
+    "name": "Inpatient Department",
+    "latitude": 21.126903,
+    "longitude": 79.1141613,
+    "category": "hospital",
+    "source": "OpenStreetMap",
+    "verified": false
+  },
+  {
+    "id": "node/1834257604",
+    "name": "Outpatient Department",
+    "latitude": 21.127343,
+    "longitude": 79.1136038,
+    "category": "hospital",
+    "source": "OpenStreetMap",
+    "verified": false
+  },
+  {
+    "id": "node/1836790305",
+    "name": "Sanjivani Hospital",
+    "latitude": 21.1331511,
+    "longitude": 79.0998847,
+    "category": "hospital",
+    "source": "OpenStreetMap",
+    "verified": false
+  },
+  {
+    "id": "node/1966830165",
+    "name": "Matoshri Nursing Home",
+    "latitude": 21.129156,
+    "longitude": 79.1138731,
+    "category": "hospital",
+    "source": "OpenStreetMap",
+    "verified": false
+  },
+  {
+    "id": "node/2536741976",
+    "name": "Matru Sewa Sangh (Maternity)",
+    "latitude": 21.1438599,
+    "longitude": 79.1076243,
+    "category": "hospital",
+    "source": "OpenStreetMap",
+    "verified": false
+  },
+  {
+    "id": "node/2593300353",
+    "name": "Nagpur Super Speciality Hospital",
+    "latitude": 21.1241779,
+    "longitude": 79.1026344,
+    "category": "hospital",
+    "source": "OpenStreetMap",
+    "verified": false
+  },
+  {
+    "id": "node/2593300379",
+    "name": "Rashtrasant Tukdoji Maharaj Cancer Hospital",
+    "latitude": 21.1239077,
+    "longitude": 79.1043456,
+    "category": "hospital",
+    "source": "OpenStreetMap",
+    "verified": false
+  },
+  {
+    "id": "node/2593305380",
+    "name": "Asha General Hospital",
+    "latitude": 21.1115524,
+    "longitude": 79.1040801,
+    "category": "hospital",
+    "source": "OpenStreetMap",
+    "verified": false
+  },
+  {
+    "id": "node/2593305386",
+    "name": "Apulki Vairagade Hospital",
+    "latitude": 21.1117,
+    "longitude": 79.1040881,
+    "category": "hospital",
+    "source": "OpenStreetMap",
+    "verified": false
+  },
+  {
+    "id": "node/2683203421",
+    "name": "G. T. Padole Hospital",
+    "latitude": 21.1130302,
+    "longitude": 79.0485919,
+    "category": "hospital",
+    "source": "OpenStreetMap",
+    "verified": false
+  },
+  {
+    "id": "node/2857626554",
+    "name": "Arneja Heart and Multispeciality Hospital",
+    "latitude": 21.1350759,
+    "longitude": 79.0745814,
+    "category": "hospital",
+    "source": "OpenStreetMap",
+    "verified": false
+  },
+  {
+    "id": "node/3062460422",
+    "name": "Orange City Hospital and Research Institute",
+    "latitude": 21.1127672,
+    "longitude": 79.0654015,
+    "category": "hospital",
+    "source": "OpenStreetMap",
+    "verified": false
+  },
+  {
+    "id": "node/3062461407",
+    "name": "Chest Care Clinic",
+    "latitude": 21.1139182,
+    "longitude": 79.066174,
+    "category": "hospital",
+    "source": "OpenStreetMap",
+    "verified": false
+  },
+  {
+    "id": "node/3062461484",
+    "name": "Dhruv Pathology & Molecular",
+    "latitude": 21.1243628,
+    "longitude": 79.0643947,
+    "category": "hospital",
+    "source": "OpenStreetMap",
+    "verified": false
+  },
+  {
+    "id": "node/3141270006",
+    "name": "Oasis Nursing Home",
+    "latitude": 21.1808237,
+    "longitude": 79.0699559,
+    "category": "hospital",
+    "source": "OpenStreetMap",
+    "verified": false
+  },
+  {
+    "id": "node/3143169967",
+    "name": "Mure Memorial Hospital",
+    "latitude": 21.1450006,
+    "longitude": 79.0779338,
+    "category": "hospital",
+    "source": "OpenStreetMap",
+    "verified": false
+  },
+  {
+    "id": "node/3143414657",
+    "name": "Indus Health Care & Checkup Centre",
+    "latitude": 21.1416151,
+    "longitude": 79.0558122,
+    "category": "hospital",
+    "source": "OpenStreetMap",
+    "verified": false
+  },
+  {
+    "id": "node/3151964482",
+    "name": "Railway Hospital",
+    "latitude": 21.1202606,
+    "longitude": 79.0841004,
+    "category": "hospital",
+    "source": "OpenStreetMap",
+    "verified": false
+  },
+  {
+    "id": "node/3259570374",
+    "name": "Advance Dental Clinic",
+    "latitude": 21.1115807,
+    "longitude": 79.0706405,
+    "category": "hospital",
+    "source": "OpenStreetMap",
+    "verified": false
+  },
+  {
+    "id": "node/3259587452",
+    "name": "Narcaood Hospital",
+    "latitude": 21.1321946,
+    "longitude": 79.0594119,
+    "category": "hospital",
+    "source": "OpenStreetMap",
+    "verified": false
+  },
+  {
+    "id": "node/3259594419",
+    "name": "Wockhardt Super Speciality Hospital",
+    "latitude": 21.1364104,
+    "longitude": 79.0650417,
+    "category": "hospital",
+    "source": "OpenStreetMap",
+    "verified": false
+  },
+  {
+    "id": "node/3259599209",
+    "name": "Dr Baraskar Jaiprakash",
+    "latitude": 21.1320113,
+    "longitude": 79.068042,
+    "category": "hospital",
+    "source": "OpenStreetMap",
+    "verified": false
+  },
+  {
+    "id": "node/3259601587",
+    "name": "Avantika Hospital",
+    "latitude": 21.1340474,
+    "longitude": 79.0741784,
+    "category": "hospital",
+    "source": "OpenStreetMap",
+    "verified": false
+  },
+  {
+    "id": "node/3259604661",
+    "name": "Sushrut Hospital, Nagpur",
+    "latitude": 21.1342574,
+    "longitude": 79.07486,
+    "category": "hospital",
+    "source": "OpenStreetMap",
+    "verified": false
+  },
+  {
+    "id": "node/3259608832",
+    "name": "Evista Eye Care Centre- Dr.sanjay Jaiswal-m.b.b.s., M.s., in [ophthalmology]",
+    "latitude": 21.1350314,
+    "longitude": 79.080249,
+    "category": "hospital",
+    "source": "OpenStreetMap",
+    "verified": false
+  },
+  {
+    "id": "node/3259609584",
+    "name": "Getwell Hospital and Research Institute",
+    "latitude": 21.1360724,
+    "longitude": 79.0796029,
+    "category": "hospital",
+    "source": "OpenStreetMap",
+    "verified": false
+  },
+  {
+    "id": "node/3259617378",
+    "name": "Mulik Hospital",
+    "latitude": 21.1359274,
+    "longitude": 79.0813129,
+    "category": "hospital",
+    "source": "OpenStreetMap",
+    "verified": false
+  },
+  {
+    "id": "node/3259633595",
+    "name": "Ketki Urological Hospital",
+    "latitude": 21.136975,
+    "longitude": 79.079917,
+    "category": "hospital",
+    "source": "OpenStreetMap",
+    "verified": false
+  },
+  {
+    "id": "node/3259633886",
+    "name": "Care Hospital, Nagpur",
+    "latitude": 21.1385444,
+    "longitude": 79.079175,
+    "category": "hospital",
+    "source": "OpenStreetMap",
+    "verified": false
+  },
+  {
+    "id": "node/3259651470",
+    "name": "Crescent Hospital & Heart Centre",
+    "latitude": 21.1312485,
+    "longitude": 79.0799527,
+    "category": "hospital",
+    "source": "OpenStreetMap",
+    "verified": false
+  },
+  {
+    "id": "node/3259653612",
+    "name": "Retina Eye Care Hospital",
+    "latitude": 21.1331154,
+    "longitude": 79.0832586,
+    "category": "hospital",
+    "source": "OpenStreetMap",
+    "verified": false
+  },
+  {
+    "id": "node/3259653717",
+    "name": "Shri Krishna Hrudayalaya and Critical Care Centre",
+    "latitude": 21.1310422,
+    "longitude": 79.0821048,
+    "category": "hospital",
+    "source": "OpenStreetMap",
+    "verified": false
+  },
+  {
+    "id": "node/3259657598",
+    "name": "Vasan Eye Care",
+    "latitude": 21.132525,
+    "longitude": 79.0830226,
+    "category": "hospital",
+    "source": "OpenStreetMap",
+    "verified": false
+  },
+  {
+    "id": "node/3259661617",
+    "name": "Baheti (Dr) Mukund",
+    "latitude": 21.1406244,
+    "longitude": 79.0853499,
+    "category": "hospital",
+    "source": "OpenStreetMap",
+    "verified": false
+  },
+  {
+    "id": "node/3259677841",
+    "name": "Dr B K Murali, Hope Hospitals",
+    "latitude": 21.1411757,
+    "longitude": 79.0852841,
+    "category": "hospital",
+    "source": "OpenStreetMap",
+    "verified": false
+  },
+  {
+    "id": "node/3259678924",
+    "name": "Surelife Hospital",
+    "latitude": 21.1412495,
+    "longitude": 79.0857315,
+    "category": "hospital",
+    "source": "OpenStreetMap",
+    "verified": false
+  },
+  {
+    "id": "node/3261054160",
+    "name": "Cph Centre Point Hospital and Medical Research Institute Pvt. Ltd.",
+    "latitude": 21.1311745,
+    "longitude": 79.0968017,
+    "category": "hospital",
+    "source": "OpenStreetMap",
+    "verified": false
+  },
+  {
+    "id": "node/3261056793",
+    "name": "Indira Gandhi Medical College",
+    "latitude": 21.1491099,
+    "longitude": 79.1159505,
+    "category": "hospital",
+    "source": "OpenStreetMap",
+    "verified": false
+  },
+  {
+    "id": "node/3261057938",
+    "name": "Shri Radhakrishna Hospital and Research Institute",
+    "latitude": 21.1487104,
+    "longitude": 79.1413039,
+    "category": "hospital",
+    "source": "OpenStreetMap",
+    "verified": false
+  },
+  {
+    "id": "node/3261058954",
+    "name": "Central Govt Heath Scheme(CGHS) Clinic",
+    "latitude": 21.1703616,
+    "longitude": 79.064192,
+    "category": "hospital",
+    "source": "OpenStreetMap",
+    "verified": false
+  },
+  {
+    "id": "node/3261063016",
+    "name": "Suraj Eye Institute Om Drishti Trust",
+    "latitude": 21.1691007,
+    "longitude": 79.0835882,
+    "category": "hospital",
+    "source": "OpenStreetMap",
+    "verified": false
+  },
+  {
+    "id": "node/3261065664",
+    "name": "Dr S P Naidu",
+    "latitude": 21.1572734,
+    "longitude": 79.083511,
+    "category": "hospital",
+    "source": "OpenStreetMap",
+    "verified": false
+  },
+  {
+    "id": "node/3261070276",
+    "name": "Sanjeevani Orthopaedic And Paediatric Ho",
+    "latitude": 21.1224065,
+    "longitude": 79.0648229,
+    "category": "hospital",
+    "source": "OpenStreetMap",
+    "verified": false
+  },
+  {
+    "id": "node/3261071404",
+    "name": "Daga Hospital",
+    "latitude": 21.1530884,
+    "longitude": 79.1035724,
+    "category": "hospital",
+    "source": "OpenStreetMap",
+    "verified": false
+  },
+  {
+    "id": "node/3264660573",
+    "name": "Spandan Heart Institute & Research Centre",
+    "latitude": 21.1327178,
+    "longitude": 79.0783876,
+    "category": "hospital",
+    "source": "OpenStreetMap",
+    "verified": false
+  },
+  {
+    "id": "node/3264661241",
+    "name": "Cancer Care Clinic & Hospital",
+    "latitude": 21.1351842,
+    "longitude": 79.0787811,
+    "category": "hospital",
+    "source": "OpenStreetMap",
+    "verified": false
+  },
+  {
+    "id": "node/3264668500",
+    "name": "Dr. Somani Accident Hospital",
+    "latitude": 21.1475579,
+    "longitude": 79.1377417,
+    "category": "hospital",
+    "source": "OpenStreetMap",
+    "verified": false
+  },
+  {
+    "id": "node/3264677746",
+    "name": "East End Hospital",
+    "latitude": 21.147648,
+    "longitude": 79.1383532,
+    "category": "hospital",
+    "source": "OpenStreetMap",
+    "verified": false
+  },
+  {
+    "id": "node/3264727866",
+    "name": "Shri Ram Jeevan Chaudhari Memorial Hospital & Research Center",
+    "latitude": 21.1417766,
+    "longitude": 79.1037462,
+    "category": "hospital",
+    "source": "OpenStreetMap",
+    "verified": false
+  },
+  {
+    "id": "node/3274043280",
+    "name": "Sengupta Hospital and Research Institute",
+    "latitude": 21.1478084,
+    "longitude": 79.0558595,
+    "category": "hospital",
+    "source": "OpenStreetMap",
+    "verified": false
+  },
+  {
+    "id": "node/3274043761",
+    "name": "Dr. Dande Hospital",
+    "latitude": 21.1464626,
+    "longitude": 79.0560338,
+    "category": "hospital",
+    "source": "OpenStreetMap",
+    "verified": false
+  },
+  {
+    "id": "node/3274043856",
+    "name": "Paldiwal Hospital And Polyclinic",
+    "latitude": 21.14615,
+    "longitude": 79.0637996,
+    "category": "hospital",
+    "source": "OpenStreetMap",
+    "verified": false
+  },
+  {
+    "id": "node/3274045649",
+    "name": "Mangala Ketkar's",
+    "latitude": 21.1451583,
+    "longitude": 79.0820907,
+    "category": "hospital",
+    "source": "OpenStreetMap",
+    "verified": false
+  },
+  {
+    "id": "node/3274046986",
+    "name": "Bhiwapurkar Eye Hospital",
+    "latitude": 21.1444649,
+    "longitude": 79.0833343,
+    "category": "hospital",
+    "source": "OpenStreetMap",
+    "verified": false
+  },
+  {
+    "id": "node/3274047045",
+    "name": "suretech hospital",
+    "latitude": 21.1418047,
+    "longitude": 79.0842602,
+    "category": "hospital",
+    "source": "OpenStreetMap",
+    "verified": false
+  },
+  {
+    "id": "node/3274047298",
+    "name": "Adil Homeo Heart Care Centre",
+    "latitude": 21.1424351,
+    "longitude": 79.0845779,
+    "category": "hospital",
+    "source": "OpenStreetMap",
+    "verified": false
+  },
+  {
+    "id": "node/3274052433",
+    "name": "VINAYAK NETRALAYA",
+    "latitude": 21.1508876,
+    "longitude": 79.1026519,
+    "category": "hospital",
+    "source": "OpenStreetMap",
+    "verified": false
+  },
+  {
+    "id": "node/3274053358",
+    "name": "Puniyani Hospital for Child and Women Care",
+    "latitude": 21.1496244,
+    "longitude": 79.1084506,
+    "category": "hospital",
+    "source": "OpenStreetMap",
+    "verified": false
+  },
+  {
+    "id": "node/3274053671",
+    "name": "Sahu Hospital",
+    "latitude": 21.1520709,
+    "longitude": 79.1037674,
+    "category": "hospital",
+    "source": "OpenStreetMap",
+    "verified": false
+  },
+  {
+    "id": "node/3274054979",
+    "name": "Chandak Critical Care Hospital & ICCU",
+    "latitude": 21.1495333,
+    "longitude": 79.1128642,
+    "category": "hospital",
+    "source": "OpenStreetMap",
+    "verified": false
+  },
+  {
+    "id": "node/3274057374",
+    "name": "Ace Womens' Hospital",
+    "latitude": 21.1486438,
+    "longitude": 79.1168452,
+    "category": "hospital",
+    "source": "OpenStreetMap",
+    "verified": false
+  },
+  {
+    "id": "node/3274058370",
+    "name": "Dr. Dalvi Memorial Hospital and Research Centre",
+    "latitude": 21.1473515,
+    "longitude": 79.1214913,
+    "category": "hospital",
+    "source": "OpenStreetMap",
+    "verified": false
+  },
+  {
+    "id": "node/3274073584",
+    "name": "Arjun Hospital",
+    "latitude": 21.1472112,
+    "longitude": 79.1390246,
+    "category": "hospital",
+    "source": "OpenStreetMap",
+    "verified": false
+  },
+  {
+    "id": "node/3274074762",
+    "name": "Shyam Medicals",
+    "latitude": 21.1482671,
+    "longitude": 79.1348921,
+    "category": "hospital",
+    "source": "OpenStreetMap",
+    "verified": false
+  },
+  {
+    "id": "node/3274074828",
+    "name": "Sawarkar Hospital",
+    "latitude": 21.1455439,
+    "longitude": 79.1329861,
+    "category": "hospital",
+    "source": "OpenStreetMap",
+    "verified": false
+  },
+  {
+    "id": "node/3274081091",
+    "name": "East End Hospital",
+    "latitude": 21.1477429,
+    "longitude": 79.1444081,
+    "category": "hospital",
+    "source": "OpenStreetMap",
+    "verified": false
+  },
+  {
+    "id": "node/3274089461",
+    "name": "Sanjeevani Hospital, Nagpur",
+    "latitude": 21.0917212,
+    "longitude": 79.0770014,
+    "category": "hospital",
+    "source": "OpenStreetMap",
+    "verified": false
+  },
+  {
+    "id": "node/3274090662",
+    "name": "Roy Nursing Home",
+    "latitude": 21.1002572,
+    "longitude": 79.0669266,
+    "category": "hospital",
+    "source": "OpenStreetMap",
+    "verified": false
+  },
+  {
+    "id": "node/3274090950",
+    "name": "Dharmadhikari Hospital",
+    "latitude": 21.1145482,
+    "longitude": 79.0721111,
+    "category": "hospital",
+    "source": "OpenStreetMap",
+    "verified": false
+  },
+  {
+    "id": "node/3274091465",
+    "name": "Mahatma Eye Bank and Hospital",
+    "latitude": 21.1113508,
+    "longitude": 79.0689893,
+    "category": "hospital",
+    "source": "OpenStreetMap",
+    "verified": false
+  },
+  {
+    "id": "node/3276017197",
+    "name": "Galaxy Vidarbha Diagnostics Pvt. Ltd.",
+    "latitude": 21.1355692,
+    "longitude": 79.0781259,
+    "category": "hospital",
+    "source": "OpenStreetMap",
+    "verified": false
+  },
+  {
+    "id": "node/3276019764",
+    "name": "Anjani Eye Hospital",
+    "latitude": 21.1349883,
+    "longitude": 79.0771381,
+    "category": "hospital",
+    "source": "OpenStreetMap",
+    "verified": false
+  },
+  {
+    "id": "node/3276030036",
+    "name": "Dr Sushil Rathi (Anika Clinic)",
+    "latitude": 21.1348631,
+    "longitude": 79.0764497,
+    "category": "hospital",
+    "source": "OpenStreetMap",
+    "verified": false
+  },
+  {
+    "id": "node/3276032529",
+    "name": "Subramaniam Hospital",
+    "latitude": 21.1343966,
+    "longitude": 79.0769499,
+    "category": "hospital",
+    "source": "OpenStreetMap",
+    "verified": false
+  },
+  {
+    "id": "node/3276034689",
+    "name": "Ganju Haematology Clinic and Hospital",
+    "latitude": 21.1340373,
+    "longitude": 79.0755846,
+    "category": "hospital",
+    "source": "OpenStreetMap",
+    "verified": false
+  },
+  {
+    "id": "node/3276037226",
+    "name": "GI , Endoscopy and Liver clinic.SMP Hospital Dr Samir Patil",
+    "latitude": 21.1345668,
+    "longitude": 79.0756928,
+    "category": "hospital",
+    "source": "OpenStreetMap",
+    "verified": false
+  },
+  {
+    "id": "node/3276045262",
+    "name": "Aditya Hospital Critical Care and Emergency Center",
+    "latitude": 21.1336905,
+    "longitude": 79.0745505,
+    "category": "hospital",
+    "source": "OpenStreetMap",
+    "verified": false
+  },
+  {
+    "id": "node/3276055621",
+    "name": "Netranjali Centre For Advanced Eye Care",
+    "latitude": 21.1337221,
+    "longitude": 79.073388,
+    "category": "hospital",
+    "source": "OpenStreetMap",
+    "verified": false
+  },
+  {
+    "id": "node/3276063023",
+    "name": "Baraskar Multispeciality Hospital and Dialysis",
+    "latitude": 21.132906,
+    "longitude": 79.0708446,
+    "category": "hospital",
+    "source": "OpenStreetMap",
+    "verified": false
+  },
+  {
+    "id": "node/3276074105",
+    "name": "Crescent Nursing Home and Iccu",
+    "latitude": 21.1341811,
+    "longitude": 79.078904,
+    "category": "hospital",
+    "source": "OpenStreetMap",
+    "verified": false
+  },
+  {
+    "id": "node/3276075300",
+    "name": "KRIMS Hospital",
+    "latitude": 21.1331799,
+    "longitude": 79.0717727,
+    "category": "hospital",
+    "source": "OpenStreetMap",
+    "verified": false
+  },
+  {
+    "id": "node/3276081461",
+    "name": "Meditrina Institute Of Medical Sciences",
+    "latitude": 21.1328773,
+    "longitude": 79.0707792,
+    "category": "hospital",
+    "source": "OpenStreetMap",
+    "verified": false
+  },
+  {
+    "id": "node/3276084622",
+    "name": "Deshmane Hospital",
+    "latitude": 21.1363446,
+    "longitude": 79.0790181,
+    "category": "hospital",
+    "source": "OpenStreetMap",
+    "verified": false
+  },
+  {
+    "id": "node/3276089266",
+    "name": "Nagpur Chest Center",
+    "latitude": 21.1336653,
+    "longitude": 79.0784165,
+    "category": "hospital",
+    "source": "OpenStreetMap",
+    "verified": false
+  },
+  {
+    "id": "node/3276100493",
+    "name": "Shree Child Clinic",
+    "latitude": 21.1363635,
+    "longitude": 79.0799981,
+    "category": "hospital",
+    "source": "OpenStreetMap",
+    "verified": false
+  },
+  {
+    "id": "node/3276100561",
+    "name": "Navjeevan Nursing Home",
+    "latitude": 21.1359978,
+    "longitude": 79.0798764,
+    "category": "hospital",
+    "source": "OpenStreetMap",
+    "verified": false
+  },
+  {
+    "id": "node/3276101774",
+    "name": "Jasleen Eye Hospital - Nagpur",
+    "latitude": 21.1380687,
+    "longitude": 79.0796792,
+    "category": "hospital",
+    "source": "OpenStreetMap",
+    "verified": false
+  },
+  {
+    "id": "node/3276105912",
+    "name": "Pande Memorial Hospital",
+    "latitude": 21.1343817,
+    "longitude": 79.0822989,
+    "category": "hospital",
+    "source": "OpenStreetMap",
+    "verified": false
+  },
+  {
+    "id": "node/3276107113",
+    "name": "WE PLUS OPTICALS",
+    "latitude": 21.1385209,
+    "longitude": 79.0833269,
+    "category": "hospital",
+    "source": "OpenStreetMap",
+    "verified": false
+  },
+  {
+    "id": "node/3276113957",
+    "name": "Dr. Anand Pangarkar's Eye Hospital",
+    "latitude": 21.1368385,
+    "longitude": 79.0693717,
+    "category": "hospital",
+    "source": "OpenStreetMap",
+    "verified": false
+  },
+  {
+    "id": "node/3276115991",
+    "name": "Wockhardt Super Speciality Hospital",
+    "latitude": 21.1368952,
+    "longitude": 79.0669225,
+    "category": "hospital",
+    "source": "OpenStreetMap",
+    "verified": false
+  },
+  {
+    "id": "node/3276128104",
+    "name": "Cure It Hospital Pvt.Ltd",
+    "latitude": 21.112629,
+    "longitude": 79.1296817,
+    "category": "hospital",
+    "source": "OpenStreetMap",
+    "verified": false
+  },
+  {
+    "id": "node/3900779783",
+    "name": "Kherde Hospital",
+    "latitude": 21.1178889,
+    "longitude": 79.1134088,
+    "category": "hospital",
+    "source": "OpenStreetMap",
+    "verified": false
+  },
+  {
+    "id": "node/3963888182",
+    "name": "Kamble Hospital",
+    "latitude": 21.1176102,
+    "longitude": 79.1061774,
+    "category": "hospital",
+    "source": "OpenStreetMap",
+    "verified": false
+  },
+  {
+    "id": "node/3972885657",
+    "name": "Sahu Hospital",
+    "latitude": 21.1220676,
+    "longitude": 79.1051559,
+    "category": "hospital",
+    "source": "OpenStreetMap",
+    "verified": false
+  },
+  {
+    "id": "node/3972929460",
+    "name": "Health Unit Ajni",
+    "latitude": 21.125901,
+    "longitude": 79.0902296,
+    "category": "hospital",
+    "source": "OpenStreetMap",
+    "verified": false
+  },
+  {
+    "id": "node/3978219970",
+    "name": "Asha Homeopathic Hospital",
+    "latitude": 21.1078896,
+    "longitude": 79.1034883,
+    "category": "hospital",
+    "source": "OpenStreetMap",
+    "verified": false
+  },
+  {
+    "id": "node/3978219978",
+    "name": "Sarita Homeopathic Hospital",
+    "latitude": 21.1081135,
+    "longitude": 79.1035441,
+    "category": "hospital",
+    "source": "OpenStreetMap",
+    "verified": false
+  },
+  {
+    "id": "node/3979328316",
+    "name": "Belsare Children's Hospital",
+    "latitude": 21.1155098,
+    "longitude": 79.1041162,
+    "category": "hospital",
+    "source": "OpenStreetMap",
+    "verified": false
+  },
+  {
+    "id": "node/3979328318",
+    "name": "Chikhle Multi Speciality and Cancer Hospital",
+    "latitude": 21.1150264,
+    "longitude": 79.1039294,
+    "category": "hospital",
+    "source": "OpenStreetMap",
+    "verified": false
+  },
+  {
+    "id": "node/3979328319",
+    "name": "Deerghayu Ayurved Panchakarma Chikitsalaya",
+    "latitude": 21.1119271,
+    "longitude": 79.1037492,
+    "category": "hospital",
+    "source": "OpenStreetMap",
+    "verified": false
+  },
+  {
+    "id": "node/3979328341",
+    "name": "Prasuti ani Stree Rog Clinic",
+    "latitude": 21.1123494,
+    "longitude": 79.1041366,
+    "category": "hospital",
+    "source": "OpenStreetMap",
+    "verified": false
+  },
+  {
+    "id": "node/3979328347",
+    "name": "Sangam Orthopedic and General Hospital",
+    "latitude": 21.115007,
+    "longitude": 79.1045225,
+    "category": "hospital",
+    "source": "OpenStreetMap",
+    "verified": false
+  },
+  {
+    "id": "node/3979328350",
+    "name": "Shambharkar Hospital",
+    "latitude": 21.1094225,
+    "longitude": 79.1037401,
+    "category": "hospital",
+    "source": "OpenStreetMap",
+    "verified": false
+  },
+  {
+    "id": "node/3979328354",
+    "name": "Shree Sai Homeopathic Hospital",
+    "latitude": 21.1087631,
+    "longitude": 79.1036843,
+    "category": "hospital",
+    "source": "OpenStreetMap",
+    "verified": false
+  },
+  {
+    "id": "node/3979328355",
+    "name": "Singare Eye Hospital",
+    "latitude": 21.115658,
+    "longitude": 79.1044239,
+    "category": "hospital",
+    "source": "OpenStreetMap",
+    "verified": false
+  },
+  {
+    "id": "node/3979329563",
+    "name": "Vivekananda Health Care and Yoga Centre",
+    "latitude": 21.1137614,
+    "longitude": 79.1040123,
+    "category": "hospital",
+    "source": "OpenStreetMap",
+    "verified": false
+  },
+  {
+    "id": "node/4352782205",
+    "name": "Mukherjee Multispeciality Hospital",
+    "latitude": 21.1244349,
+    "longitude": 79.1175873,
+    "category": "hospital",
+    "source": "OpenStreetMap",
+    "verified": false
+  },
+  {
+    "id": "node/4421880347",
+    "name": "Prestige Hospitals Pvt Ltd",
+    "latitude": 21.1689967,
+    "longitude": 79.0790495,
+    "category": "hospital",
+    "source": "OpenStreetMap",
+    "verified": false
+  },
+  {
+    "id": "node/4435892105",
+    "name": "Kurvey Hospital",
+    "latitude": 21.1300097,
+    "longitude": 79.1133196,
+    "category": "hospital",
+    "source": "OpenStreetMap",
+    "verified": false
+  },
+  {
+    "id": "node/5112209478",
+    "name": "Happy Pharmacy",
+    "latitude": 21.133975,
+    "longitude": 79.0614898,
+    "category": "hospital",
+    "source": "OpenStreetMap",
+    "verified": false
+  },
+  {
+    "id": "node/6249168311",
+    "name": "Samarpan Hospital and Research Institute",
+    "latitude": 21.1697967,
+    "longitude": 79.1162235,
+    "category": "hospital",
+    "source": "OpenStreetMap",
+    "verified": false
+  },
+  {
+    "id": "node/6249232217",
+    "name": "Balwaik Multi Speciality Hospital",
+    "latitude": 21.1326243,
+    "longitude": 79.0992759,
+    "category": "hospital",
+    "source": "OpenStreetMap",
+    "verified": false
+  },
+  {
+    "id": "node/6249232326",
+    "name": "Niramaya Hospital",
+    "latitude": 21.1340305,
+    "longitude": 79.1008675,
+    "category": "hospital",
+    "source": "OpenStreetMap",
+    "verified": false
+  },
+  {
+    "id": "node/6873133686",
+    "name": "ESIS Hospital",
+    "latitude": 21.1271894,
+    "longitude": 79.1061206,
+    "category": "hospital",
+    "source": "OpenStreetMap",
+    "verified": false
+  },
+  {
+    "id": "node/7041042243",
+    "name": "Khalatkar Hospital",
+    "latitude": 21.1304764,
+    "longitude": 79.110918,
+    "category": "hospital",
+    "source": "OpenStreetMap",
+    "verified": false
+  },
+  {
+    "id": "node/7041049135",
+    "name": "Medicare Multi Speciality Hospital",
+    "latitude": 21.185117,
+    "longitude": 79.0792572,
+    "category": "hospital",
+    "source": "OpenStreetMap",
+    "verified": false
+  },
+  {
+    "id": "node/7042936001",
+    "name": "Sawarbandhe Multispeciality Hospital",
+    "latitude": 21.1300825,
+    "longitude": 79.1156621,
+    "category": "hospital",
+    "source": "OpenStreetMap",
+    "verified": false
+  },
+  {
+    "id": "node/7043041319",
+    "name": "Tikhile Maternity and Nursing Home",
+    "latitude": 21.1519006,
+    "longitude": 79.1493216,
+    "category": "hospital",
+    "source": "OpenStreetMap",
+    "verified": false
+  },
+  {
+    "id": "node/7043098839",
+    "name": "Diabetes Care and Research Centre",
+    "latitude": 21.136316,
+    "longitude": 79.0718201,
+    "category": "hospital",
+    "source": "OpenStreetMap",
+    "verified": false
+  },
+  {
+    "id": "node/7043098844",
+    "name": "Central Neurological Institute",
+    "latitude": 21.1351361,
+    "longitude": 79.0623151,
+    "category": "hospital",
+    "source": "OpenStreetMap",
+    "verified": false
+  },
+  {
+    "id": "node/7043117206",
+    "name": "Karandikar Maternity and Nursing Home",
+    "latitude": 21.1126679,
+    "longitude": 79.0641685,
+    "category": "hospital",
+    "source": "OpenStreetMap",
+    "verified": false
+  },
+  {
+    "id": "node/7043117223",
+    "name": "Kamal Institute Of andro-Urology",
+    "latitude": 21.1355715,
+    "longitude": 79.0682983,
+    "category": "hospital",
+    "source": "OpenStreetMap",
+    "verified": false
+  },
+  {
+    "id": "node/7043117228",
+    "name": "Zenith Hospital, Nagpur",
+    "latitude": 21.1357586,
+    "longitude": 79.0574365,
+    "category": "hospital",
+    "source": "OpenStreetMap",
+    "verified": false
+  },
+  {
+    "id": "node/7043117233",
+    "name": "Dr Kg Deshpande Memorial Centre",
+    "latitude": 21.1406274,
+    "longitude": 79.0569913,
+    "category": "hospital",
+    "source": "OpenStreetMap",
+    "verified": false
+  },
+  {
+    "id": "node/7043230041",
+    "name": "Laser Vision Centre",
+    "latitude": 21.1337488,
+    "longitude": 79.073463,
+    "category": "hospital",
+    "source": "OpenStreetMap",
+    "verified": false
+  },
+  {
+    "id": "node/7043284028",
+    "name": "Ganeshrao Kanphade Memorial Hospital",
+    "latitude": 21.1350623,
+    "longitude": 79.0757865,
+    "category": "hospital",
+    "source": "OpenStreetMap",
+    "verified": false
+  },
+  {
+    "id": "node/7043349115",
+    "name": "Ganeriwal Hospital",
+    "latitude": 21.1126846,
+    "longitude": 79.114299,
+    "category": "hospital",
+    "source": "OpenStreetMap",
+    "verified": false
+  },
+  {
+    "id": "node/7043394544",
+    "name": "ACE Women's Hospital",
+    "latitude": 21.1487614,
+    "longitude": 79.1156012,
+    "category": "hospital",
+    "source": "OpenStreetMap",
+    "verified": false
+  },
+  {
+    "id": "node/7043397907",
+    "name": "Radiance Hospital",
+    "latitude": 21.1497276,
+    "longitude": 79.1152176,
+    "category": "hospital",
+    "source": "OpenStreetMap",
+    "verified": false
+  },
+  {
+    "id": "node/7043526061",
+    "name": "Desai Children and Surgical Hospital",
+    "latitude": 21.1167525,
+    "longitude": 79.0694518,
+    "category": "hospital",
+    "source": "OpenStreetMap",
+    "verified": false
+  },
+  {
+    "id": "node/7043578011",
+    "name": "Sawali Ortho Hospital",
+    "latitude": 21.1395091,
+    "longitude": 79.0626004,
+    "category": "hospital",
+    "source": "OpenStreetMap",
+    "verified": false
+  },
+  {
+    "id": "node/7043757655",
+    "name": "Chaitanya Maternity Home and Endoscopy Center",
+    "latitude": 21.1387117,
+    "longitude": 79.0600681,
+    "category": "hospital",
+    "source": "OpenStreetMap",
+    "verified": false
+  },
+  {
+    "id": "node/7044273943",
+    "name": "Mother Care Nursing Home",
+    "latitude": 21.1339827,
+    "longitude": 79.0754941,
+    "category": "hospital",
+    "source": "OpenStreetMap",
+    "verified": false
+  },
+  {
+    "id": "node/7044392681",
+    "name": "Shrikhande Hospital and Research Center Pvt. Ltd.",
+    "latitude": 21.1309161,
+    "longitude": 79.0803355,
+    "category": "hospital",
+    "source": "OpenStreetMap",
+    "verified": false
+  },
+  {
+    "id": "node/7044508385",
+    "name": "Kothari Hospital, Nagpur",
+    "latitude": 21.1143604,
+    "longitude": 79.0714782,
+    "category": "hospital",
+    "source": "OpenStreetMap",
+    "verified": false
+  },
+  {
+    "id": "node/7044542301",
+    "name": "Prestos Madan Multispeciality Hospital",
+    "latitude": 21.1699581,
+    "longitude": 79.1010797,
+    "category": "hospital",
+    "source": "OpenStreetMap",
+    "verified": false
+  },
+  {
+    "id": "node/7044561554",
+    "name": "Rathi Hospital, Nagpur",
+    "latitude": 21.1397243,
+    "longitude": 79.0601619,
+    "category": "hospital",
+    "source": "OpenStreetMap",
+    "verified": false
+  },
+  {
+    "id": "node/7044993481",
+    "name": "Upcharya Institute Of Orthopaedic Surgery and Trauma Care Center",
+    "latitude": 21.1517482,
+    "longitude": 79.1000685,
+    "category": "hospital",
+    "source": "OpenStreetMap",
+    "verified": false
+  },
+  {
+    "id": "node/7045292104",
+    "name": "Badjates Hospital",
+    "latitude": 21.1115774,
+    "longitude": 79.0570016,
+    "category": "hospital",
+    "source": "OpenStreetMap",
+    "verified": false
+  },
+  {
+    "id": "node/7045516010",
+    "name": "Central India Cancer Research Institute",
+    "latitude": 21.1330665,
+    "longitude": 79.0619201,
+    "category": "hospital",
+    "source": "OpenStreetMap",
+    "verified": false
+  },
+  {
+    "id": "node/7045681877",
+    "name": "Aharnish Hospital",
+    "latitude": 21.1732827,
+    "longitude": 79.1174519,
+    "category": "hospital",
+    "source": "OpenStreetMap",
+    "verified": false
+  },
+  {
+    "id": "node/7045705317",
+    "name": "Brijmohan Taori Memorial Hospital",
+    "latitude": 21.1382257,
+    "longitude": 79.0810543,
+    "category": "hospital",
+    "source": "OpenStreetMap",
+    "verified": false
+  },
+  {
+    "id": "node/7045823782",
+    "name": "Dr V E Tambe Critical Care Unit",
+    "latitude": 21.1146763,
+    "longitude": 79.0715928,
+    "category": "hospital",
+    "source": "OpenStreetMap",
+    "verified": false
+  },
+  {
+    "id": "node/7045980528",
+    "name": "Chaturvedi Surgical Hospital",
+    "latitude": 21.1336181,
+    "longitude": 79.0743354,
+    "category": "hospital",
+    "source": "OpenStreetMap",
+    "verified": false
+  },
+  {
+    "id": "node/7046706669",
+    "name": "Ortho Relief Hospital and Research Centre",
+    "latitude": 21.1309643,
+    "longitude": 79.0799238,
+    "category": "hospital",
+    "source": "OpenStreetMap",
+    "verified": false
+  },
+  {
+    "id": "node/7047616718",
+    "name": "Green City Hospital, Nagpur",
+    "latitude": 21.1679533,
+    "longitude": 79.078694,
+    "category": "hospital",
+    "source": "OpenStreetMap",
+    "verified": false
+  },
+  {
+    "id": "node/7047889343",
+    "name": "Gurunanak Eye Hospital",
+    "latitude": 21.171999,
+    "longitude": 79.0985531,
+    "category": "hospital",
+    "source": "OpenStreetMap",
+    "verified": false
+  },
+  {
+    "id": "node/7047910819",
+    "name": "Janta Maternity Home and Hospital",
+    "latitude": 21.1803051,
+    "longitude": 79.0922177,
+    "category": "hospital",
+    "source": "OpenStreetMap",
+    "verified": false
+  },
+  {
+    "id": "node/7047912851",
+    "name": "G Kumar Arogyadham Ayurved Panchkarm Hospital and Research Institute",
+    "latitude": 21.1876042,
+    "longitude": 79.0887107,
+    "category": "hospital",
+    "source": "OpenStreetMap",
+    "verified": false
+  },
+  {
+    "id": "node/7047919804",
+    "name": "Avadh Clinic and Nursing Home",
+    "latitude": 21.1831475,
+    "longitude": 79.0631036,
+    "category": "hospital",
+    "source": "OpenStreetMap",
+    "verified": false
+  },
+  {
+    "id": "node/7047927397",
+    "name": "Naidu Hospital",
+    "latitude": 21.1597766,
+    "longitude": 79.0830566,
+    "category": "hospital",
+    "source": "OpenStreetMap",
+    "verified": false
+  },
+  {
+    "id": "node/7047927498",
+    "name": "Sawarkar Multi Speciality Hospital",
+    "latitude": 21.1463587,
+    "longitude": 79.1018361,
+    "category": "hospital",
+    "source": "OpenStreetMap",
+    "verified": false
+  },
+  {
+    "id": "node/7047933913",
+    "name": "Dr Sawarkars Multi Speciality Clinical Care Hospital",
+    "latitude": 21.1436607,
+    "longitude": 79.1065662,
+    "category": "hospital",
+    "source": "OpenStreetMap",
+    "verified": false
+  },
+  {
+    "id": "node/7047934011",
+    "name": "Patil Hospital",
+    "latitude": 21.1388574,
+    "longitude": 79.1035044,
+    "category": "hospital",
+    "source": "OpenStreetMap",
+    "verified": false
+  },
+  {
+    "id": "node/7047961785",
+    "name": "Dr Gaikwad Critical Care Center Private Limited",
+    "latitude": 21.1301912,
+    "longitude": 79.1113257,
+    "category": "hospital",
+    "source": "OpenStreetMap",
+    "verified": false
+  },
+  {
+    "id": "node/7047962801",
+    "name": "Samadhan Hospital(Ayurved Panchakarma Hospital and Research Centre)",
+    "latitude": 21.1338409,
+    "longitude": 79.1175111,
+    "category": "hospital",
+    "source": "OpenStreetMap",
+    "verified": false
+  },
+  {
+    "id": "node/7048433641",
+    "name": "Dhawale Hospital",
+    "latitude": 21.106927,
+    "longitude": 79.0685955,
+    "category": "hospital",
+    "source": "OpenStreetMap",
+    "verified": false
+  },
+  {
+    "id": "node/7048433657",
+    "name": "RNH Hospital",
+    "latitude": 21.1334311,
+    "longitude": 79.0830888,
+    "category": "hospital",
+    "source": "OpenStreetMap",
+    "verified": false
+  },
+  {
+    "id": "node/7048433663",
+    "name": "Maxcare Hospital",
+    "latitude": 21.1065861,
+    "longitude": 79.0821091,
+    "category": "hospital",
+    "source": "OpenStreetMap",
+    "verified": false
+  },
+  {
+    "id": "node/7048918102",
+    "name": "Abhinav Multispeciality Hospital",
+    "latitude": 21.1681359,
+    "longitude": 79.1010616,
+    "category": "hospital",
+    "source": "OpenStreetMap",
+    "verified": false
+  },
+  {
+    "id": "node/7048992419",
+    "name": "Gandhi Maternity and Nursing Home",
+    "latitude": 21.1113791,
+    "longitude": 79.0488826,
+    "category": "hospital",
+    "source": "OpenStreetMap",
+    "verified": false
+  },
+  {
+    "id": "node/7049021444",
+    "name": "Genesis Hospital & Research Centre",
+    "latitude": 21.1351992,
+    "longitude": 79.0786155,
+    "category": "hospital",
+    "source": "OpenStreetMap",
+    "verified": false
+  },
+  {
+    "id": "node/7049213696",
+    "name": "Mulik Hospital",
+    "latitude": 21.1340553,
+    "longitude": 79.0810074,
+    "category": "hospital",
+    "source": "OpenStreetMap",
+    "verified": false
+  },
+  {
+    "id": "node/7049228374",
+    "name": "Sparsh Urology and Kidney Hospital",
+    "latitude": 21.1340928,
+    "longitude": 79.082099,
+    "category": "hospital",
+    "source": "OpenStreetMap",
+    "verified": false
+  },
+  {
+    "id": "node/7049832752",
+    "name": "Shanti Mohan Hospital",
+    "latitude": 21.159599,
+    "longitude": 79.0778571,
+    "category": "hospital",
+    "source": "OpenStreetMap",
+    "verified": false
+  },
+  {
+    "id": "node/7049843692",
+    "name": "Gb Multicare Hospital",
+    "latitude": 21.1324529,
+    "longitude": 79.0516412,
+    "category": "hospital",
+    "source": "OpenStreetMap",
+    "verified": false
+  },
+  {
+    "id": "node/7050410353",
+    "name": "Sood Eye Hospital",
+    "latitude": 21.1344568,
+    "longitude": 79.0770029,
+    "category": "hospital",
+    "source": "OpenStreetMap",
+    "verified": false
+  },
+  {
+    "id": "node/7050450788",
+    "name": "Soni Hospital",
+    "latitude": 21.1336675,
+    "longitude": 79.0743783,
+    "category": "hospital",
+    "source": "OpenStreetMap",
+    "verified": false
+  },
+  {
+    "id": "node/7050485736",
+    "name": "Waghralkar Ayurved Hospital",
+    "latitude": 21.1162977,
+    "longitude": 79.0738526,
+    "category": "hospital",
+    "source": "OpenStreetMap",
+    "verified": false
+  },
+  {
+    "id": "node/7050614316",
+    "name": "Shanta Spine Institute",
+    "latitude": 21.1341579,
+    "longitude": 79.0741114,
+    "category": "hospital",
+    "source": "OpenStreetMap",
+    "verified": false
+  },
+  {
+    "id": "node/7050785156",
+    "name": "Mogre Hospital",
+    "latitude": 21.1257386,
+    "longitude": 79.1159594,
+    "category": "hospital",
+    "source": "OpenStreetMap",
+    "verified": false
+  },
+  {
+    "id": "node/7051342877",
+    "name": "Kubde Children Hospital and Premature Baby Unit",
+    "latitude": 21.1503124,
+    "longitude": 79.1502111,
+    "category": "hospital",
+    "source": "OpenStreetMap",
+    "verified": false
+  },
+  {
+    "id": "node/7052034502",
+    "name": "Jeswani Multispeciality Hospital",
+    "latitude": 21.1538101,
+    "longitude": 79.1042038,
+    "category": "hospital",
+    "source": "OpenStreetMap",
+    "verified": false
+  },
+  {
+    "id": "node/7052143993",
+    "name": "Late Dr Anjani Mokadam Memorial Charitable Trust Anjani Eye Hospital",
+    "latitude": 21.1351079,
+    "longitude": 79.0771229,
+    "category": "hospital",
+    "source": "OpenStreetMap",
+    "verified": false
+  },
+  {
+    "id": "node/7052735609",
+    "name": "Mahajan Ortho and Surgical Hospital",
+    "latitude": 21.1342054,
+    "longitude": 79.0819046,
+    "category": "hospital",
+    "source": "OpenStreetMap",
+    "verified": false
+  },
+  {
+    "id": "node/7052963440",
+    "name": "Midas Institute Of Gastroenterology",
+    "latitude": 21.134029,
+    "longitude": 79.0755089,
+    "category": "hospital",
+    "source": "OpenStreetMap",
+    "verified": false
+  },
+  {
+    "id": "node/7052963452",
+    "name": "Dr. Mangala Ketkar",
+    "latitude": 21.1454099,
+    "longitude": 79.0818463,
+    "category": "hospital",
+    "source": "OpenStreetMap",
+    "verified": false
+  },
+  {
+    "id": "node/7053870879",
+    "name": "Central Avenue Critical Care Hospital and Icu",
+    "latitude": 21.1497345,
+    "longitude": 79.1119628,
+    "category": "hospital",
+    "source": "OpenStreetMap",
+    "verified": false
+  },
+  {
+    "id": "node/7053882311",
+    "name": "Mauli Hospital, Nagpur",
+    "latitude": 21.1685836,
+    "longitude": 79.079036,
+    "category": "hospital",
+    "source": "OpenStreetMap",
+    "verified": false
+  },
+  {
+    "id": "node/7054236297",
+    "name": "Shubham Diabetic and Medical Centre",
+    "latitude": 21.1731014,
+    "longitude": 79.0409955,
+    "category": "hospital",
+    "source": "OpenStreetMap",
+    "verified": false
+  },
+  {
+    "id": "node/7054404979",
+    "name": "Columbia Hospital and Research Centre - Nagpur",
+    "latitude": 21.1335731,
+    "longitude": 79.0823948,
+    "category": "hospital",
+    "source": "OpenStreetMap",
+    "verified": false
+  },
+  {
+    "id": "node/7054956599",
+    "name": "Dr Gadge's-Om Surgical Hospital and Trauma Centre",
+    "latitude": 21.1430847,
+    "longitude": 79.0612985,
+    "category": "hospital",
+    "source": "OpenStreetMap",
+    "verified": false
+  },
+  {
+    "id": "node/7054989466",
+    "name": "Littles Care Children Hospital",
+    "latitude": 21.17286,
+    "longitude": 79.1000739,
+    "category": "hospital",
+    "source": "OpenStreetMap",
+    "verified": false
+  },
+  {
+    "id": "node/7055008167",
+    "name": "Chikhale Multispeciality and Cancer Hospital",
+    "latitude": 21.0961331,
+    "longitude": 79.1050782,
+    "category": "hospital",
+    "source": "OpenStreetMap",
+    "verified": false
+  },
+  {
+    "id": "node/7055502667",
+    "name": "Mamta Hospital, Nagpur",
+    "latitude": 21.0937883,
+    "longitude": 79.0652119,
+    "category": "hospital",
+    "source": "OpenStreetMap",
+    "verified": false
+  },
+  {
+    "id": "node/7062356500",
+    "name": "Mahatme Eye Bank Eye Hospital",
+    "latitude": 21.1018355,
+    "longitude": 79.0650755,
+    "category": "hospital",
+    "source": "OpenStreetMap",
+    "verified": false
+  },
+  {
+    "id": "node/7062497097",
+    "name": "Shri Vyankatesh Multispeciality Hospital",
+    "latitude": 21.1151441,
+    "longitude": 79.0566264,
+    "category": "hospital",
+    "source": "OpenStreetMap",
+    "verified": false
+  },
+  {
+    "id": "node/7062712068",
+    "name": "Golhar Spine Care and Trauma Reaserch Institute",
+    "latitude": 21.1348474,
+    "longitude": 79.0692241,
+    "category": "hospital",
+    "source": "OpenStreetMap",
+    "verified": false
+  },
+  {
+    "id": "node/7063808900",
+    "name": "Dhokey Hospital",
+    "latitude": 21.1250135,
+    "longitude": 79.1167586,
+    "category": "hospital",
+    "source": "OpenStreetMap",
+    "verified": false
+  },
+  {
+    "id": "node/7063899547",
+    "name": "Kothalkar Ent, Maternity and Surgical Nursing Home",
+    "latitude": 21.1292993,
+    "longitude": 79.1125435,
+    "category": "hospital",
+    "source": "OpenStreetMap",
+    "verified": false
+  },
+  {
+    "id": "node/7063899558",
+    "name": "Gillurkar Multispeciality Hospital",
+    "latitude": 21.1315222,
+    "longitude": 79.1096624,
+    "category": "hospital",
+    "source": "OpenStreetMap",
+    "verified": false
+  },
+  {
+    "id": "node/7063909930",
+    "name": "Suretech Hospital and Research Centre",
+    "latitude": 21.1372887,
+    "longitude": 79.0800371,
+    "category": "hospital",
+    "source": "OpenStreetMap",
+    "verified": false
+  },
+  {
+    "id": "node/7064155893",
+    "name": "Meher Nursing and Maternity Home",
+    "latitude": 21.1389312,
+    "longitude": 79.0604992,
+    "category": "hospital",
+    "source": "OpenStreetMap",
+    "verified": false
+  },
+  {
+    "id": "node/7064657537",
+    "name": "Tajkrupa Hospital",
+    "latitude": 21.1796663,
+    "longitude": 79.0426748,
+    "category": "hospital",
+    "source": "OpenStreetMap",
+    "verified": false
+  },
+  {
+    "id": "node/7064893613",
+    "name": "Ashwini Kidney and Dialysis Centre",
+    "latitude": 21.1350222,
+    "longitude": 79.0771571,
+    "category": "hospital",
+    "source": "OpenStreetMap",
+    "verified": false
+  },
+  {
+    "id": "node/7064941920",
+    "name": "Dr. V.M. Deo Memorial Hospital",
+    "latitude": 21.1353612,
+    "longitude": 79.0551938,
+    "category": "hospital",
+    "source": "OpenStreetMap",
+    "verified": false
+  },
+  {
+    "id": "node/7065561579",
+    "name": "Baheti Hospital",
+    "latitude": 21.1346645,
+    "longitude": 79.0794256,
+    "category": "hospital",
+    "source": "OpenStreetMap",
+    "verified": false
+  },
+  {
+    "id": "node/7065865225",
+    "name": "G.T. Memorial Hospital and Icu",
+    "latitude": 21.1083245,
+    "longitude": 79.0616861,
+    "category": "hospital",
+    "source": "OpenStreetMap",
+    "verified": false
+  },
+  {
+    "id": "node/7065899068",
+    "name": "Shushrusha Ortho and Spine Care Hospital",
+    "latitude": 21.1191,
+    "longitude": 79.0727676,
+    "category": "hospital",
+    "source": "OpenStreetMap",
+    "verified": false
+  },
+  {
+    "id": "node/7066374671",
+    "name": "Arihant Surgical and Maternity Hospital",
+    "latitude": 21.1529621,
+    "longitude": 79.1042722,
+    "category": "hospital",
+    "source": "OpenStreetMap",
+    "verified": false
+  },
+  {
+    "id": "node/7066374737",
+    "name": "Platina Heart Hospital",
+    "latitude": 21.140486,
+    "longitude": 79.0854666,
+    "category": "hospital",
+    "source": "OpenStreetMap",
+    "verified": false
+  },
+  {
+    "id": "node/7066374813",
+    "name": "Rahate Surgical Hospital",
+    "latitude": 21.149186,
+    "longitude": 79.1163482,
+    "category": "hospital",
+    "source": "OpenStreetMap",
+    "verified": false
+  },
+  {
+    "id": "node/7066505718",
+    "name": "Sreeprabha Othopaedic and Trauma Hospital / Shreeprabha Ortho and Accident Hospital",
+    "latitude": 21.1142128,
+    "longitude": 79.0542973,
+    "category": "hospital",
+    "source": "OpenStreetMap",
+    "verified": false
+  },
+  {
+    "id": "node/7066505742",
+    "name": "Venkateswara Netralaya and Research Inst.",
+    "latitude": 21.1387549,
+    "longitude": 79.0600781,
+    "category": "hospital",
+    "source": "OpenStreetMap",
+    "verified": false
+  },
+  {
+    "id": "node/7067113578",
+    "name": "Shree Ramjiwan Choudhary Memorial Hospital and Research Centre",
+    "latitude": 21.1403119,
+    "longitude": 79.1022438,
+    "category": "hospital",
+    "source": "OpenStreetMap",
+    "verified": false
+  },
+  {
+    "id": "node/7067113595",
+    "name": "Harsha Childrens Hospital and Maternity Home",
+    "latitude": 21.1389631,
+    "longitude": 79.0605737,
+    "category": "hospital",
+    "source": "OpenStreetMap",
+    "verified": false
+  },
+  {
+    "id": "node/7068429394",
+    "name": "Kalamkar Multi Speciality Hospital and Research Institute Pvt Ltd",
+    "latitude": 21.1377492,
+    "longitude": 79.0789005,
+    "category": "hospital",
+    "source": "OpenStreetMap",
+    "verified": false
+  },
+  {
+    "id": "node/7069790977",
+    "name": "Rughwani Child Care Centre and Hospital",
+    "latitude": 21.1824485,
+    "longitude": 79.0931793,
+    "category": "hospital",
+    "source": "OpenStreetMap",
+    "verified": false
+  },
+  {
+    "id": "node/7069814016",
+    "name": "Dharmadhikari Hospital",
+    "latitude": 21.1140033,
+    "longitude": 79.0721387,
+    "category": "hospital",
+    "source": "OpenStreetMap",
+    "verified": false
+  },
+  {
+    "id": "node/7070250997",
+    "name": "Shiv Ganga Hospital and Critical Care Centre",
+    "latitude": 21.1343905,
+    "longitude": 79.0789475,
+    "category": "hospital",
+    "source": "OpenStreetMap",
+    "verified": false
+  },
+  {
+    "id": "node/7072544602",
+    "name": "Dr. Uddanwadikar Maternity and Eye Hospital",
+    "latitude": 21.1420996,
+    "longitude": 79.0625967,
+    "category": "hospital",
+    "source": "OpenStreetMap",
+    "verified": false
+  },
+  {
+    "id": "node/7072544669",
+    "name": "Khidmat Charitable Hospital and Research Centre",
+    "latitude": 21.1594502,
+    "longitude": 79.1216214,
+    "category": "hospital",
+    "source": "OpenStreetMap",
+    "verified": false
+  },
+  {
+    "id": "node/7072999696",
+    "name": "Saboo Hospital",
+    "latitude": 21.1492842,
+    "longitude": 79.1125066,
+    "category": "hospital",
+    "source": "OpenStreetMap",
+    "verified": false
+  },
+  {
+    "id": "node/7073765591",
+    "name": "Sparsh Clinics",
+    "latitude": 21.1457408,
+    "longitude": 79.0611362,
+    "category": "hospital",
+    "source": "OpenStreetMap",
+    "verified": false
+  },
+  {
+    "id": "node/7073879402",
+    "name": "Anantwar Eye Hospital",
+    "latitude": 21.1889909,
+    "longitude": 79.1028795,
+    "category": "hospital",
+    "source": "OpenStreetMap",
+    "verified": false
+  },
+  {
+    "id": "node/7073949839",
+    "name": "Shat Ayu Critical Care Polytrauma Centre and Multispeciality Hospital",
+    "latitude": 21.1331934,
+    "longitude": 79.0780275,
+    "category": "hospital",
+    "source": "OpenStreetMap",
+    "verified": false
+  },
+  {
+    "id": "node/7073949851",
+    "name": "Suraj Eye Institute - Nagpur",
+    "latitude": 21.170971,
+    "longitude": 79.0842837,
+    "category": "hospital",
+    "source": "OpenStreetMap",
+    "verified": false
+  },
+  {
+    "id": "node/7073949857",
+    "name": "Sarakshi Netralaya",
+    "latitude": 21.1029083,
+    "longitude": 79.0676889,
+    "category": "hospital",
+    "source": "OpenStreetMap",
+    "verified": false
+  },
+  {
+    "id": "node/7073961688",
+    "name": "Avanti Institute Of Cardiology",
+    "latitude": 21.13199,
+    "longitude": 79.0806694,
+    "category": "hospital",
+    "source": "OpenStreetMap",
+    "verified": false
+  },
+  {
+    "id": "node/7074541552",
+    "name": "Lotus Hospitaland Research Centre and Maternity Home",
+    "latitude": 21.1300424,
+    "longitude": 79.1156374,
+    "category": "hospital",
+    "source": "OpenStreetMap",
+    "verified": false
+  },
+  {
+    "id": "node/7074541565",
+    "name": "Sankalp Maternity Hospital, Nagpur",
+    "latitude": 21.1398562,
+    "longitude": 79.0635395,
+    "category": "hospital",
+    "source": "OpenStreetMap",
+    "verified": false
+  },
+  {
+    "id": "node/7076374565",
+    "name": "Gandhi Hospital",
+    "latitude": 21.1378492,
+    "longitude": 79.0784231,
+    "category": "hospital",
+    "source": "OpenStreetMap",
+    "verified": false
+  },
+  {
+    "id": "node/7076557568",
+    "name": "Mukerji Nursing Home and Research Centre",
+    "latitude": 21.1732546,
+    "longitude": 79.100786,
+    "category": "hospital",
+    "source": "OpenStreetMap",
+    "verified": false
+  },
+  {
+    "id": "node/7076566995",
+    "name": "Ambade Eye Hospital",
+    "latitude": 21.1731771,
+    "longitude": 79.1008303,
+    "category": "hospital",
+    "source": "OpenStreetMap",
+    "verified": false
+  },
+  {
+    "id": "node/7077739387",
+    "name": "Rajgire Hospital",
+    "latitude": 21.1306606,
+    "longitude": 79.1180256,
+    "category": "hospital",
+    "source": "OpenStreetMap",
+    "verified": false
+  },
+  {
+    "id": "node/7079640584",
+    "name": "Rajan Neonatal Care Unit",
+    "latitude": 21.1356908,
+    "longitude": 79.0765931,
+    "category": "hospital",
+    "source": "OpenStreetMap",
+    "verified": false
+  },
+  {
+    "id": "node/7079665735",
+    "name": "Vyas Hospital, Gandhibagh",
+    "latitude": 21.1543273,
+    "longitude": 79.1058527,
+    "category": "hospital",
+    "source": "OpenStreetMap",
+    "verified": false
+  },
+  {
+    "id": "node/7080141270",
+    "name": "Deoghare Hospital",
+    "latitude": 21.1307648,
+    "longitude": 79.0983157,
+    "category": "hospital",
+    "source": "OpenStreetMap",
+    "verified": false
+  },
+  {
+    "id": "node/7080205253",
+    "name": "Suprathet Hospital",
+    "latitude": 21.1386285,
+    "longitude": 79.0799533,
+    "category": "hospital",
+    "source": "OpenStreetMap",
+    "verified": false
+  },
+  {
+    "id": "node/7080269629",
+    "name": "Anuradha Back Pain and Endoscopic Spinal Surgery Centre",
+    "latitude": 21.1487226,
+    "longitude": 79.1242875,
+    "category": "hospital",
+    "source": "OpenStreetMap",
+    "verified": false
+  },
+  {
+    "id": "node/7081227376",
+    "name": "Krims Apollo Hospital",
+    "latitude": 21.1328507,
+    "longitude": 79.0704462,
+    "category": "hospital",
+    "source": "OpenStreetMap",
+    "verified": false
+  },
+  {
+    "id": "node/7082370191",
+    "name": "Gananam Surgical and Maternity Home",
+    "latitude": 21.1340716,
+    "longitude": 79.0741584,
+    "category": "hospital",
+    "source": "OpenStreetMap",
+    "verified": false
+  },
+  {
+    "id": "node/7082370261",
+    "name": "Matru Sewa Sangh",
+    "latitude": 21.1367904,
+    "longitude": 79.0632968,
+    "category": "hospital",
+    "source": "OpenStreetMap",
+    "verified": false
+  },
+  {
+    "id": "node/7082738947",
+    "name": "Shree Hospitals and Critical Care Centre",
+    "latitude": 21.1258567,
+    "longitude": 79.1167384,
+    "category": "hospital",
+    "source": "OpenStreetMap",
+    "verified": false
+  },
+  {
+    "id": "node/7083272480",
+    "name": "Marathe Child Care Hospital",
+    "latitude": 21.132947,
+    "longitude": 79.070752,
+    "category": "hospital",
+    "source": "OpenStreetMap",
+    "verified": false
+  },
+  {
+    "id": "node/7085731336",
+    "name": "Green City Multispeciality Hospital",
+    "latitude": 21.1296767,
+    "longitude": 79.1145059,
+    "category": "hospital",
+    "source": "OpenStreetMap",
+    "verified": false
+  },
+  {
+    "id": "node/7085742099",
+    "name": "Keshav Hospital, Nagpur",
+    "latitude": 21.1048151,
+    "longitude": 79.1034655,
+    "category": "hospital",
+    "source": "OpenStreetMap",
+    "verified": false
+  },
+  {
+    "id": "node/7085742171",
+    "name": "Akruti Hospital",
+    "latitude": 21.1182656,
+    "longitude": 79.0329489,
+    "category": "hospital",
+    "source": "OpenStreetMap",
+    "verified": false
+  },
+  {
+    "id": "node/7086532338",
+    "name": "Hadi Children Hospital",
+    "latitude": 21.1566605,
+    "longitude": 79.097733,
+    "category": "hospital",
+    "source": "OpenStreetMap",
+    "verified": false
+  },
+  {
+    "id": "node/7086532371",
+    "name": "Mother and Child Care Hospital",
+    "latitude": 21.1252581,
+    "longitude": 79.1174231,
+    "category": "hospital",
+    "source": "OpenStreetMap",
+    "verified": false
+  },
+  {
+    "id": "node/7086558492",
+    "name": "Sunflower Hospitals",
+    "latitude": 21.1362178,
+    "longitude": 79.0686049,
+    "category": "hospital",
+    "source": "OpenStreetMap",
+    "verified": false
+  },
+  {
+    "id": "node/7087131453",
+    "name": "Dashputra Hospital",
+    "latitude": 21.1291592,
+    "longitude": 79.1144277,
+    "category": "hospital",
+    "source": "OpenStreetMap",
+    "verified": false
+  },
+  {
+    "id": "node/7210907275",
+    "name": "Mahajan Children Hospital",
+    "latitude": 21.1375455,
+    "longitude": 79.0804095,
+    "category": "hospital",
+    "source": "OpenStreetMap",
+    "verified": false
+  },
+  {
+    "id": "node/7210920507",
+    "name": "Dorlikar Orthopaedic bone Hospital",
+    "latitude": 21.1566836,
+    "longitude": 79.1032447,
+    "category": "hospital",
+    "source": "OpenStreetMap",
+    "verified": false
+  },
+  {
+    "id": "node/7210920512",
+    "name": "Faheem Qureshi Hospital",
+    "latitude": 21.1565637,
+    "longitude": 79.1013995,
+    "category": "hospital",
+    "source": "OpenStreetMap",
+    "verified": false
+  },
+  {
+    "id": "node/7210920517",
+    "name": "Dr. Alankar A Ramteke, Arthritis & Joint Replacement Clinic",
+    "latitude": 21.1345018,
+    "longitude": 79.0755145,
+    "category": "hospital",
+    "source": "OpenStreetMap",
+    "verified": false
+  },
+  {
+    "id": "node/7210920522",
+    "name": "Bodhankar Childrens Hospital",
+    "latitude": 21.1337848,
+    "longitude": 79.0747858,
+    "category": "hospital",
+    "source": "OpenStreetMap",
+    "verified": false
+  },
+  {
+    "id": "node/7210950205",
+    "name": "Torney Maternity And Laparoscopy Hospital",
+    "latitude": 21.1259103,
+    "longitude": 79.0634899,
+    "category": "hospital",
+    "source": "OpenStreetMap",
+    "verified": false
+  },
+  {
+    "id": "node/7226796631",
+    "name": "Indira Gandhi Government Medical College and Hospital",
+    "latitude": 21.15405,
+    "longitude": 79.094649,
+    "category": "hospital",
+    "source": "OpenStreetMap",
+    "verified": false
+  },
+  {
+    "id": "node/7226796638",
+    "name": "Super speciality Hospital",
+    "latitude": 21.119365,
+    "longitude": 79.129212,
+    "category": "hospital",
+    "source": "OpenStreetMap",
+    "verified": false
+  },
+  {
+    "id": "node/7226796683",
+    "name": "Isolation Hospital Imamwada, Nagpur",
+    "latitude": 21.13521,
+    "longitude": 79.090839,
+    "category": "hospital",
+    "source": "OpenStreetMap",
+    "verified": false
+  },
+  {
+    "id": "node/7226989739",
+    "name": "Dr. Babasaheb Ambedkar Hospital and Research Centre, Nagpur",
+    "latitude": 21.1755377,
+    "longitude": 79.1024618,
+    "category": "hospital",
+    "source": "OpenStreetMap",
+    "verified": false
+  },
+  {
+    "id": "node/7628156063",
+    "name": "Barade Nursing Home",
+    "latitude": 21.2087879,
+    "longitude": 79.0657403,
+    "category": "hospital",
+    "source": "OpenStreetMap",
+    "verified": false
+  },
+  {
+    "id": "node/7629203212",
+    "name": "Mujawar Nursing Home",
+    "latitude": 21.1855423,
+    "longitude": 79.0699354,
+    "category": "hospital",
+    "source": "OpenStreetMap",
+    "verified": false
+  },
+  {
+    "id": "node/7629203213",
+    "name": "Jamshed Ji Tata Municipal Hospital",
+    "latitude": 21.1727983,
+    "longitude": 79.0914599,
+    "category": "hospital",
+    "source": "OpenStreetMap",
+    "verified": false
+  },
+  {
+    "id": "node/7629203214",
+    "name": "Parlewar Hospital",
+    "latitude": 21.172099,
+    "longitude": 79.1010707,
+    "category": "hospital",
+    "source": "OpenStreetMap",
+    "verified": false
+  },
+  {
+    "id": "node/7629203215",
+    "name": "Dik Hospital",
+    "latitude": 21.144979,
+    "longitude": 79.083428,
+    "category": "hospital",
+    "source": "OpenStreetMap",
+    "verified": false
+  },
+  {
+    "id": "node/7629203216",
+    "name": "Kingsway Hospitals",
+    "latitude": 21.154584,
+    "longitude": 79.0848019,
+    "category": "hospital",
+    "source": "OpenStreetMap",
+    "verified": false
+  },
+  {
+    "id": "node/7629203218",
+    "name": "Yadav Multispeciality Hospital",
+    "latitude": 21.152421,
+    "longitude": 79.096272,
+    "category": "hospital",
+    "source": "OpenStreetMap",
+    "verified": false
+  },
+  {
+    "id": "node/7629203219",
+    "name": "Dr. Wahane Nursing Home",
+    "latitude": 21.164788,
+    "longitude": 79.096779,
+    "category": "hospital",
+    "source": "OpenStreetMap",
+    "verified": false
+  },
+  {
+    "id": "node/7629203220",
+    "name": "Heart Hospital",
+    "latitude": 21.1311587,
+    "longitude": 79.0814864,
+    "category": "hospital",
+    "source": "OpenStreetMap",
+    "verified": false
+  },
+  {
+    "id": "node/7629203222",
+    "name": "Metro Multi Speciality Hospital",
+    "latitude": 21.169052,
+    "longitude": 79.0790331,
+    "category": "hospital",
+    "source": "OpenStreetMap",
+    "verified": false
+  },
+  {
+    "id": "node/7629203223",
+    "name": "Nalin Hospital",
+    "latitude": 21.1734185,
+    "longitude": 79.0940751,
+    "category": "hospital",
+    "source": "OpenStreetMap",
+    "verified": false
+  },
+  {
+    "id": "node/7629203225",
+    "name": "Osmania Nursing Home",
+    "latitude": 21.183289,
+    "longitude": 79.0623556,
+    "category": "hospital",
+    "source": "OpenStreetMap",
+    "verified": false
+  },
+  {
+    "id": "node/7629203227",
+    "name": "Green City Hospital",
+    "latitude": 21.137428,
+    "longitude": 79.084511,
+    "category": "hospital",
+    "source": "OpenStreetMap",
+    "verified": false
+  },
+  {
+    "id": "node/7629203228",
+    "name": "VIMS Hospital",
+    "latitude": 21.1576155,
+    "longitude": 79.0824063,
+    "category": "hospital",
+    "source": "OpenStreetMap",
+    "verified": false
+  },
+  {
+    "id": "node/7629203230",
+    "name": "Life Line Hospital",
+    "latitude": 21.164649,
+    "longitude": 79.0972288,
+    "category": "hospital",
+    "source": "OpenStreetMap",
+    "verified": false
+  },
+  {
+    "id": "node/7629203232",
+    "name": "Dapke Children Hospital",
+    "latitude": 21.172195,
+    "longitude": 79.097981,
+    "category": "hospital",
+    "source": "OpenStreetMap",
+    "verified": false
+  },
+  {
+    "id": "node/7629203233",
+    "name": "Multani Hospital",
+    "latitude": 21.158751,
+    "longitude": 79.101871,
+    "category": "hospital",
+    "source": "OpenStreetMap",
+    "verified": false
+  },
+  {
+    "id": "node/7629203236",
+    "name": "Dr. B.R. Shukla Hospital",
+    "latitude": 21.146752,
+    "longitude": 79.0537139,
+    "category": "hospital",
+    "source": "OpenStreetMap",
+    "verified": false
+  },
+  {
+    "id": "node/7629203239",
+    "name": "Best Orthopaedic Surgeon",
+    "latitude": 21.1807407,
+    "longitude": 79.1129537,
+    "category": "hospital",
+    "source": "OpenStreetMap",
+    "verified": false
+  },
+  {
+    "id": "node/7629203240",
+    "name": "Nitnavare Hospital",
+    "latitude": 21.1718675,
+    "longitude": 79.1002384,
+    "category": "hospital",
+    "source": "OpenStreetMap",
+    "verified": false
+  },
+  {
+    "id": "node/7629203241",
+    "name": "Central Hospital",
+    "latitude": 21.1588822,
+    "longitude": 79.0970395,
+    "category": "hospital",
+    "source": "OpenStreetMap",
+    "verified": false
+  },
+  {
+    "id": "node/7629203242",
+    "name": "Sai Eye Hospital",
+    "latitude": 21.1389067,
+    "longitude": 79.0617659,
+    "category": "hospital",
+    "source": "OpenStreetMap",
+    "verified": false
+  },
+  {
+    "id": "node/7629203243",
+    "name": "Dr. Vasalti Raut General Hospital",
+    "latitude": 21.146746,
+    "longitude": 79.052967,
+    "category": "hospital",
+    "source": "OpenStreetMap",
+    "verified": false
+  },
+  {
+    "id": "node/7629203245",
+    "name": "Dr. Pandit Hospital",
+    "latitude": 21.133639,
+    "longitude": 79.0834775,
+    "category": "hospital",
+    "source": "OpenStreetMap",
+    "verified": false
+  },
+  {
+    "id": "node/7629203246",
+    "name": "Super Hospital",
+    "latitude": 21.1329749,
+    "longitude": 79.0839237,
+    "category": "hospital",
+    "source": "OpenStreetMap",
+    "verified": false
+  },
+  {
+    "id": "node/7629203247",
+    "name": "Safal Hospital",
+    "latitude": 21.1297589,
+    "longitude": 79.0829058,
+    "category": "hospital",
+    "source": "OpenStreetMap",
+    "verified": false
+  },
+  {
+    "id": "node/7629203248",
+    "name": "Arora Hospital",
+    "latitude": 21.137766,
+    "longitude": 79.078871,
+    "category": "hospital",
+    "source": "OpenStreetMap",
+    "verified": false
+  },
+  {
+    "id": "node/7629203249",
+    "name": "Dr. Yogesh Waikar Child Gastroenterologist, Hepatologist & Endoscopist",
+    "latitude": 21.1371222,
+    "longitude": 79.0845415,
+    "category": "hospital",
+    "source": "OpenStreetMap",
+    "verified": false
+  },
+  {
+    "id": "node/7629203250",
+    "name": "Bocardo Hospital",
+    "latitude": 21.1732144,
+    "longitude": 79.0912115,
+    "category": "hospital",
+    "source": "OpenStreetMap",
+    "verified": false
+  },
+  {
+    "id": "node/7629203251",
+    "name": "Madnani Hospital",
+    "latitude": 21.19086,
+    "longitude": 79.0778128,
+    "category": "hospital",
+    "source": "OpenStreetMap",
+    "verified": false
+  },
+  {
+    "id": "node/7629203252",
+    "name": "Kunal Hospital",
+    "latitude": 21.1836122,
+    "longitude": 79.079189,
+    "category": "hospital",
+    "source": "OpenStreetMap",
+    "verified": false
+  },
+  {
+    "id": "node/7629203253",
+    "name": "Welkin Multispeciality Hospital",
+    "latitude": 21.1772445,
+    "longitude": 79.055454,
+    "category": "hospital",
+    "source": "OpenStreetMap",
+    "verified": false
+  },
+  {
+    "id": "node/7629203254",
+    "name": "Royal Hospital",
+    "latitude": 21.1498,
+    "longitude": 79.041272,
+    "category": "hospital",
+    "source": "OpenStreetMap",
+    "verified": false
+  },
+  {
+    "id": "node/7629203256",
+    "name": "Kalbande Hospital",
+    "latitude": 21.1836297,
+    "longitude": 79.0647607,
+    "category": "hospital",
+    "source": "OpenStreetMap",
+    "verified": false
+  },
+  {
+    "id": "node/7629203261",
+    "name": "Icon Hospital - Super speciality Hospital",
+    "latitude": 21.1483782,
+    "longitude": 79.0501856,
+    "category": "hospital",
+    "source": "OpenStreetMap",
+    "verified": false
+  },
+  {
+    "id": "node/7629203262",
+    "name": "Colours Children Hospital",
+    "latitude": 21.1380696,
+    "longitude": 79.079879,
+    "category": "hospital",
+    "source": "OpenStreetMap",
+    "verified": false
+  },
+  {
+    "id": "node/7629203263",
+    "name": "Meher Nursing Home",
+    "latitude": 21.1822365,
+    "longitude": 79.0606076,
+    "category": "hospital",
+    "source": "OpenStreetMap",
+    "verified": false
+  },
+  {
+    "id": "node/7629203265",
+    "name": "Usha Memorial Hospital",
+    "latitude": 21.1868133,
+    "longitude": 79.0796389,
+    "category": "hospital",
+    "source": "OpenStreetMap",
+    "verified": false
+  },
+  {
+    "id": "node/7629203266",
+    "name": "Apex Hospital",
+    "latitude": 21.1832222,
+    "longitude": 79.0858336,
+    "category": "hospital",
+    "source": "OpenStreetMap",
+    "verified": false
+  },
+  {
+    "id": "node/7629203267",
+    "name": "Criticare Hospital & Research Institute",
+    "latitude": 21.1405412,
+    "longitude": 79.0853012,
+    "category": "hospital",
+    "source": "OpenStreetMap",
+    "verified": false
+  },
+  {
+    "id": "node/7629203268",
+    "name": "Nectar Hospital",
+    "latitude": 21.134379,
+    "longitude": 79.075048,
+    "category": "hospital",
+    "source": "OpenStreetMap",
+    "verified": false
+  },
+  {
+    "id": "node/7629203269",
+    "name": "Columbia Hospital",
+    "latitude": 21.136587,
+    "longitude": 79.0796834,
+    "category": "hospital",
+    "source": "OpenStreetMap",
+    "verified": false
+  },
+  {
+    "id": "node/7629203271",
+    "name": "Arogyam Superspeciality Hospital",
+    "latitude": 21.190002,
+    "longitude": 79.071641,
+    "category": "hospital",
+    "source": "OpenStreetMap",
+    "verified": false
+  },
+  {
+    "id": "node/7629203275",
+    "name": "Dande Hospital",
+    "latitude": 21.1447187,
+    "longitude": 79.0567217,
+    "category": "hospital",
+    "source": "OpenStreetMap",
+    "verified": false
+  },
+  {
+    "id": "node/7629203276",
+    "name": "Dr. M Hospital",
+    "latitude": 21.175561,
+    "longitude": 79.1085787,
+    "category": "hospital",
+    "source": "OpenStreetMap",
+    "verified": false
+  },
+  {
+    "id": "node/7629203277",
+    "name": "Orthonova Hospital",
+    "latitude": 21.1524244,
+    "longitude": 79.1036542,
+    "category": "hospital",
+    "source": "OpenStreetMap",
+    "verified": false
+  },
+  {
+    "id": "node/7629203278",
+    "name": "Dr. Mohammad Zakir",
+    "latitude": 21.1741447,
+    "longitude": 79.0766306,
+    "category": "hospital",
+    "source": "OpenStreetMap",
+    "verified": false
+  },
+  {
+    "id": "node/7629203279",
+    "name": "Neuron Hospital",
+    "latitude": 21.1380677,
+    "longitude": 79.0852427,
+    "category": "hospital",
+    "source": "OpenStreetMap",
+    "verified": false
+  },
+  {
+    "id": "node/7629203280",
+    "name": "Nelson Mother and Child Care Hospital",
+    "latitude": 21.1324857,
+    "longitude": 79.0782776,
+    "category": "hospital",
+    "source": "OpenStreetMap",
+    "verified": false
+  },
+  {
+    "id": "node/7629203282",
+    "name": "Chinmaya Children & Surgical Hospital",
+    "latitude": 21.1409282,
+    "longitude": 79.058237,
+    "category": "hospital",
+    "source": "OpenStreetMap",
+    "verified": false
+  },
+  {
+    "id": "node/7629203286",
+    "name": "Tirpude Hospital",
+    "latitude": 21.1770142,
+    "longitude": 79.103885,
+    "category": "hospital",
+    "source": "OpenStreetMap",
+    "verified": false
+  },
+  {
+    "id": "node/7629203287",
+    "name": "Wockartd Hospital",
+    "latitude": 21.1340647,
+    "longitude": 79.0821294,
+    "category": "hospital",
+    "source": "OpenStreetMap",
+    "verified": false
+  },
+  {
+    "id": "node/7629203290",
+    "name": "Godani Multi Speciality Hospital",
+    "latitude": 21.172552,
+    "longitude": 79.098436,
+    "category": "hospital",
+    "source": "OpenStreetMap",
+    "verified": false
+  },
+  {
+    "id": "node/7629203291",
+    "name": "R. R. Nursing Home",
+    "latitude": 21.1757579,
+    "longitude": 79.0512447,
+    "category": "hospital",
+    "source": "OpenStreetMap",
+    "verified": false
+  },
+  {
+    "id": "node/7629203294",
+    "name": "Gurbani Hospital",
+    "latitude": 21.1833863,
+    "longitude": 79.0919452,
+    "category": "hospital",
+    "source": "OpenStreetMap",
+    "verified": false
+  },
+  {
+    "id": "node/7629203295",
+    "name": "Shashwat Hospital",
+    "latitude": 21.1719022,
+    "longitude": 79.0998343,
+    "category": "hospital",
+    "source": "OpenStreetMap",
+    "verified": false
+  },
+  {
+    "id": "node/7629203298",
+    "name": "Venus Critical Care Hospital",
+    "latitude": 21.1701724,
+    "longitude": 79.0962576,
+    "category": "hospital",
+    "source": "OpenStreetMap",
+    "verified": false
+  },
+  {
+    "id": "node/7629203300",
+    "name": "Pandit Maternity & Nursing Home",
+    "latitude": 21.1327063,
+    "longitude": 79.0830804,
+    "category": "hospital",
+    "source": "OpenStreetMap",
+    "verified": false
+  },
+  {
+    "id": "node/7629203301",
+    "name": "Healthcity Children Hospital",
+    "latitude": 21.1348675,
+    "longitude": 79.0785363,
+    "category": "hospital",
+    "source": "OpenStreetMap",
+    "verified": false
+  },
+  {
+    "id": "node/7631501022",
+    "name": "Manorama Hospital",
+    "latitude": 21.1490972,
+    "longitude": 79.1176121,
+    "category": "hospital",
+    "source": "OpenStreetMap",
+    "verified": false
+  },
+  {
+    "id": "node/7631501023",
+    "name": "Wanjari Hospital",
+    "latitude": 21.1240082,
+    "longitude": 79.1180338,
+    "category": "hospital",
+    "source": "OpenStreetMap",
+    "verified": false
+  },
+  {
+    "id": "node/7631501024",
+    "name": "Iris Eye Hospital",
+    "latitude": 21.0947765,
+    "longitude": 79.0797539,
+    "category": "hospital",
+    "source": "OpenStreetMap",
+    "verified": false
+  },
+  {
+    "id": "node/7631501025",
+    "name": "Suryodaya Multispeciality Hospital",
+    "latitude": 21.1240692,
+    "longitude": 79.1170231,
+    "category": "hospital",
+    "source": "OpenStreetMap",
+    "verified": false
+  },
+  {
+    "id": "node/7631501026",
+    "name": "Anmol Maternity & Nursing Home",
+    "latitude": 21.127863,
+    "longitude": 79.1142545,
+    "category": "hospital",
+    "source": "OpenStreetMap",
+    "verified": false
+  },
+  {
+    "id": "node/7631501028",
+    "name": "Child Hospital",
+    "latitude": 21.0932935,
+    "longitude": 79.0777707,
+    "category": "hospital",
+    "source": "OpenStreetMap",
+    "verified": false
+  },
+  {
+    "id": "node/7631501030",
+    "name": "Puri Hospital and Maternity Home",
+    "latitude": 21.1003517,
+    "longitude": 79.073112,
+    "category": "hospital",
+    "source": "OpenStreetMap",
+    "verified": false
+  },
+  {
+    "id": "node/7631501033",
+    "name": "Somani Hospital",
+    "latitude": 21.145237,
+    "longitude": 79.12203,
+    "category": "hospital",
+    "source": "OpenStreetMap",
+    "verified": false
+  },
+  {
+    "id": "node/7631501037",
+    "name": "Shree Vighnaharta Hospital",
+    "latitude": 21.1203707,
+    "longitude": 79.1049421,
+    "category": "hospital",
+    "source": "OpenStreetMap",
+    "verified": false
+  },
+  {
+    "id": "node/7631501038",
+    "name": "Biranjan Hospital",
+    "latitude": 21.147794,
+    "longitude": 79.13432,
+    "category": "hospital",
+    "source": "OpenStreetMap",
+    "verified": false
+  },
+  {
+    "id": "node/7631501040",
+    "name": "Yashoda Hospital",
+    "latitude": 21.097166,
+    "longitude": 79.1021542,
+    "category": "hospital",
+    "source": "OpenStreetMap",
+    "verified": false
+  },
+  {
+    "id": "node/7631501041",
+    "name": "Panacea Multi Speciality Hospital",
+    "latitude": 21.1259157,
+    "longitude": 79.1046481,
+    "category": "hospital",
+    "source": "OpenStreetMap",
+    "verified": false
+  },
+  {
+    "id": "node/7631501043",
+    "name": "Shri Bhawani Multispeciality Hospital and Research Institute",
+    "latitude": 21.15098,
+    "longitude": 79.160277,
+    "category": "hospital",
+    "source": "OpenStreetMap",
+    "verified": false
+  },
+  {
+    "id": "node/7631501045",
+    "name": "Kherde Maternity & Nursing Home",
+    "latitude": 21.1008055,
+    "longitude": 79.0666607,
+    "category": "hospital",
+    "source": "OpenStreetMap",
+    "verified": false
+  },
+  {
+    "id": "node/7631501048",
+    "name": "Pushpachakra Hospital",
+    "latitude": 21.1064785,
+    "longitude": 79.119803,
+    "category": "hospital",
+    "source": "OpenStreetMap",
+    "verified": false
+  },
+  {
+    "id": "node/7631501049",
+    "name": "Kalpataru Hospital",
+    "latitude": 21.115819,
+    "longitude": 79.057005,
+    "category": "hospital",
+    "source": "OpenStreetMap",
+    "verified": false
+  },
+  {
+    "id": "node/7631501050",
+    "name": "Indira Hospital",
+    "latitude": 21.1075867,
+    "longitude": 79.1171192,
+    "category": "hospital",
+    "source": "OpenStreetMap",
+    "verified": false
+  },
+  {
+    "id": "node/7631501051",
+    "name": "Shri Ameya Hospital",
+    "latitude": 21.1484275,
+    "longitude": 79.1202037,
+    "category": "hospital",
+    "source": "OpenStreetMap",
+    "verified": false
+  },
+  {
+    "id": "node/7631501052",
+    "name": "Narmada Ratan Taori Hospital",
+    "latitude": 21.137334,
+    "longitude": 79.116817,
+    "category": "hospital",
+    "source": "OpenStreetMap",
+    "verified": false
+  },
+  {
+    "id": "node/7631501053",
+    "name": "HCG NCHRI Cancer Centre",
+    "latitude": 21.1781655,
+    "longitude": 79.1233803,
+    "category": "hospital",
+    "source": "OpenStreetMap",
+    "verified": false
+  },
+  {
+    "id": "node/7631501054",
+    "name": "Sure care Multispeciality Hospital",
+    "latitude": 21.122916,
+    "longitude": 79.1025949,
+    "category": "hospital",
+    "source": "OpenStreetMap",
+    "verified": false
+  },
+  {
+    "id": "node/7631501055",
+    "name": "Auro Critical Care Hospital",
+    "latitude": 21.1474812,
+    "longitude": 79.1336117,
+    "category": "hospital",
+    "source": "OpenStreetMap",
+    "verified": false
+  },
+  {
+    "id": "node/7631501056",
+    "name": "Adishakti Hospital",
+    "latitude": 21.131135,
+    "longitude": 79.1172712,
+    "category": "hospital",
+    "source": "OpenStreetMap",
+    "verified": false
+  },
+  {
+    "id": "node/7631501057",
+    "name": "Life Springs Hospital",
+    "latitude": 21.1165322,
+    "longitude": 79.0375271,
+    "category": "hospital",
+    "source": "OpenStreetMap",
+    "verified": false
+  },
+  {
+    "id": "node/7631501059",
+    "name": "Omkar Nursing Home",
+    "latitude": 21.1052967,
+    "longitude": 79.1096776,
+    "category": "hospital",
+    "source": "OpenStreetMap",
+    "verified": false
+  },
+  {
+    "id": "node/7631501063",
+    "name": "Radiance Hospital",
+    "latitude": 21.148474,
+    "longitude": 79.131429,
+    "category": "hospital",
+    "source": "OpenStreetMap",
+    "verified": false
+  },
+  {
+    "id": "node/7631501064",
+    "name": "Gananam Hospital",
+    "latitude": 21.132872,
+    "longitude": 79.11968,
+    "category": "hospital",
+    "source": "OpenStreetMap",
+    "verified": false
+  },
+  {
+    "id": "node/7631501066",
+    "name": "Aparajit Orthopaedic & Maternity Nursing Home",
+    "latitude": 21.118341,
+    "longitude": 79.064347,
+    "category": "hospital",
+    "source": "OpenStreetMap",
+    "verified": false
+  },
+  {
+    "id": "node/7631501068",
+    "name": "KRIMS Hospitals",
+    "latitude": 21.0895132,
+    "longitude": 79.0784084,
+    "category": "hospital",
+    "source": "OpenStreetMap",
+    "verified": false
+  },
+  {
+    "id": "node/7631501069",
+    "name": "Safe Hands Hospitals",
+    "latitude": 21.1480333,
+    "longitude": 79.1204414,
+    "category": "hospital",
+    "source": "OpenStreetMap",
+    "verified": false
+  },
+  {
+    "id": "node/7631501070",
+    "name": "Renuka Maternity & ENT Hospital",
+    "latitude": 21.1254292,
+    "longitude": 79.0593904,
+    "category": "hospital",
+    "source": "OpenStreetMap",
+    "verified": false
+  },
+  {
+    "id": "node/7631501071",
+    "name": "Shri Krupa Hospital",
+    "latitude": 21.1066567,
+    "longitude": 79.1197293,
+    "category": "hospital",
+    "source": "OpenStreetMap",
+    "verified": false
+  },
+  {
+    "id": "node/7631501072",
+    "name": "Kimmatkar Orthopaedic Hospital",
+    "latitude": 21.147904,
+    "longitude": 79.123308,
+    "category": "hospital",
+    "source": "OpenStreetMap",
+    "verified": false
+  },
+  {
+    "id": "node/7631501074",
+    "name": "Deshmukh Hospital",
+    "latitude": 21.118874,
+    "longitude": 79.0649341,
+    "category": "hospital",
+    "source": "OpenStreetMap",
+    "verified": false
+  },
+  {
+    "id": "node/7631501075",
+    "name": "Ear Nose & Throat Hospital",
+    "latitude": 21.1169542,
+    "longitude": 79.0564945,
+    "category": "hospital",
+    "source": "OpenStreetMap",
+    "verified": false
+  },
+  {
+    "id": "node/7631501076",
+    "name": "Naik Hospital",
+    "latitude": 21.1108614,
+    "longitude": 79.0683627,
+    "category": "hospital",
+    "source": "OpenStreetMap",
+    "verified": false
+  },
+  {
+    "id": "node/7631501078",
+    "name": "Shreemayi Hospital",
+    "latitude": 21.131205,
+    "longitude": 79.110519,
+    "category": "hospital",
+    "source": "OpenStreetMap",
+    "verified": false
+  },
+  {
+    "id": "node/7631501079",
+    "name": "Barad Hospital",
+    "latitude": 21.128076,
+    "longitude": 79.1140436,
+    "category": "hospital",
+    "source": "OpenStreetMap",
+    "verified": false
+  },
+  {
+    "id": "node/7631501080",
+    "name": "Dr. Arvind Kinge General Hospital",
+    "latitude": 21.1154272,
+    "longitude": 79.0508885,
+    "category": "hospital",
+    "source": "OpenStreetMap",
+    "verified": false
+  },
+  {
+    "id": "node/7631501082",
+    "name": "Kalpavruksha Hospital",
+    "latitude": 21.110765,
+    "longitude": 79.0718571,
+    "category": "hospital",
+    "source": "OpenStreetMap",
+    "verified": false
+  },
+  {
+    "id": "node/7631501085",
+    "name": "Chakole Government Hospital",
+    "latitude": 21.1437162,
+    "longitude": 79.122457,
+    "category": "hospital",
+    "source": "OpenStreetMap",
+    "verified": false
+  },
+  {
+    "id": "node/7631501086",
+    "name": "Shahu Hospital",
+    "latitude": 21.129294,
+    "longitude": 79.113319,
+    "category": "hospital",
+    "source": "OpenStreetMap",
+    "verified": false
+  },
+  {
+    "id": "node/7631501087",
+    "name": "Jafri Hospital and Research Centre",
+    "latitude": 21.1200212,
+    "longitude": 79.1230947,
+    "category": "hospital",
+    "source": "OpenStreetMap",
+    "verified": false
+  },
+  {
+    "id": "node/7631501088",
+    "name": "Anurag Multi Specialty Hospital",
+    "latitude": 21.124545,
+    "longitude": 79.138924,
+    "category": "hospital",
+    "source": "OpenStreetMap",
+    "verified": false
+  },
+  {
+    "id": "node/7631501091",
+    "name": "Well Treat Multispeciality Hospital",
+    "latitude": 21.15403,
+    "longitude": 79.010109,
+    "category": "hospital",
+    "source": "OpenStreetMap",
+    "verified": false
+  },
+  {
+    "id": "node/7631501092",
+    "name": "Shri Swami Samarth Hospital",
+    "latitude": 21.1145409,
+    "longitude": 79.0426266,
+    "category": "hospital",
+    "source": "OpenStreetMap",
+    "verified": false
+  },
+  {
+    "id": "node/7631501093",
+    "name": "Utkarsha Nursing Home",
+    "latitude": 21.0909407,
+    "longitude": 79.07665,
+    "category": "hospital",
+    "source": "OpenStreetMap",
+    "verified": false
+  },
+  {
+    "id": "node/7631501094",
+    "name": "Gandhi Nursing Home and Cocoon Test Tube Baby Centre",
+    "latitude": 21.1491465,
+    "longitude": 79.1129312,
+    "category": "hospital",
+    "source": "OpenStreetMap",
+    "verified": false
+  },
+  {
+    "id": "node/7631501095",
+    "name": "Santaji Hospital",
+    "latitude": 21.1390503,
+    "longitude": 79.1207165,
+    "category": "hospital",
+    "source": "OpenStreetMap",
+    "verified": false
+  },
+  {
+    "id": "node/7631501096",
+    "name": "Samarpan Nursing Home",
+    "latitude": 21.117059,
+    "longitude": 79.1268798,
+    "category": "hospital",
+    "source": "OpenStreetMap",
+    "verified": false
+  },
+  {
+    "id": "node/7631501097",
+    "name": "Sartaj Hospital",
+    "latitude": 21.1705617,
+    "longitude": 79.1292917,
+    "category": "hospital",
+    "source": "OpenStreetMap",
+    "verified": false
+  },
+  {
+    "id": "node/7631501098",
+    "name": "S D Hospital",
+    "latitude": 21.138248,
+    "longitude": 79.1164206,
+    "category": "hospital",
+    "source": "OpenStreetMap",
+    "verified": false
+  },
+  {
+    "id": "node/7631501102",
+    "name": "Om Multispeciality Hospital",
+    "latitude": 21.152789,
+    "longitude": 79.1191913,
+    "category": "hospital",
+    "source": "OpenStreetMap",
+    "verified": false
+  },
+  {
+    "id": "node/7631501105",
+    "name": "Bhelonde Child Hospital & Multispeciality Hospital",
+    "latitude": 21.12538,
+    "longitude": 79.117298,
+    "category": "hospital",
+    "source": "OpenStreetMap",
+    "verified": false
+  },
+  {
+    "id": "node/7631501107",
+    "name": "Vedansha Hospital",
+    "latitude": 21.1182417,
+    "longitude": 79.0648616,
+    "category": "hospital",
+    "source": "OpenStreetMap",
+    "verified": false
+  },
+  {
+    "id": "node/7631501108",
+    "name": "Mrutyunjai Hospital",
+    "latitude": 21.116194,
+    "longitude": 79.038361,
+    "category": "hospital",
+    "source": "OpenStreetMap",
+    "verified": false
+  },
+  {
+    "id": "node/7631501109",
+    "name": "Abhiyog Hospital",
+    "latitude": 21.1306712,
+    "longitude": 79.1178421,
+    "category": "hospital",
+    "source": "OpenStreetMap",
+    "verified": false
+  },
+  {
+    "id": "node/8805764599",
+    "name": "Mogre Children Hospital",
+    "latitude": 21.1280221,
+    "longitude": 79.1140026,
+    "category": "hospital",
+    "source": "OpenStreetMap",
+    "verified": false
+  },
+  {
+    "id": "node/8805781144",
+    "name": "Hope Hospital",
+    "latitude": 21.189091,
+    "longitude": 79.105162,
+    "category": "hospital",
+    "source": "OpenStreetMap",
+    "verified": false
+  },
+  {
+    "id": "node/8806023876",
+    "name": "Ganga Care Hospital Limited",
+    "latitude": 21.1460772,
+    "longitude": 79.0660212,
+    "category": "hospital",
+    "source": "OpenStreetMap",
+    "verified": false
+  },
+  {
+    "id": "node/8806074452",
+    "name": "NewEra Hospital",
+    "latitude": 21.1515056,
+    "longitude": 79.1218843,
+    "category": "hospital",
+    "source": "OpenStreetMap",
+    "verified": false
+  },
+  {
+    "id": "node/8806102893",
+    "name": "Viveka Hospital",
+    "latitude": 21.1204386,
+    "longitude": 79.0427671,
+    "category": "hospital",
+    "source": "OpenStreetMap",
+    "verified": false
+  },
+  {
+    "id": "node/8806123945",
+    "name": "Lifeline hospital",
+    "latitude": 21.190499,
+    "longitude": 79.0913554,
+    "category": "hospital",
+    "source": "OpenStreetMap",
+    "verified": false
+  },
+  {
+    "id": "node/10561643054",
+    "name": "Suyog Hospital",
+    "latitude": 21.1081278,
+    "longitude": 79.0811599,
+    "category": "hospital",
+    "source": "OpenStreetMap",
+    "verified": false
+  },
+  {
+    "id": "node/11012353292",
+    "name": "Remedia Hospital",
+    "latitude": 21.1965069,
+    "longitude": 79.0786109,
+    "category": "hospital",
+    "source": "OpenStreetMap",
+    "verified": false
+  },
+  {
+    "id": "node/11351141869",
+    "name": "Tambe Hospital",
+    "latitude": 21.1048001,
+    "longitude": 79.1131296,
+    "category": "hospital",
+    "source": "OpenStreetMap",
+    "verified": false
+  },
+  {
+    "id": "node/11351141870",
+    "name": "Dr. Sunil V. Bajaj",
+    "latitude": 21.1235966,
+    "longitude": 79.1111558,
+    "category": "hospital",
+    "source": "OpenStreetMap",
+    "verified": false
+  },
+  {
+    "id": "node/11387104749",
+    "name": "Kingsway Hospital",
+    "latitude": 21.1545986,
+    "longitude": 79.0848229,
+    "category": "hospital",
+    "source": "OpenStreetMap",
+    "verified": false
+  },
+  {
+    "id": "node/12539173416",
+    "name": "Medinine Hospital",
+    "latitude": 21.1014632,
+    "longitude": 79.1019221,
+    "category": "hospital",
+    "source": "OpenStreetMap",
+    "verified": false
+  },
+  {
+    "id": "node/12593350543",
+    "name": "Arogyam Superspeciality Hospital",
+    "latitude": 21.1033595,
+    "longitude": 79.0655119,
+    "category": "hospital",
+    "source": "OpenStreetMap",
+    "verified": false
+  }
+]
