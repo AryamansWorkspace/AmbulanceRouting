@@ -10,7 +10,7 @@ from fastapi import FastAPI, HTTPException, Query
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel, Field
 
-from backend.database import DB_FILE, get_connection, init_db
+from backend.database import get_connection, init_db
 from backend.routing import calculate_route
 from backend.hospital_recommendation import recommend_hospitals
 from backend.emergency_nlp import categorize_emergency
@@ -37,6 +37,8 @@ class HospitalRequest(BaseModel):
     latitude: float = Field(ge=-90, le=90)
     longitude: float = Field(ge=-180, le=180)
     limit: int = Field(default=5, ge=1, le=20)
+    description: str = Field(default="", max_length=500)
+    category: str = Field(default="", max_length=100)
 
 
 class DispatchRequest(BaseModel):
@@ -64,6 +66,17 @@ def route_or_error(*coords):
         raise HTTPException(500, "Road network graph not found.")
 
 
+def recommend_for_emergency(emergency, limit=5):
+    return recommend_hospitals(
+        emergency["latitude"],
+        emergency["longitude"],
+        hospitals(),
+        limit,
+        emergency.get("description", ""),
+        emergency.get("category", ""),
+    )
+
+
 @app.on_event("startup")
 def startup():
     init_db()
@@ -83,13 +96,10 @@ def health():
 
 
 @app.get("/geocode")
-def geocode_location(
-    q: str = Query(..., min_length=3, max_length=200)
-):
+def geocode_location(q: str = Query(..., min_length=3, max_length=200)):
     """Find possible locations in Nagpur using OpenStreetMap Nominatim."""
-    query = f"{q}, Nagpur, Maharashtra, India"
     params = urlencode({
-        "q": query,
+        "q": f"{q}, Nagpur, Maharashtra, India",
         "format": "jsonv2",
         "limit": 3,
         "countrycodes": "in",
@@ -97,9 +107,7 @@ def geocode_location(
 
     request = Request(
         f"https://nominatim.openstreetmap.org/search?{params}",
-        headers={
-            "User-Agent": "AmbulanceRoutingAcademicPOC/1.0"
-        },
+        headers={"User-Agent": "AmbulanceRoutingAcademicPOC/1.0"},
     )
 
     try:
@@ -146,6 +154,8 @@ def get_recommendations(request: HospitalRequest):
         request.longitude,
         hospitals(),
         request.limit,
+        request.description,
+        request.category,
     )
 
 
@@ -192,6 +202,7 @@ def get_ambulances():
         rows = conn.execute(
             "SELECT * FROM ambulances ORDER BY id"
         ).fetchall()
+
     return {
         "ambulances": [dict(row) for row in rows],
         "simulation": True,
@@ -200,8 +211,6 @@ def get_ambulances():
 
 @app.post("/dispatches", status_code=201)
 def create_dispatch(request: DispatchRequest):
-    init_db()
-
     with get_connection() as conn:
         emergency = conn.execute(
             "SELECT * FROM emergencies WHERE id = ?",
@@ -221,18 +230,13 @@ def create_dispatch(request: DispatchRequest):
     if ambulance["status"] != "available":
         raise HTTPException(409, "Ambulance is not available.")
 
-    candidates = recommend_hospitals(
-        emergency["latitude"],
-        emergency["longitude"],
-        hospitals(),
-        20,
-    )["recommendations"]
+    candidates = recommend_for_emergency(dict(emergency), limit=20)[
+        "recommendations"
+    ]
 
     hospital = next(
-        (
-            h for h in candidates
-            if str(h.get("id")) == request.hospital_id
-        ),
+        (item for item in candidates
+         if str(item.get("id")) == request.hospital_id),
         None,
     )
 
@@ -289,9 +293,7 @@ def create_dispatch(request: DispatchRequest):
             )
 
     except sqlite3.Error as exc:
-        raise HTTPException(
-            500, f"Dispatch database error: {exc}"
-        )
+        raise HTTPException(500, f"Dispatch database error: {exc}")
 
     return {
         "dispatch_id": cursor.lastrowid,

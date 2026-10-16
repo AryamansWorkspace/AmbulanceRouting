@@ -5,10 +5,11 @@ import {
   TileLayer,
   CircleMarker,
   Popup,
+  Polyline,
 } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
 
-function MapView() {
+function MapView({ route = null }) {
   const [hospitals, setHospitals] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
@@ -22,14 +23,20 @@ function MapView() {
         return response.json();
       })
       .then((data) => setHospitals(data))
-      .catch(() => setError("Unable to load hospitals. Check that the backend is running."))
+      .catch(() =>
+        setError(
+          "Unable to load hospitals. Check that the backend is running."
+        )
+      )
       .finally(() => setLoading(false));
   }, []);
 
   return (
     <div style={{ width: "100%" }}>
       {loading && <p>Loading hospital locations...</p>}
+
       {error && <p style={{ color: "red" }}>{error}</p>}
+
       {!loading && !error && (
         <p>Hospital locations loaded: {hospitals.length}</p>
       )}
@@ -45,6 +52,25 @@ function MapView() {
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         />
 
+        {route?.coordinates?.length > 1 && (
+          <Polyline
+            positions={route.coordinates}
+            pathOptions={{
+              color: "#2563eb",
+              weight: 5,
+              opacity: 0.85,
+            }}
+          >
+            <Popup>
+              <strong>Simulated Ambulance Route</strong>
+              <br />
+              Road distance: {route.distance_km} km
+              <br />
+              Travel time: Not calculated
+            </Popup>
+          </Polyline>
+        )}
+
         {hospitals.map((hospital) => (
           <CircleMarker
             key={hospital.id}
@@ -58,8 +84,10 @@ function MapView() {
           >
             <Popup>
               <strong>{hospital.name}</strong>
-                <br />
-                Source: {hospital.source}
+              <br />
+              Source: {hospital.source}
+              <br />
+              Status: Unverified
             </Popup>
           </CircleMarker>
         ))}
