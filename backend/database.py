@@ -51,6 +51,13 @@ def init_db():
             ("Simulated Ambulance 1", 21.1458, 79.0882),
             ("Simulated Ambulance 2", 21.1702, 79.0470),
             ("Simulated Ambulance 3", 21.1200, 79.1300),
+            ("Simulated Ambulance 4", 21.1550, 79.0800),
+            ("Simulated Ambulance 5", 21.1600, 79.1000),
+            ("Simulated Ambulance 6", 21.1350, 79.0700),
+            ("Simulated Ambulance 7", 21.1800, 79.0900),
+            ("Simulated Ambulance 8", 21.1100, 79.1100),
+            ("Simulated Ambulance 9", 21.1500, 79.1200),
+            ("Simulated Ambulance 10", 21.1250, 79.0600),
         ]
 
         conn.executemany(

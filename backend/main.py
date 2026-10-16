@@ -47,6 +47,13 @@ class DispatchRequest(BaseModel):
     hospital_id: str = Field(min_length=1, max_length=100)
 
 
+# NEW: Validate manually requested ambulance statuses.
+class AmbulanceStatusRequest(BaseModel):
+    status: str = Field(
+        pattern="^(available|assigned|maintenance|offline)$"
+    )
+
+
 def hospitals():
     try:
         data = json.loads(HOSPITALS_FILE.read_text(encoding="utf-8"))
@@ -205,6 +212,34 @@ def get_ambulances():
 
     return {
         "ambulances": [dict(row) for row in rows],
+        "simulation": True,
+    }
+
+
+# NEW: Update an ambulance's status in SQLite.
+@app.patch("/ambulances/{ambulance_id}/status")
+def update_ambulance_status(
+    ambulance_id: int,
+    request: AmbulanceStatusRequest,
+):
+    with get_connection() as conn:
+        ambulance = conn.execute(
+            "SELECT id, name, status FROM ambulances WHERE id = ?",
+            (ambulance_id,),
+        ).fetchone()
+
+        if not ambulance:
+            raise HTTPException(404, "Ambulance not found.")
+
+        conn.execute(
+            "UPDATE ambulances SET status = ? WHERE id = ?",
+            (request.status, ambulance_id),
+        )
+
+    return {
+        "id": ambulance_id,
+        "name": ambulance["name"],
+        "status": request.status,
         "simulation": True,
     }
 
