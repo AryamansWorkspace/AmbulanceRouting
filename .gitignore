@@ -15,3 +15,10 @@ frontend/dist/
 
 # Local database files
 *.db
+# Local OpenStreetMap road-network assets
+backend/data/*.osm
+backend/data/*.osm.gz
+backend/data/nagpur_roads.graphml
+
+# Generated local cache
+cache/

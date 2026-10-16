@@ -1,8 +1,10 @@
+
+from fastapi import FastAPI, HTTPException, Query
 from fastapi.middleware.cors import CORSMiddleware
 import json
 from pathlib import Path
 
-from fastapi import FastAPI, HTTPException
+from backend.routing import calculate_route
 
 app = FastAPI(
     title="Ambulance Routing API",
@@ -21,7 +23,11 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-HOSPITALS_FILE = Path(__file__).resolve().parent / "data" / "hospitals.json"
+HOSPITALS_FILE = (
+    Path(__file__).resolve().parent
+    / "data"
+    / "hospitals.json"
+)
 
 
 @app.get("/")
@@ -61,3 +67,20 @@ def get_hospitals():
         )
 
     return hospitals
+
+
+@app.get("/route")
+def get_route(
+    start_lat: float = Query(..., ge=-90, le=90),
+    start_lon: float = Query(..., ge=-180, le=180),
+    end_lat: float = Query(..., ge=-90, le=90),
+    end_lon: float = Query(..., ge=-180, le=180),
+):
+    try:
+        return calculate_route(
+            start_lat, start_lon, end_lat, end_lon
+        )
+    except ValueError as exc:
+        raise HTTPException(status_code=422, detail=str(exc))
+    except FileNotFoundError as exc:
+        raise HTTPException(status_code=500, detail=str(exc))
