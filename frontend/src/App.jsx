@@ -7,8 +7,35 @@ import "./App.css";
 const API = "http://127.0.0.1:8000";
 const NAV = ["Dashboard", "Emergencies", "Ambulances", "Hospitals", "Dispatches"];
 
+const AMBULANCE_STATUSES = [
+  { value: "available", label: "Available" },
+  { value: "assigned", label: "Busy / Assigned" },
+  { value: "maintenance", label: "Maintenance" },
+  { value: "offline", label: "Offline" },
+];
+
 const getList = (data, key) =>
   Array.isArray(data) ? data : data?.[key] || [];
+
+const getStatusLabel = (status) => {
+  const labels = {
+    available: "Available",
+    assigned: "Busy / Assigned",
+    maintenance: "Maintenance",
+    offline: "Offline",
+  };
+  return labels[(status || "").toLowerCase()] || status || "Unknown";
+};
+
+const getStatusStyle = (status) => {
+  const styles = {
+    available: { background: "#dcfce7", color: "#166534" },
+    assigned: { background: "#fee2e2", color: "#991b1b" },
+    maintenance: { background: "#fef3c7", color: "#92400e" },
+    offline: { background: "#e5e7eb", color: "#374151" },
+  };
+  return styles[(status || "").toLowerCase()] || styles.offline;
+};
 
 export default function App() {
   const [page, setPage] = useState("Dashboard");
@@ -29,6 +56,11 @@ export default function App() {
   const [dispatchMessage, setDispatchMessage] = useState("");
   const [loadingHospitals, setLoadingHospitals] = useState(false);
   const [submitting, setSubmitting] = useState(false);
+
+  // NEW: Track ambulance status update progress and messages.
+  const [updatingAmbulanceId, setUpdatingAmbulanceId] = useState(null);
+  const [ambulanceStatusError, setAmbulanceStatusError] = useState("");
+  const [ambulanceStatusMessage, setAmbulanceStatusMessage] = useState("");
 
   async function refreshData() {
     try {
@@ -77,9 +109,74 @@ export default function App() {
     (item) => (item.status || "").toLowerCase() === "available"
   );
 
+  const busyAmbulances = ambulances.filter(
+    (item) => (item.status || "").toLowerCase() === "assigned"
+  );
+
+  const unavailableAmbulances = ambulances.filter(
+    (item) =>
+      ["maintenance", "offline"].includes(
+        (item.status || "").toLowerCase()
+      )
+  );
+
   const filteredHospitals = hospitals.filter((item) =>
     (item.name || "").toLowerCase().includes(search.toLowerCase())
   );
+
+  // NEW: Save a status change through the backend API.
+  async function updateAmbulanceStatus(ambulanceId, newStatus) {
+    const ambulance = ambulances.find(
+      (item) => item.id === ambulanceId
+    );
+
+    if (!ambulance || ambulance.status === newStatus) return;
+
+    // Warn before making an assigned ambulance available again.
+    if (
+      ambulance.status === "assigned" &&
+      newStatus === "available" &&
+      !window.confirm(
+        "This ambulance is currently assigned to a dispatch. " +
+        "Only mark it available if the simulated assignment has ended."
+      )
+    ) {
+      return;
+    }
+
+    setUpdatingAmbulanceId(ambulanceId);
+    setAmbulanceStatusError("");
+    setAmbulanceStatusMessage("");
+
+    try {
+      const response = await fetch(
+        `${API}/ambulances/${ambulanceId}/status`,
+        {
+          method: "PATCH",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ status: newStatus }),
+        }
+      );
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        throw new Error(data.detail || "Could not update ambulance status.");
+      }
+
+      setAmbulanceStatusMessage(
+        `${data.name}: status changed to ${getStatusLabel(data.status)}.`
+      );
+
+      await refreshData();
+    } catch (err) {
+      setAmbulanceStatusError(
+        err.message || "Ambulance status update failed."
+      );
+    } finally {
+      setUpdatingAmbulanceId(null);
+    }
+  }
 
   async function findHospitals() {
     const emergency = emergencies.find(
@@ -167,6 +264,7 @@ export default function App() {
       setDispatchMessage(`Dispatch #${data.dispatch_id} created successfully.`);
       setRecommendations([]);
       setSelectedHospital("");
+      setSelectedAmbulance("");
       await refreshData();
     } catch (err) {
       setDispatchError(err.message || "Dispatch failed.");
@@ -195,6 +293,41 @@ export default function App() {
           />
         )}
 
+        {page === "Ambulances" && (
+          <>
+            <div className="stats-grid">
+              <div className="stat-card">
+                <span>Total Fleet</span>
+                <h2>{ambulances.length}</h2>
+              </div>
+              <div className="stat-card">
+                <span>🟢 Available</span>
+                <h2>{availableAmbulances.length}</h2>
+              </div>
+              <div className="stat-card">
+                <span>🔴 Busy / Assigned</span>
+                <h2>{busyAmbulances.length}</h2>
+              </div>
+              <div className="stat-card">
+                <span>🟡 Maintenance / Offline</span>
+                <h2>{unavailableAmbulances.length}</h2>
+              </div>
+            </div>
+
+            {ambulanceStatusError && (
+              <p role="alert" style={{ color: "#b91c1c" }}>
+                {ambulanceStatusError}
+              </p>
+            )}
+
+            {ambulanceStatusMessage && (
+              <p role="status" style={{ color: "#166534" }}>
+                {ambulanceStatusMessage}
+              </p>
+            )}
+          </>
+        )}
+
         <section className="panel panel-body">
           <h3>
             {page === "Emergencies"
@@ -207,21 +340,90 @@ export default function App() {
           {!records.length ? (
             <p>No records available.</p>
           ) : (
-            records.slice(0, 100).map((item, index) => (
-              <div className="incident" key={item.id ?? item.name ?? index}>
-                <div className="incident-title">
-                  {page === "Hospitals" ? "🏥 " : page === "Ambulances" ? "🚑 " : "🚨 "}
-                  {item.name || `#${item.id} · ${item.category || "Record"}`}
+            records.slice(0, 100).map((item, index) => {
+              const status = (item.status || "").toLowerCase();
+
+              return (
+                <div className="incident" key={item.id ?? item.name ?? index}>
+                  <div className="incident-title">
+                    {page === "Hospitals"
+                      ? "🏥 "
+                      : page === "Ambulances"
+                        ? "🚑 "
+                        : "🚨 "}
+                    {item.name || `#${item.id} · ${item.category || "Record"}`}
+                  </div>
+
+                  {page === "Ambulances" ? (
+                    <>
+                      <p className="incident-description">
+                        Ambulance ID: {item.id}
+                      </p>
+
+                      <span
+                        style={{
+                          ...getStatusStyle(status),
+                          display: "inline-block",
+                          padding: "5px 10px",
+                          borderRadius: "12px",
+                          fontSize: "13px",
+                          fontWeight: 600,
+                          marginBottom: "12px",
+                        }}
+                      >
+                        {getStatusLabel(status)}
+                      </span>
+
+                      <div style={{ maxWidth: "320px" }}>
+                        <label>
+                          Manage Status
+                          <select
+                            className="search-input"
+                            value={status}
+                            disabled={updatingAmbulanceId === item.id}
+                            onChange={(event) =>
+                              updateAmbulanceStatus(
+                                item.id,
+                                event.target.value
+                              )
+                            }
+                          >
+                            {AMBULANCE_STATUSES.map((option) => (
+                              <option
+                                key={option.value}
+                                value={option.value}
+                              >
+                                {option.label}
+                              </option>
+                            ))}
+                          </select>
+                        </label>
+                        {updatingAmbulanceId === item.id && (
+                          <span className="small-label">
+                            Saving status...
+                          </span>
+                        )}
+                      </div>
+
+                      <span className="small-label">
+                        Simulated location: {item.latitude ?? "—"},{" "}
+                        {item.longitude ?? "—"}
+                      </span>
+                    </>
+                  ) : (
+                    <>
+                      <p className="incident-description">
+                        {item.description || item.status || item.category || "Hospital candidate"}
+                      </p>
+                      <span className="small-label">
+                        Status: {item.status || "Unverified"} · Location:{" "}
+                        {item.latitude ?? "—"}, {item.longitude ?? "—"}
+                      </span>
+                    </>
+                  )}
                 </div>
-                <p className="incident-description">
-                  {item.description || item.status || item.category || "Hospital candidate"}
-                </p>
-                <span className="small-label">
-                  Status: {item.status || "Unverified"} · Location:{" "}
-                  {item.latitude ?? "—"}, {item.longitude ?? "—"}
-                </span>
-              </div>
-            ))
+              );
+            })
           )}
         </section>
       </>
@@ -419,6 +621,7 @@ export default function App() {
                 {[
                   ["Active Emergencies", activeEmergencies.length],
                   ["Ambulances Available", availableAmbulances.length],
+                  ["Ambulances Busy", busyAmbulances.length],
                   ["Hospital Candidates", hospitals.length],
                   ["Dispatches Recorded", dispatches.length],
                 ].map(([label, value]) => (
@@ -428,6 +631,50 @@ export default function App() {
                   </div>
                 ))}
               </div>
+
+              <section className="panel panel-body">
+                <h3>Ambulance Fleet Status</h3>
+                {!ambulances.length ? (
+                  <p>No ambulances available.</p>
+                ) : (
+                  <div style={{ display: "grid", gap: "10px" }}>
+                    {ambulances.map((item) => (
+                      <div
+                        key={item.id}
+                        style={{
+                          display: "flex",
+                          justifyContent: "space-between",
+                          alignItems: "center",
+                          gap: "12px",
+                          flexWrap: "wrap",
+                        }}
+                      >
+                        <span>
+                          🚑 {item.name || `Ambulance #${item.id}`}
+                        </span>
+                        <span
+                          style={{
+                            ...getStatusStyle(item.status),
+                            padding: "5px 10px",
+                            borderRadius: "12px",
+                            fontSize: "13px",
+                            fontWeight: 600,
+                          }}
+                        >
+                          {getStatusLabel(item.status)}
+                        </span>
+                      </div>
+                    ))}
+                  </div>
+                )}
+                <button
+                  className="nav-item"
+                  onClick={() => setPage("Ambulances")}
+                  style={{ marginTop: "16px" }}
+                >
+                  Manage Ambulances
+                </button>
+              </section>
 
               <section className="panel panel-body">
                 <h3>Nagpur Emergency Map</h3>
