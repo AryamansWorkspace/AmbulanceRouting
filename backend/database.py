@@ -12,6 +12,7 @@ def get_connection():
     return connection
 
 
+
 def init_db():
     with get_connection() as conn:
         conn.executescript("""
@@ -45,6 +46,21 @@ def init_db():
                 FOREIGN KEY (ambulance_id) REFERENCES ambulances(id)
             );
         """)
+
+        ambulances = [
+            ("Simulated Ambulance 1", 21.1458, 79.0882),
+            ("Simulated Ambulance 2", 21.1702, 79.0470),
+            ("Simulated Ambulance 3", 21.1200, 79.1300),
+        ]
+
+        conn.executemany(
+            """
+            INSERT OR IGNORE INTO ambulances (name, latitude, longitude)
+            VALUES (?, ?, ?)
+            """,
+            ambulances,
+        )
+
 
 
 if __name__ == "__main__":

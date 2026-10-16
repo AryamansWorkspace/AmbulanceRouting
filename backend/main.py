@@ -1,165 +1,323 @@
 
 import json
+import sqlite3
 from pathlib import Path
+from urllib.parse import urlencode
+from urllib.request import Request, urlopen
+from urllib.error import URLError, HTTPError
 
 from fastapi import FastAPI, HTTPException, Query
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel, Field
 
-from backend.database import get_connection, init_db
-from backend.emergency_nlp import categorize_emergency
-from backend.hospital_recommendation import recommend_hospitals
+from backend.database import DB_FILE, get_connection, init_db
 from backend.routing import calculate_route
+from backend.hospital_recommendation import recommend_hospitals
+from backend.emergency_nlp import categorize_emergency
 
-HOSPITALS_FILE = Path(__file__).resolve().parent / "data" / "hospitals.json"
-
-app = FastAPI(
-    title="Ambulance Routing API",
-    description="Backend for the Ambulance Routing Digital Twin",
-    version="1.0.0",
-)
+app = FastAPI(title="Ambulance Routing Digital Twin")
 
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["http://localhost:5173", "http://127.0.0.1:5173"],
-    allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
 )
 
+HOSPITALS_FILE = Path(__file__).resolve().parent / "data" / "hospitals.json"
 
-class HospitalRecommendationRequest(BaseModel):
+
+class EmergencyRequest(BaseModel):
+    description: str = Field(min_length=3, max_length=500)
+    latitude: float = Field(ge=-90, le=90)
+    longitude: float = Field(ge=-180, le=180)
+
+
+class HospitalRequest(BaseModel):
     latitude: float = Field(ge=-90, le=90)
     longitude: float = Field(ge=-180, le=180)
     limit: int = Field(default=5, ge=1, le=20)
 
 
-class EmergencyRequest(BaseModel):
-    description: str = Field(min_length=1, max_length=1000)
-    latitude: float = Field(ge=-90, le=90)
-    longitude: float = Field(ge=-180, le=180)
+class DispatchRequest(BaseModel):
+    emergency_id: int = Field(gt=0)
+    ambulance_id: int = Field(gt=0)
+    hospital_id: str = Field(min_length=1, max_length=100)
+
+
+def hospitals():
+    try:
+        data = json.loads(HOSPITALS_FILE.read_text(encoding="utf-8"))
+        if not isinstance(data, list):
+            raise ValueError("Hospital data must be a list.")
+        return data
+    except (OSError, json.JSONDecodeError, ValueError) as exc:
+        raise HTTPException(500, f"Hospital data error: {exc}")
+
+
+def route_or_error(*coords):
+    try:
+        return calculate_route(*coords)
+    except ValueError as exc:
+        raise HTTPException(422, str(exc))
+    except FileNotFoundError:
+        raise HTTPException(500, "Road network graph not found.")
+
+
+@app.on_event("startup")
+def startup():
+    init_db()
 
 
 @app.get("/")
 def home():
-    return {"message": "Ambulance Routing API is running", "status": "success"}
+    return {
+        "message": "Ambulance Routing Digital Twin API",
+        "simulation": True,
+    }
 
 
 @app.get("/health")
-def health_check():
-    return {"status": "healthy"}
+def health():
+    return {"status": "ok", "simulation": True}
+
+
+@app.get("/geocode")
+def geocode_location(
+    q: str = Query(..., min_length=3, max_length=200)
+):
+    """Find possible locations in Nagpur using OpenStreetMap Nominatim."""
+    query = f"{q}, Nagpur, Maharashtra, India"
+    params = urlencode({
+        "q": query,
+        "format": "jsonv2",
+        "limit": 3,
+        "countrycodes": "in",
+    })
+
+    request = Request(
+        f"https://nominatim.openstreetmap.org/search?{params}",
+        headers={
+            "User-Agent": "AmbulanceRoutingAcademicPOC/1.0"
+        },
+    )
+
+    try:
+        with urlopen(request, timeout=10) as response:
+            results = json.loads(response.read().decode("utf-8"))
+
+        return {
+            "results": [
+                {
+                    "name": item["display_name"],
+                    "latitude": float(item["lat"]),
+                    "longitude": float(item["lon"]),
+                }
+                for item in results
+            ],
+            "simulation": True,
+        }
+    except (HTTPError, URLError, TimeoutError, OSError, ValueError):
+        raise HTTPException(
+            502,
+            "Location search is temporarily unavailable. Please try again.",
+        )
 
 
 @app.get("/hospitals")
 def get_hospitals():
-    if not HOSPITALS_FILE.exists():
-        raise HTTPException(status_code=500, detail="Hospital dataset file not found.")
-
-    try:
-        with HOSPITALS_FILE.open("r", encoding="utf-8") as file:
-            hospitals = json.load(file)
-    except json.JSONDecodeError:
-        raise HTTPException(status_code=500, detail="Hospital dataset contains invalid JSON.")
-
-    if not isinstance(hospitals, list):
-        raise HTTPException(status_code=500, detail="Hospital dataset must contain a JSON list.")
-
-    return hospitals
+    return hospitals()
 
 
 @app.get("/route")
 def get_route(
-    start_lat: float = Query(..., ge=-90, le=90),
-    start_lon: float = Query(..., ge=-180, le=180),
-    end_lat: float = Query(..., ge=-90, le=90),
-    end_lon: float = Query(..., ge=-180, le=180),
+    start_lat: float,
+    start_lon: float,
+    end_lat: float,
+    end_lon: float,
 ):
-    try:
-        return calculate_route(start_lat, start_lon, end_lat, end_lon)
-    except ValueError as exc:
-        raise HTTPException(status_code=422, detail=str(exc))
-    except FileNotFoundError as exc:
-        raise HTTPException(status_code=500, detail=str(exc))
+    return route_or_error(start_lat, start_lon, end_lat, end_lon)
 
 
 @app.post("/recommend-hospitals")
-def get_hospital_recommendations(request: HospitalRecommendationRequest):
-    if not HOSPITALS_FILE.exists():
-        raise HTTPException(status_code=500, detail="Hospital dataset file not found.")
-
-    try:
-        with HOSPITALS_FILE.open("r", encoding="utf-8") as file:
-            hospitals = json.load(file)
-
-        if not isinstance(hospitals, list):
-            raise HTTPException(status_code=500, detail="Hospital dataset must contain a JSON list.")
-
-        return recommend_hospitals(
-            request.latitude, request.longitude, hospitals, request.limit
-        )
-    except json.JSONDecodeError:
-        raise HTTPException(status_code=500, detail="Hospital dataset contains invalid JSON.")
-    except FileNotFoundError as exc:
-        raise HTTPException(status_code=500, detail=str(exc))
-    except ValueError as exc:
-        raise HTTPException(status_code=422, detail=str(exc))
+def get_recommendations(request: HospitalRequest):
+    return recommend_hospitals(
+        request.latitude,
+        request.longitude,
+        hospitals(),
+        request.limit,
+    )
 
 
 @app.post("/emergencies", status_code=201)
 def create_emergency(request: EmergencyRequest):
-    description = request.description.strip()
-    if not description:
-        raise HTTPException(status_code=422, detail="Enter an emergency description.")
+    result = categorize_emergency(request.description)
 
-    try:
-        result = categorize_emergency(description)
-        init_db()
+    with get_connection() as conn:
+        cursor = conn.execute(
+            """INSERT INTO emergencies
+            (description, latitude, longitude, category, confidence)
+            VALUES (?, ?, ?, ?, ?)""",
+            (
+                request.description,
+                request.latitude,
+                request.longitude,
+                result["category"],
+                result.get("confidence"),
+            ),
+        )
+        emergency_id = cursor.lastrowid
 
-        with get_connection() as conn:
-            cursor = conn.execute(
-                """
-                INSERT INTO emergencies
-                    (description, latitude, longitude, category, confidence)
-                VALUES (?, ?, ?, ?, ?)
-                """,
-                (
-                    description,
-                    request.latitude,
-                    request.longitude,
-                    result["category"],
-                    result["confidence"],
-                ),
-            )
-            emergency_id = cursor.lastrowid
+    return {
+        "id": emergency_id,
+        **request.model_dump(),
+        **result,
+        "status": "reported",
+        "simulation": True,
+    }
 
-        return {
-            "id": emergency_id,
-            "description": description,
-            "latitude": request.latitude,
-            "longitude": request.longitude,
-            **result,
-            "status": "reported",
-            "simulation": True,
-        }
-    except ValueError as exc:
-        raise HTTPException(status_code=422, detail=str(exc))
-    except Exception as exc:
-        raise HTTPException(status_code=500, detail="Failed to save emergency report.") from exc
 
 @app.get("/emergencies")
-def get_emergencies(limit: int = Query(default=50, ge=1, le=200)):
+def get_emergencies():
+    with get_connection() as conn:
+        rows = conn.execute(
+            "SELECT * FROM emergencies ORDER BY id DESC"
+        ).fetchall()
+    return [dict(row) for row in rows]
+
+
+@app.get("/ambulances")
+def get_ambulances():
+    with get_connection() as conn:
+        rows = conn.execute(
+            "SELECT * FROM ambulances ORDER BY id"
+        ).fetchall()
+    return {
+        "ambulances": [dict(row) for row in rows],
+        "simulation": True,
+    }
+
+
+@app.post("/dispatches", status_code=201)
+def create_dispatch(request: DispatchRequest):
     init_db()
 
     with get_connection() as conn:
-        rows = conn.execute(
-            """
-            SELECT id, description, latitude, longitude,
-                   category, confidence, status, created_at
-            FROM emergencies
-            ORDER BY id DESC
-            LIMIT ?
-            """,
-            (limit,),
-        ).fetchall()
+        emergency = conn.execute(
+            "SELECT * FROM emergencies WHERE id = ?",
+            (request.emergency_id,),
+        ).fetchone()
+        ambulance = conn.execute(
+            "SELECT * FROM ambulances WHERE id = ?",
+            (request.ambulance_id,),
+        ).fetchone()
 
-    return [dict(row) for row in rows]
+    if not emergency:
+        raise HTTPException(404, "Emergency not found.")
+    if not ambulance:
+        raise HTTPException(404, "Ambulance not found.")
+    if emergency["status"] != "reported":
+        raise HTTPException(409, "Emergency is not awaiting dispatch.")
+    if ambulance["status"] != "available":
+        raise HTTPException(409, "Ambulance is not available.")
+
+    candidates = recommend_hospitals(
+        emergency["latitude"],
+        emergency["longitude"],
+        hospitals(),
+        20,
+    )["recommendations"]
+
+    hospital = next(
+        (
+            h for h in candidates
+            if str(h.get("id")) == request.hospital_id
+        ),
+        None,
+    )
+
+    if not hospital:
+        raise HTTPException(
+            422, "Hospital is not in the recommended list."
+        )
+
+    route = route_or_error(
+        ambulance["latitude"],
+        ambulance["longitude"],
+        emergency["latitude"],
+        emergency["longitude"],
+    )
+
+    try:
+        with get_connection() as conn:
+            conn.execute("BEGIN IMMEDIATE")
+
+            current = conn.execute(
+                "SELECT status FROM emergencies WHERE id = ?",
+                (request.emergency_id,),
+            ).fetchone()
+            unit = conn.execute(
+                "SELECT status FROM ambulances WHERE id = ?",
+                (request.ambulance_id,),
+            ).fetchone()
+
+            if not current or current["status"] != "reported":
+                raise HTTPException(409, "Emergency already dispatched.")
+            if not unit or unit["status"] != "available":
+                raise HTTPException(
+                    409, "Ambulance is no longer available."
+                )
+
+            cursor = conn.execute(
+                """INSERT INTO dispatches
+                (emergency_id, ambulance_id, hospital_id)
+                VALUES (?, ?, ?)""",
+                (
+                    request.emergency_id,
+                    request.ambulance_id,
+                    request.hospital_id,
+                ),
+            )
+
+            conn.execute(
+                "UPDATE emergencies SET status = 'dispatched' WHERE id = ?",
+                (request.emergency_id,),
+            )
+            conn.execute(
+                "UPDATE ambulances SET status = 'assigned' WHERE id = ?",
+                (request.ambulance_id,),
+            )
+
+    except sqlite3.Error as exc:
+        raise HTTPException(
+            500, f"Dispatch database error: {exc}"
+        )
+
+    return {
+        "dispatch_id": cursor.lastrowid,
+        "emergency_id": request.emergency_id,
+        "ambulance_id": request.ambulance_id,
+        "ambulance": ambulance["name"],
+        "hospital": hospital,
+        "status": "assigned",
+        "route": route,
+        "simulation": True,
+    }
+
+
+@app.get("/dispatches")
+def get_dispatches():
+    with get_connection() as conn:
+        rows = conn.execute("""
+            SELECT d.*, e.description, e.latitude, e.longitude,
+                   a.name AS ambulance_name
+            FROM dispatches d
+            JOIN emergencies e ON e.id = d.emergency_id
+            LEFT JOIN ambulances a ON a.id = d.ambulance_id
+            ORDER BY d.id DESC
+        """).fetchall()
+
+    return {
+        "dispatches": [dict(row) for row in rows],
+        "simulation": True,
+    }
