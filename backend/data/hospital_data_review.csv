@@ -1,0 +1,161 @@
+﻿source_id,name,reason,action
+node/7085422810,Junankar Surgical Nursing Home,Tagged as a clinic rather than a hospital,Excluded
+way/444726451,ALEXIS MULTISPECIALITY HOSPITAL PVT. LTD.,One or more common healthcare tags are missing,Retained; review recommended
+way/463130898,Mental Hospital,One or more common healthcare tags are missing,Retained; review recommended
+way/756311320,Wockhardt Heart Hospital,One or more common healthcare tags are missing,Retained; review recommended
+way/1141413826,PROPOSED SITE,Name indicates a proposed site; Repeated hospital name; location needs review,Excluded pending manual review
+way/1272267466,,Missing hospital name,Excluded pending manual review
+way/1272268373,,Missing hospital name,Excluded pending manual review
+way/1274055024,,Missing hospital name,Excluded pending manual review
+node/2683203421,G. T. Padole Hospital,One or more common healthcare tags are missing,Retained; review recommended
+node/3062460422,Orange City Hospital and Research Institute,One or more common healthcare tags are missing,Retained; review recommended
+node/3062461407,Chest Care Clinic,One or more common healthcare tags are missing,Retained; review recommended
+node/3141270006,Oasis Nursing Home,One or more common healthcare tags are missing,Retained; review recommended
+node/3151964482,Railway Hospital,One or more common healthcare tags are missing,Retained; review recommended
+node/3259570374,Advance Dental Clinic,One or more common healthcare tags are missing,Retained; review recommended
+node/3259594419,Wockhardt Super Speciality Hospital,Repeated hospital name; location needs review,Retained; review recommended
+node/3259617378,Mulik Hospital,Repeated hospital name; location needs review,Retained; review recommended
+node/3261054160,Cph Centre Point Hospital and Medical Research Institute Pvt. Ltd.,One or more common healthcare tags are missing,Retained; review recommended
+node/3261058954,Central Govt Heath Scheme(CGHS) Clinic,One or more common healthcare tags are missing,Retained; review recommended
+node/3261063016,Suraj Eye Institute Om Drishti Trust,One or more common healthcare tags are missing,Retained; review recommended
+node/3261065664,Dr S P Naidu,One or more common healthcare tags are missing,Retained; review recommended
+node/3264677746,East End Hospital,Repeated hospital name; location needs review,Retained; review recommended
+node/3273376463,,Missing hospital name; One or more common healthcare tags are missing,Excluded pending manual review
+node/3274043280,Sengupta Hospital and Research Institute,One or more common healthcare tags are missing,Retained; review recommended
+node/3274043761,Dr. Dande Hospital,One or more common healthcare tags are missing,Retained; review recommended
+node/3274053671,Sahu Hospital,Repeated hospital name; location needs review,Retained; review recommended
+node/3274081091,East End Hospital,Repeated hospital name; location needs review,Retained; review recommended
+node/3274089461,"Sanjeevani Hospital, Nagpur",One or more common healthcare tags are missing,Retained; review recommended
+node/3274090662,Roy Nursing Home,One or more common healthcare tags are missing,Retained; review recommended
+node/3274090950,Dharmadhikari Hospital,Repeated hospital name; location needs review; One or more common healthcare tags are missing,Retained; review recommended
+node/3274091465,Mahatma Eye Bank and Hospital,One or more common healthcare tags are missing,Retained; review recommended
+node/3276115991,Wockhardt Super Speciality Hospital,Repeated hospital name; location needs review,Retained; review recommended
+node/3276128104,Cure It Hospital Pvt.Ltd,One or more common healthcare tags are missing,Retained; review recommended
+node/3972885657,Sahu Hospital,Repeated hospital name; location needs review,Retained; review recommended
+node/4421880347,Prestige Hospitals Pvt Ltd,One or more common healthcare tags are missing,Retained; review recommended
+node/4534460691,,Missing hospital name,Excluded pending manual review
+node/4539123693,,Missing hospital name,Excluded pending manual review
+node/4574596092,,Missing hospital name; One or more common healthcare tags are missing,Excluded pending manual review
+node/4977256995,,Missing hospital name,Excluded pending manual review
+node/5042266733,,Missing hospital name,Excluded pending manual review
+node/5042266734,,Missing hospital name,Excluded pending manual review
+node/6249168311,Samarpan Hospital and Research Institute,One or more common healthcare tags are missing,Retained; review recommended
+node/6249232217,Balwaik Multi Speciality Hospital,One or more common healthcare tags are missing,Retained; review recommended
+node/6249232326,Niramaya Hospital,One or more common healthcare tags are missing,Retained; review recommended
+node/6930648689,,Missing hospital name,Excluded pending manual review
+node/7041049135,Medicare Multi Speciality Hospital,One or more common healthcare tags are missing,Retained; review recommended
+node/7043041319,Tikhile Maternity and Nursing Home,One or more common healthcare tags are missing,Retained; review recommended
+node/7043117206,Karandikar Maternity and Nursing Home,One or more common healthcare tags are missing,Retained; review recommended
+node/7043397907,Radiance Hospital,Repeated hospital name; location needs review,Retained; review recommended
+node/7043526061,Desai Children and Surgical Hospital,One or more common healthcare tags are missing,Retained; review recommended
+node/7044508385,"Kothari Hospital, Nagpur",One or more common healthcare tags are missing,Retained; review recommended
+node/7044542301,Prestos Madan Multispeciality Hospital,One or more common healthcare tags are missing,Retained; review recommended
+node/7045292104,Badjates Hospital,One or more common healthcare tags are missing,Retained; review recommended
+node/7045681877,Aharnish Hospital,One or more common healthcare tags are missing,Retained; review recommended
+node/7045823782,Dr V E Tambe Critical Care Unit,One or more common healthcare tags are missing,Retained; review recommended
+node/7047616718,"Green City Hospital, Nagpur",One or more common healthcare tags are missing,Retained; review recommended
+node/7047889343,Gurunanak Eye Hospital,One or more common healthcare tags are missing,Retained; review recommended
+node/7047912851,G Kumar Arogyadham Ayurved Panchkarm Hospital and Research Institute,One or more common healthcare tags are missing,Retained; review recommended
+node/7047919804,Avadh Clinic and Nursing Home,One or more common healthcare tags are missing,Retained; review recommended
+node/7047927397,Naidu Hospital,One or more common healthcare tags are missing,Retained; review recommended
+node/7048433641,Dhawale Hospital,One or more common healthcare tags are missing,Retained; review recommended
+node/7048433663,Maxcare Hospital,One or more common healthcare tags are missing,Retained; review recommended
+node/7048918102,Abhinav Multispeciality Hospital,One or more common healthcare tags are missing,Retained; review recommended
+node/7048992419,Gandhi Maternity and Nursing Home,One or more common healthcare tags are missing,Retained; review recommended
+node/7049213696,Mulik Hospital,Repeated hospital name; location needs review,Retained; review recommended
+node/7049832752,Shanti Mohan Hospital,One or more common healthcare tags are missing,Retained; review recommended
+node/7050485736,Waghralkar Ayurved Hospital,One or more common healthcare tags are missing,Retained; review recommended
+node/7051342877,Kubde Children Hospital and Premature Baby Unit,One or more common healthcare tags are missing,Retained; review recommended
+node/7053882311,"Mauli Hospital, Nagpur",One or more common healthcare tags are missing,Retained; review recommended
+node/7054989466,Littles Care Children Hospital,One or more common healthcare tags are missing,Retained; review recommended
+node/7055008167,Chikhale Multispeciality and Cancer Hospital,One or more common healthcare tags are missing,Retained; review recommended
+node/7055502667,"Mamta Hospital, Nagpur",One or more common healthcare tags are missing,Retained; review recommended
+node/7062356500,Mahatme Eye Bank Eye Hospital,One or more common healthcare tags are missing,Retained; review recommended
+node/7062497097,Shri Vyankatesh Multispeciality Hospital,One or more common healthcare tags are missing,Retained; review recommended
+node/7065865225,G.T. Memorial Hospital and Icu,One or more common healthcare tags are missing,Retained; review recommended
+node/7065899068,Shushrusha Ortho and Spine Care Hospital,One or more common healthcare tags are missing,Retained; review recommended
+node/7066505718,Sreeprabha Othopaedic and Trauma Hospital / Shreeprabha Ortho and Accident Hospital,One or more common healthcare tags are missing,Retained; review recommended
+node/7069790977,Rughwani Child Care Centre and Hospital,One or more common healthcare tags are missing,Retained; review recommended
+node/7069814016,Dharmadhikari Hospital,Repeated hospital name; location needs review; One or more common healthcare tags are missing,Retained; review recommended
+node/7073879402,Anantwar Eye Hospital,One or more common healthcare tags are missing,Retained; review recommended
+node/7073949851,Suraj Eye Institute - Nagpur,One or more common healthcare tags are missing,Retained; review recommended
+node/7073949857,Sarakshi Netralaya,One or more common healthcare tags are missing,Retained; review recommended
+node/7076557568,Mukerji Nursing Home and Research Centre,One or more common healthcare tags are missing,Retained; review recommended
+node/7076566995,Ambade Eye Hospital,One or more common healthcare tags are missing,Retained; review recommended
+node/7077739387,Rajgire Hospital,One or more common healthcare tags are missing,Retained; review recommended
+node/7080141270,Deoghare Hospital,One or more common healthcare tags are missing,Retained; review recommended
+node/7085742171,Akruti Hospital,One or more common healthcare tags are missing,Retained; review recommended
+node/7226796638,Super speciality Hospital,One or more common healthcare tags are missing,Retained; review recommended
+node/7226989739,"Dr. Babasaheb Ambedkar Hospital and Research Centre, Nagpur",One or more common healthcare tags are missing,Retained; review recommended
+node/7628156063,Barade Nursing Home,One or more common healthcare tags are missing,Retained; review recommended
+node/7629203212,Mujawar Nursing Home,One or more common healthcare tags are missing,Retained; review recommended
+node/7629203213,Jamshed Ji Tata Municipal Hospital,One or more common healthcare tags are missing,Retained; review recommended
+node/7629203214,Parlewar Hospital,One or more common healthcare tags are missing,Retained; review recommended
+node/7629203219,Dr. Wahane Nursing Home,One or more common healthcare tags are missing,Retained; review recommended
+node/7629203222,Metro Multi Speciality Hospital,One or more common healthcare tags are missing,Retained; review recommended
+node/7629203223,Nalin Hospital,One or more common healthcare tags are missing,Retained; review recommended
+node/7629203225,Osmania Nursing Home,One or more common healthcare tags are missing,Retained; review recommended
+node/7629203228,VIMS Hospital,One or more common healthcare tags are missing,Retained; review recommended
+node/7629203230,Life Line Hospital,One or more common healthcare tags are missing,Retained; review recommended
+node/7629203232,Dapke Children Hospital,One or more common healthcare tags are missing,Retained; review recommended
+node/7629203236,Dr. B.R. Shukla Hospital,One or more common healthcare tags are missing,Retained; review recommended
+node/7629203239,Best Orthopaedic Surgeon,One or more common healthcare tags are missing,Retained; review recommended
+node/7629203240,Nitnavare Hospital,One or more common healthcare tags are missing,Retained; review recommended
+node/7629203243,Dr. Vasalti Raut General Hospital,One or more common healthcare tags are missing,Retained; review recommended
+node/7629203250,Bocardo Hospital,One or more common healthcare tags are missing,Retained; review recommended
+node/7629203251,Madnani Hospital,One or more common healthcare tags are missing,Retained; review recommended
+node/7629203252,Kunal Hospital,One or more common healthcare tags are missing,Retained; review recommended
+node/7629203253,Welkin Multispeciality Hospital,One or more common healthcare tags are missing,Retained; review recommended
+node/7629203254,Royal Hospital,One or more common healthcare tags are missing,Retained; review recommended
+node/7629203256,Kalbande Hospital,One or more common healthcare tags are missing,Retained; review recommended
+node/7629203261,Icon Hospital - Super speciality Hospital,One or more common healthcare tags are missing,Retained; review recommended
+node/7629203263,Meher Nursing Home,One or more common healthcare tags are missing,Retained; review recommended
+node/7629203265,Usha Memorial Hospital,One or more common healthcare tags are missing,Retained; review recommended
+node/7629203266,Apex Hospital,One or more common healthcare tags are missing,Retained; review recommended
+node/7629203271,Arogyam Superspeciality Hospital,Repeated hospital name; location needs review; One or more common healthcare tags are missing,Retained; review recommended
+node/7629203276,Dr. M Hospital,One or more common healthcare tags are missing,Retained; review recommended
+node/7629203278,Dr. Mohammad Zakir,One or more common healthcare tags are missing,Retained; review recommended
+node/7629203286,Tirpude Hospital,One or more common healthcare tags are missing,Retained; review recommended
+node/7629203290,Godani Multi Speciality Hospital,One or more common healthcare tags are missing,Retained; review recommended
+node/7629203294,Gurbani Hospital,One or more common healthcare tags are missing,Retained; review recommended
+node/7629203295,Shashwat Hospital,One or more common healthcare tags are missing,Retained; review recommended
+node/7629203298,Venus Critical Care Hospital,One or more common healthcare tags are missing,Retained; review recommended
+node/7631501024,Iris Eye Hospital,One or more common healthcare tags are missing,Retained; review recommended
+node/7631501028,Child Hospital,One or more common healthcare tags are missing,Retained; review recommended
+node/7631501030,Puri Hospital and Maternity Home,One or more common healthcare tags are missing,Retained; review recommended
+node/7631501040,Yashoda Hospital,One or more common healthcare tags are missing,Retained; review recommended
+node/7631501043,Shri Bhawani Multispeciality Hospital and Research Institute,One or more common healthcare tags are missing,Retained; review recommended
+node/7631501045,Kherde Maternity & Nursing Home,One or more common healthcare tags are missing,Retained; review recommended
+node/7631501049,Kalpataru Hospital,One or more common healthcare tags are missing,Retained; review recommended
+node/7631501053,HCG NCHRI Cancer Centre,One or more common healthcare tags are missing,Retained; review recommended
+node/7631501056,Adishakti Hospital,One or more common healthcare tags are missing,Retained; review recommended
+node/7631501057,Life Springs Hospital,One or more common healthcare tags are missing,Retained; review recommended
+node/7631501063,Radiance Hospital,Repeated hospital name; location needs review,Retained; review recommended
+node/7631501064,Gananam Hospital,One or more common healthcare tags are missing,Retained; review recommended
+node/7631501066,Aparajit Orthopaedic & Maternity Nursing Home,One or more common healthcare tags are missing,Retained; review recommended
+node/7631501068,KRIMS Hospitals,One or more common healthcare tags are missing,Retained; review recommended
+node/7631501074,Deshmukh Hospital,One or more common healthcare tags are missing,Retained; review recommended
+node/7631501075,Ear Nose & Throat Hospital,One or more common healthcare tags are missing,Retained; review recommended
+node/7631501076,Naik Hospital,One or more common healthcare tags are missing,Retained; review recommended
+node/7631501080,Dr. Arvind Kinge General Hospital,One or more common healthcare tags are missing,Retained; review recommended
+node/7631501082,Kalpavruksha Hospital,One or more common healthcare tags are missing,Retained; review recommended
+node/7631501087,Jafri Hospital and Research Centre,One or more common healthcare tags are missing,Retained; review recommended
+node/7631501088,Anurag Multi Specialty Hospital,One or more common healthcare tags are missing,Retained; review recommended
+node/7631501091,Well Treat Multispeciality Hospital,One or more common healthcare tags are missing,Retained; review recommended
+node/7631501092,Shri Swami Samarth Hospital,One or more common healthcare tags are missing,Retained; review recommended
+node/7631501093,Utkarsha Nursing Home,One or more common healthcare tags are missing,Retained; review recommended
+node/7631501097,Sartaj Hospital,One or more common healthcare tags are missing,Retained; review recommended
+node/7631501107,Vedansha Hospital,One or more common healthcare tags are missing,Retained; review recommended
+node/7631501108,Mrutyunjai Hospital,One or more common healthcare tags are missing,Retained; review recommended
+node/7631501109,Abhiyog Hospital,One or more common healthcare tags are missing,Retained; review recommended
+node/8805764599,Mogre Children Hospital,One or more common healthcare tags are missing,Retained; review recommended
+node/8805781144,Hope Hospital,One or more common healthcare tags are missing,Retained; review recommended
+node/8806023876,Ganga Care Hospital Limited,One or more common healthcare tags are missing,Retained; review recommended
+node/8806074452,NewEra Hospital,One or more common healthcare tags are missing,Retained; review recommended
+node/8806123945,Lifeline hospital,One or more common healthcare tags are missing,Retained; review recommended
+node/8913989969,,Missing hospital name,Excluded pending manual review
+node/10285002109,,Missing hospital name; One or more common healthcare tags are missing,Excluded pending manual review
+node/10632883389,PROPOSED SITE,Name indicates a proposed site; Repeated hospital name; location needs review,Excluded pending manual review
+node/11351141869,Tambe Hospital,One or more common healthcare tags are missing,Retained; review recommended
+node/11351141870,Dr. Sunil V. Bajaj,One or more common healthcare tags are missing,Retained; review recommended
+node/12593350543,Arogyam Superspeciality Hospital,Repeated hospital name; location needs review,Retained; review recommended

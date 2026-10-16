@@ -1,0 +1,24 @@
+
+# Python virtual environment
+backend/.venv/
+
+# Python cache files
+__pycache__/
+*.py[cod]
+
+# Environment variables and secrets
+.env
+
+# Frontend dependencies and build output
+frontend/node_modules/
+frontend/dist/
+
+# Local database files
+*.db
+# Local OpenStreetMap road-network assets
+backend/data/*.osm
+backend/data/*.osm.gz
+backend/data/nagpur_roads.graphml
+
+# Generated local cache
+cache/

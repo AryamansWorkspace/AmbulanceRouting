@@ -1,0 +1,412 @@
+
+/* ---------- Base ---------- */
+* {
+  box-sizing: border-box;
+}
+
+:root {
+  font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  color: #172033;
+  background: #f5f7fb;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+}
+
+button,
+input,
+textarea {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+button:disabled {
+  cursor: not-allowed;
+  opacity: 0.65;
+}
+
+.app {
+  width: 100%;
+  min-height: 100vh;
+  background: #f5f7fb;
+}
+
+/* ---------- Header ---------- */
+.topbar {
+  min-height: 72px;
+  padding: 12px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  background: #fff;
+  border-bottom: 1px solid #e7ebf2;
+}
+
+.topbar strong {
+  display: block;
+  font-size: 16px;
+  font-weight: 750;
+}
+
+.small-label {
+  display: inline-block;
+  margin-top: 5px;
+  color: #7b8799;
+  font-size: 11px;
+  line-height: 1.5;
+}
+
+/* ---------- Main Layout ---------- */
+.app-layout {
+  display: flex;
+  width: 100%;
+  min-height: calc(100vh - 72px);
+}
+
+.sidebar {
+  width: 220px;
+  flex: 0 0 220px;
+  padding: 24px 14px;
+  background: #fff;
+  border-right: 1px solid #e7ebf2;
+}
+
+.sidebar h3 {
+  margin: 0 12px 16px;
+  color: #98a2b3;
+  font-size: 11px;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+}
+
+.nav-item {
+  display: block;
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 5px;
+  border: 0;
+  border-radius: 9px;
+  background: transparent;
+  color: #596579;
+  text-align: left;
+  font-size: 13px;
+  transition: background 0.15s, color 0.15s;
+}
+
+.nav-item:hover {
+  background: #f4f7fc;
+}
+
+.nav-item.active {
+  background: #eaf1ff;
+  color: #245fc5;
+  font-weight: 700;
+}
+
+.main-content {
+  flex: 1;
+  min-width: 0;
+  padding: 26px;
+}
+
+.main-content > h2 {
+  margin: 0 0 20px;
+  font-size: 25px;
+  font-weight: 750;
+  letter-spacing: -0.5px;
+}
+
+/* ---------- Dashboard Stats ---------- */
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 14px;
+  margin-bottom: 20px;
+}
+
+.stat-card,
+.panel {
+  min-width: 0;
+  background: #fff;
+  border: 1px solid #e7ebf2;
+  border-radius: 12px;
+  box-shadow: 0 2px 5px #192a4608;
+}
+
+.stat-card {
+  padding: 17px;
+}
+
+.stat-card > span {
+  color: #7b8799;
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+.stat-card h2 {
+  margin: 14px 0 0;
+  color: #172033;
+  font-size: 28px;
+  font-weight: 750;
+}
+
+/* ---------- Panels and Map ---------- */
+.panel {
+  margin-bottom: 18px;
+  overflow: hidden;
+}
+
+.panel-body {
+  padding: 18px;
+}
+
+.panel-body h3 {
+  margin: 0 0 12px;
+  color: #263248;
+  font-size: 14px;
+  font-weight: 750;
+}
+
+.panel-body > p {
+  color: #7b8799;
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+.panel-body .leaflet-container {
+  width: 100%;
+  height: 390px;
+  z-index: 1;
+}
+
+.map-container {
+  width: 100%;
+  height: 390px;
+  background: #edf2f8;
+}
+
+.map-container .leaflet-container {
+  width: 100%;
+  height: 100%;
+}
+
+/* ---------- Records ---------- */
+.incident {
+  padding: 13px 0;
+  border-bottom: 1px solid #edf0f5;
+}
+
+.incident:last-child {
+  border-bottom: 0;
+}
+
+.incident-title {
+  color: #263248;
+  font-size: 13px;
+  font-weight: 700;
+  overflow-wrap: anywhere;
+}
+
+.incident-description {
+  margin: 6px 0;
+  color: #526174;
+  font-size: 12px;
+  line-height: 1.6;
+  overflow-wrap: anywhere;
+}
+
+.incident .small-label {
+  font-size: 11px;
+  overflow-wrap: anywhere;
+}
+
+/* ---------- Search and Emergency Form ---------- */
+.search-input,
+.panel-body input:not([type="radio"]),
+.panel-body textarea {
+  max-width: 100%;
+  border: 1px solid #d9e0eb;
+  border-radius: 8px;
+  background: #fff;
+  color: #172033;
+  font-size: 13px;
+}
+
+.search-input {
+  display: block;
+  width: 100%;
+  padding: 11px 12px;
+  margin-bottom: 14px;
+}
+
+.panel-body input:not([type="radio"]) {
+  padding: 10px 12px;
+}
+
+.panel-body textarea {
+  display: block;
+  width: 100%;
+  padding: 10px 12px;
+  resize: vertical;
+}
+
+.search-input:focus,
+.panel-body input:focus,
+.panel-body textarea:focus {
+  outline: 2px solid #c9dcff;
+  border-color: #4b83e6;
+}
+
+.panel-body label {
+  color: #354258;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.panel-body input[type="radio"] {
+  accent-color: #2864c5;
+  flex-shrink: 0;
+}
+
+.panel-body button {
+  padding: 10px 14px;
+  border: 0;
+  border-radius: 8px;
+  background: #245fc5;
+  color: #fff;
+  font-size: 12px;
+  font-weight: 650;
+  transition: background 0.15s;
+}
+
+.panel-body button:hover:not(:disabled) {
+  background: #194da8;
+}
+
+.panel-body [role="status"],
+.main-content [role="alert"] {
+  color: #526174;
+  font-size: 12px;
+  line-height: 1.6;
+}
+
+.main-content [role="alert"] {
+  margin-bottom: 16px;
+  color: #b42318;
+}
+
+/* ---------- Footer ---------- */
+.footer {
+  margin-top: 22px;
+  padding: 12px 0;
+  color: #8792a4;
+  font-size: 11px;
+  line-height: 1.7;
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 1100px) {
+  .stats-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 700px) {
+  .topbar {
+    min-height: 64px;
+    padding: 12px;
+    align-items: flex-start;
+  }
+
+  .topbar strong {
+    font-size: 13px;
+    line-height: 1.5;
+  }
+
+  .topbar > span {
+    max-width: 115px;
+    text-align: right;
+  }
+
+  .app-layout {
+    min-height: calc(100vh - 64px);
+  }
+
+  .sidebar {
+    width: 64px;
+    flex-basis: 64px;
+    padding: 18px 5px;
+  }
+
+  .sidebar h3 {
+    display: none;
+  }
+
+  .nav-item {
+    padding: 12px 4px;
+    text-align: center;
+    font-size: 10px;
+    overflow-wrap: anywhere;
+  }
+
+  .main-content {
+    padding: 18px 12px;
+  }
+
+  .main-content > h2 {
+    font-size: 22px;
+  }
+
+  .stats-grid {
+    gap: 10px;
+  }
+
+  .stat-card {
+    padding: 12px;
+  }
+
+  .stat-card h2 {
+    font-size: 23px;
+  }
+
+  .panel-body {
+    padding: 14px;
+  }
+
+  .panel-body .leaflet-container,
+  .map-container {
+    height: 320px;
+  }
+}
+
+@media (max-width: 380px) {
+  .stats-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .topbar {
+    gap: 8px;
+  }
+
+  .topbar strong {
+    font-size: 12px;
+  }
+
+  .sidebar {
+    width: 54px;
+    flex-basis: 54px;
+  }
+
+  .main-content {
+    padding: 14px 9px;
+  }
+}
