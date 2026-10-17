@@ -1,5 +1,5 @@
 """
-Cost Estimation Engine — Uses Gemini + Google Search to fetch REAL hospital pricing.
+Cost Estimation Engine — Uses Groq to estimate hospital pricing.
 No hardcoded values. Every estimate comes from live web data.
 """
 
@@ -7,8 +7,6 @@ import json
 import time
 from typing import Optional, List
 from fastapi import APIRouter
-from google import genai
-from google.genai import types as genai_types
 from groq import Groq
 
 from app.schemas.cost import CostEstimateRequest, CostEstimateResponse, CostComponent, RangeInr
@@ -20,10 +18,11 @@ router = APIRouter()
 
 def _fetch_real_costs_from_gemini(procedure: str, city: str, age: Optional[int], comorbidities: Optional[List[str]]) -> dict:
     """
-    Use Gemini with Google Search grounding to find real hospital costs
+    Use Groq to estimate real hospital costs from its available knowledge
     for a given procedure in a given Indian city.
     """
-    client = genai.Client(api_key=settings.GEMINI_API_KEY)
+    if not settings.GROQ_API_KEY:
+        return None
 
     comorbidity_str = ""
     if comorbidities:
@@ -68,71 +67,24 @@ Rules:
 - Return ONLY valid JSON, nothing else.
 """
 
-    # Try with Google Search grounding
-    for attempt in range(3):
-        try:
-            response = client.models.generate_content(
-                model="gemini-2.0-flash",
-                contents=prompt,
-                config=genai_types.GenerateContentConfig(
-                    response_mime_type="application/json",
-                    tools=[genai_types.Tool(
-                        google_search=genai_types.GoogleSearch()
-                    )],
-                ),
-            )
-            data = json.loads(response.text)
-            return data
-
-        except Exception as e:
-            error_str = str(e)
-            if "503" in error_str or "UNAVAILABLE" in error_str:
-                time.sleep(2 ** attempt)
-                continue
-            print(f"[CostEngine] Gemini error: {e}")
-
-            # Try without grounding as fallback
-            try:
-                response = client.models.generate_content(
-                    model="gemini-2.0-flash",
-                    contents=prompt,
-                    config=genai_types.GenerateContentConfig(
-                        response_mime_type="application/json",
-                    ),
-                )
-                data = json.loads(response.text)
-                data["confidence"] = max(0.0, data.get("confidence", 0.6) - 0.15)
-                data.setdefault("notes", "Estimated from Gemini knowledge (search unavailable).")
-                return data
-            except Exception as e2:
-                print(f"[CostEngine] Fallback also failed: {e2}")
-                if "429" in str(e) or "RESOURCE_EXHAUSTED" in str(e) or "429" in str(e2) or "RESOURCE_EXHAUSTED" in str(e2):
-                    if settings.GROQ_API_KEY:
-                        print("[CostEngine] Gemini Quota Exceeded. Falling back to Groq.")
-                        try:
-                            groq_client = Groq(api_key=settings.GROQ_API_KEY)
-                            groq_response = groq_client.chat.completions.create(
-                                model="llama-3.3-70b-versatile",
-                                messages=[{"role": "system", "content": "You are a helpful assistant that outputs only valid JSON."}, 
-                                          {"role": "user", "content": prompt}],
-                                temperature=0.2,
-                                response_format={"type": "json_object"}
-                            )
-                            groq_data = json.loads(groq_response.choices[0].message.content)
-                            groq_data["confidence"] = max(0.0, groq_data.get("confidence", 0.5) - 0.2)
-                            groq_data.setdefault("notes", "Estimated from Groq fallback AI knowledge.")
-                            return groq_data
-                        except Exception as groq_err:
-                            print(f"[CostEngine] Groq fallback failed: {groq_err}")
-                    return {"_error": "quota_exceeded"}
-                continue
-
-    return None
-
+    try:
+        response = Groq(api_key=settings.GROQ_API_KEY).chat.completions.create(
+            model="llama-3.3-70b-versatile",
+            messages=[
+                {"role": "system", "content": "Return only a valid JSON object. Do not use markdown."},
+                {"role": "user", "content": prompt},
+            ],
+            temperature=0.2,
+            response_format={"type": "json_object"},
+        )
+        return json.loads(response.choices[0].message.content)
+    except Exception as error:
+        print(f"[CostEngine] Groq error: {error}")
+        return None
 
 @router.post("/", response_model=CostEstimateResponse)
 def get_cost_estimate(request: CostEstimateRequest):
-    """Fetch real-time cost estimates using Gemini + Google Search."""
+    """Fetch cost estimates using Groq."""
 
     real_data = _fetch_real_costs_from_gemini(
         procedure=request.procedure,
@@ -142,8 +94,7 @@ def get_cost_estimate(request: CostEstimateRequest):
     )
 
     if real_data is None or real_data.get("_error") == "quota_exceeded":
-        err_msg = "Gemini API Quota Exceeded. Please try again later." if real_data and real_data.get("_error") == "quota_exceeded" else "Could not fetch real-time pricing. This is a rough fallback estimate."
-        # Ultimate fallback if Gemini is completely down
+        err_msg = "Groq API is unavailable or not configured."
         return CostEstimateResponse(
             components=[CostComponent(name="Estimated Total", min_inr=50000, max_inr=300000)],
             total_range_inr=RangeInr(min=50000, max=300000),
@@ -155,7 +106,7 @@ def get_cost_estimate(request: CostEstimateRequest):
             disclaimer="Unable to fetch live pricing. Please consult hospitals directly for accurate quotes.",
         )
 
-    # Build components from Gemini response
+    # Build components from Groq response
     component_map = [
         ("procedure_fee", "Procedure / Surgery Fee"),
         ("hospital_stay", "Hospital Stay (room + nursing)"),
@@ -176,7 +127,7 @@ def get_cost_estimate(request: CostEstimateRequest):
     total_min = sum(c.min_inr for c in comp_list)
     total_max = sum(c.max_inr for c in comp_list)
 
-    # Confidence from Gemini
+    # Confidence from Groq
     confidence_score = real_data.get("confidence", 0.65)
     if isinstance(confidence_score, str):
         try:

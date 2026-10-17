@@ -2,36 +2,36 @@ import json
 import re
 import time
 from typing import Optional
-from google import genai
-from google.genai import types
 from groq import Groq
 from app.core.config import settings
 from app.schemas.intent import IntentOutput
 
 def initialize_client():
-    if not settings.GEMINI_API_KEY:
+    if not settings.GROQ_API_KEY:
         return None
-    return genai.Client(api_key=settings.GEMINI_API_KEY)
+    return Groq(api_key=settings.GROQ_API_KEY)
 
 
 def _try_gemini_extract(client, prompt: str, max_retries: int = 3) -> Optional[dict]:
-    """Try calling Gemini with retries on 503/overload errors."""
+    """Try calling Groq with a small retry budget."""
     for attempt in range(max_retries):
         try:
-            response = client.models.generate_content(
-                model='gemini-2.0-flash',
-                contents=prompt,
-                config=types.GenerateContentConfig(
-                    response_mime_type="application/json",
-                ),
+            response = client.chat.completions.create(
+                model="llama-3.3-70b-versatile",
+                messages=[
+                    {"role": "system", "content": "Output only valid JSON."},
+                    {"role": "user", "content": prompt},
+                ],
+                temperature=0.1,
+                response_format={"type": "json_object"},
             )
-            data = json.loads(response.text)
+            data = json.loads(response.choices[0].message.content)
             return data
         except Exception as e:
             error_str = str(e)
             if "429" in error_str or "RESOURCE_EXHAUSTED" in error_str:
                 if settings.GROQ_API_KEY:
-                    print("[AI Service] Gemini Quota Exceeded. Falling back to Groq.")
+                    print("[AI Service] Groq rate limit reached.")
                     try:
                         groq_client = Groq(api_key=settings.GROQ_API_KEY)
                         groq_response = groq_client.chat.completions.create(
@@ -46,20 +46,15 @@ def _try_gemini_extract(client, prompt: str, max_retries: int = 3) -> Optional[d
                         print(f"[AI Service] Groq fallback failed: {groq_err}")
                         return None
                 return None
-            elif "503" in error_str or "UNAVAILABLE" in error_str or "overloaded" in error_str.lower():
-                wait = 2 ** attempt
-                print(f"[AI Service] Gemini overloaded, retrying in {wait}s (attempt {attempt+1}/{max_retries})")
-                time.sleep(wait)
-                continue
             else:
-                print(f"[AI Service] Gemini error: {e}")
+                print(f"[AI Service] Groq error: {e}")
                 return None
     return None
 
 
 def _fallback_regex_extract(user_message: str) -> dict:
     """
-    Rule-based fallback when Gemini is unavailable.
+    Rule-based fallback when Groq is unavailable.
     Extracts procedure, location, budget, age, and comorbidities via regex/keywords.
     """
     msg = user_message.lower()
@@ -158,7 +153,7 @@ def _fallback_regex_extract(user_message: str) -> dict:
 
 
 def extract_intent(user_message: str) -> IntentOutput:
-    """Extract structured intent — tries Gemini first, falls back to regex."""
+    """Extract structured intent with Groq, then use the local fallback."""
     client = initialize_client()
 
     prompt = f"""Extract the health/medical intent from this user query: "{user_message}"
@@ -174,7 +169,7 @@ Important rules:
 
 Respond with ONLY valid JSON matching this structure."""
 
-    # Try Gemini with retries
+    # Try Groq with retries
     data = _try_gemini_extract(client, prompt) if client else None
 
     if data:
@@ -230,12 +225,16 @@ def generate_chat_reply(user_message: str, intent: IntentOutput) -> str:
         
         for attempt in range(2):
             try:
-                response = client.models.generate_content(
-                    model='gemini-2.0-flash',
-                    contents=prompt,
+                response = client.chat.completions.create(
+                    model="llama-3.3-70b-versatile",
+                    messages=[
+                        {"role": "system", "content": "You are Clinivue Assistant. Reply concisely."},
+                        {"role": "user", "content": prompt},
+                    ],
+                    temperature=0.7,
                 )
-                if response.text:
-                    return response.text
+                if response.choices[0].message.content:
+                    return response.choices[0].message.content
             except Exception as e:
                 error_str = str(e)
                 if "429" in error_str or "RESOURCE_EXHAUSTED" in error_str:

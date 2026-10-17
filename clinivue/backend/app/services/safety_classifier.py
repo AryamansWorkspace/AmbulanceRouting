@@ -11,9 +11,8 @@ Hard constraints (non-negotiable) from the PDR:
 
 import re
 import json
+from groq import Groq
 from typing import List, Tuple, Dict
-from google import genai
-from google.genai import types as genai_types
 from app.core.config import settings
 
 # ─── Restricted vocabulary ───────────────────────────────────────────────
@@ -340,13 +339,14 @@ HEALTH_RISKS = {
 }
 
 def _get_health_risks(abnormal_params: list) -> list:
-    """Map abnormal parameters to their clinical consequences/risks dynamically using Gemini + Google Search."""
+    """Map abnormal parameters to health risks using Groq and local fallbacks."""
     if not abnormal_params:
         return []
 
     try:
-        client = genai.Client(api_key=settings.GEMINI_API_KEY)
-        
+        if not settings.GROQ_API_KEY:
+            raise RuntimeError("GROQ_API_KEY is not configured")
+
         # Build a list of issues to search
         issues_list = [f"{p.get('status', 'abnormal')} {p['name']} (value: {p['value']} {p.get('unit', '')})" for p in abnormal_params]
         issues_text = "\n".join([f"- {issue}" for issue in issues_list])
@@ -361,18 +361,16 @@ Return ONLY a valid JSON array of strings. Each string should be formatted like:
 Do NOT include any markdown blocks or intro text, just the raw JSON array.
 """
 
-        response = client.models.generate_content(
-            model="gemini-2.0-flash",
-            contents=prompt,
-            config=genai_types.GenerateContentConfig(
-                response_mime_type="application/json",
-                tools=[genai_types.Tool(
-                    google_search=genai_types.GoogleSearch()
-                )],
-            ),
+        response = Groq(api_key=settings.GROQ_API_KEY).chat.completions.create(
+            model="llama-3.3-70b-versatile",
+            messages=[
+                {"role": "system", "content": "Return only a valid JSON array of strings."},
+                {"role": "user", "content": prompt},
+            ],
+            temperature=0.2,
         )
         
-        data = json.loads(response.text)
+        data = json.loads(response.choices[0].message.content)
         if isinstance(data, list):
             return data
             

@@ -4,7 +4,6 @@ pydantic
 pydantic-settings
 sqlalchemy
 psycopg2-binary
-google-genai
 python-multipart
 python-jose[cryptography]
 passlib[bcrypt]

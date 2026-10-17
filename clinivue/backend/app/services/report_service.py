@@ -25,8 +25,6 @@ import requests
 from typing import Dict, List, Optional
 from datetime import datetime, timezone
 
-from google import genai
-from google.genai import types as genai_types
 from groq import Groq
 from app.core.config import settings
 from app.services.safety_classifier import (
@@ -222,10 +220,8 @@ def _ocr_space_extract(file_bytes: bytes, mime_type: str) -> str:
 
 def _extract_parameters_with_llm(file_bytes: bytes, mime_type: str) -> list:
     """
-    Stage 3 — Use Gemini vision/text to extract structured lab parameters from the file.
+    Stage 3 — Extract structured lab parameters with OCR and Groq.
     """
-    client = genai.Client(api_key=settings.GEMINI_API_KEY)
-
     prompt = f"""You are a medical report parser. Extract ALL lab test parameters from the following report.
 
 For each parameter, return:
@@ -236,38 +232,7 @@ For each parameter, return:
 Return ONLY a valid JSON array of objects. If you cannot find any parameters, return an empty array [].
 """
 
-    # --- Stage 3.1: Try Gemini (multimodal) with quick retries ---
-    for attempt in range(2):
-        try:
-            contents = []
-            if mime_type.startswith("image/") or mime_type == "application/pdf":
-                contents.append(genai_types.Part.from_bytes(data=file_bytes, mime_type=mime_type))
-                contents.append(prompt)
-            else:
-                text_data = file_bytes.decode('utf-8', errors='ignore')
-                contents.append(prompt + f"\n\nReport text:\n\"\"\"\n{text_data}\n\"\"\"")
-
-            response = client.models.generate_content(
-                model="gemini-2.0-flash",
-                contents=contents,
-                config=genai_types.GenerateContentConfig(
-                    response_mime_type="application/json",
-                ),
-            )
-            params = json.loads(response.text)
-            if isinstance(params, list) and len(params) > 0:
-                return params
-        except Exception as e:
-            error_str = str(e)
-            if "429" in error_str or "RESOURCE_EXHAUSTED" in error_str:
-                wait_time = 5 * (attempt + 1)
-                print(f"[ReportService] Gemini rate limited. Waiting {wait_time}s before fallback... (attempt {attempt+1}/2)")
-                time.sleep(wait_time)
-                continue
-            else:
-                print(f"[ReportService] Gemini extraction failed: {e}")
-                break
-    print("[ReportService] Gemini exhausted. Falling through to OCR.space + Groq...")
+    print("[ReportService] Using OCR.space + Groq extraction...")
 
     # --- Stage 3.2: Try OCR.space + Groq (text-only fallback) ---
     if settings.GROQ_API_KEY:

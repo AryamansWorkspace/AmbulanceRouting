@@ -1,5 +1,5 @@
 """
-Provider Ranking Engine — Uses Gemini + Google Search to find REAL hospitals.
+Provider Ranking Engine — Uses Groq to rank REAL hospitals.
 No mock data. Returns actual hospitals near the user's city.
 """
 
@@ -7,8 +7,6 @@ import json
 import time
 from typing import Optional
 from fastapi import APIRouter
-from google import genai
-from google.genai import types as genai_types
 from groq import Groq
 
 from app.schemas.provider import ProviderRequest, ProviderListResponse, ProviderOutput, ScoreBreakdown
@@ -19,8 +17,7 @@ router = APIRouter()
 
 
 def _fetch_real_hospitals(procedure: str, city: str, budget_inr: Optional[int]) -> Optional[list]:
-    """Use Gemini with Google Search grounding to find real hospitals."""
-    client = genai.Client(api_key=settings.GEMINI_API_KEY)
+    """Use Groq to find hospital recommendations from the supplied context."""
 
     budget_hint = ""
     if budget_inr:
@@ -57,75 +54,31 @@ Rules:
 - Return ONLY a valid JSON array, nothing else.
 """
 
-    for attempt in range(3):
-        try:
-            response = client.models.generate_content(
-                model="gemini-2.0-flash",
-                contents=prompt,
-                config=genai_types.GenerateContentConfig(
-                    response_mime_type="application/json",
-                    tools=[genai_types.Tool(
-                        google_search=genai_types.GoogleSearch()
-                    )],
-                ),
-            )
-            data = json.loads(response.text)
-            if isinstance(data, list) and len(data) > 0:
+    if not settings.GROQ_API_KEY:
+        return None
+
+    try:
+        response = Groq(api_key=settings.GROQ_API_KEY).chat.completions.create(
+            model="llama-3.3-70b-versatile",
+            messages=[
+                {"role": "system", "content": "Return only a valid JSON array. Do not use markdown."},
+                {"role": "user", "content": prompt},
+            ],
+            temperature=0.2,
+        )
+        text = response.choices[0].message.content or ""
+        start_idx, end_idx = text.find("["), text.rfind("]")
+        if start_idx >= 0 and end_idx > start_idx:
+            data = json.loads(text[start_idx:end_idx + 1])
+            if isinstance(data, list):
                 return data
-
-        except Exception as e:
-            error_str = str(e)
-            if "503" in error_str or "UNAVAILABLE" in error_str:
-                time.sleep(2 ** attempt)
-                continue
-            print(f"[ProviderEngine] Gemini error: {e}")
-
-            # Fallback without grounding
-            try:
-                response = client.models.generate_content(
-                    model="gemini-2.0-flash",
-                    contents=prompt,
-                    config=genai_types.GenerateContentConfig(
-                        response_mime_type="application/json",
-                    ),
-                )
-                data = json.loads(response.text)
-                if isinstance(data, list) and len(data) > 0:
-                    return data
-            except Exception as e2:
-                print(f"[ProviderEngine] Fallback failed: {e2}")
-                if "429" in str(e) or "RESOURCE_EXHAUSTED" in str(e) or "429" in str(e2) or "RESOURCE_EXHAUSTED" in str(e2):
-                    if settings.GROQ_API_KEY:
-                        print("[ProviderEngine] Gemini Quota Exceeded. Falling back to Groq.")
-                        try:
-                            groq_client = Groq(api_key=settings.GROQ_API_KEY)
-                            groq_response = groq_client.chat.completions.create(
-                                model="llama-3.3-70b-versatile",
-                                messages=[{"role": "system", "content": "You are a helpful assistant that outputs only valid JSON arrays."}, 
-                                          {"role": "user", "content": prompt}],
-                                temperature=0.2,
-                            )
-                            # llama-3.3-70b-versatile doesn't reliably support json_object mode if the prompt asks for a JSON array,
-                            # so we parse the text output directly.
-                            groq_text = groq_response.choices[0].message.content
-                            # find array
-                            start_idx = groq_text.find('[')
-                            end_idx = groq_text.rfind(']')
-                            if start_idx != -1 and end_idx != -1:
-                                groq_data = json.loads(groq_text[start_idx:end_idx+1])
-                                if isinstance(groq_data, list) and len(groq_data) > 0:
-                                    return groq_data
-                        except Exception as groq_err:
-                            print(f"[ProviderEngine] Groq fallback failed: {groq_err}")
-                    return [{"_error": "quota_exceeded"}]
-                continue
-
+    except Exception as error:
+        print(f"[ProviderEngine] Groq error: {error}")
     return None
-
 
 @router.post("/", response_model=ProviderListResponse)
 def get_providers(request: ProviderRequest):
-    """Fetch real hospital recommendations using Gemini + Google Search."""
+    """Fetch hospital recommendations using Groq."""
 
     hospitals = _fetch_real_hospitals(
         procedure=request.procedure,
@@ -134,8 +87,7 @@ def get_providers(request: ProviderRequest):
     )
 
     if hospitals is None or (len(hospitals) > 0 and hospitals[0].get("_error") == "quota_exceeded"):
-        err_msg = "Gemini API Quota Exceeded. Please try again later." if hospitals and len(hospitals) > 0 and hospitals[0].get("_error") == "quota_exceeded" else "Could not search for hospitals. Please try again."
-        # If Gemini is completely down, return a helpful error
+        err_msg = "Groq API is unavailable or not configured."
         return ProviderListResponse(
             providers=[],
             confidence=ConfidenceEnvelope(

@@ -7,11 +7,13 @@ export default function InsightsPanel({ contextData }: { contextData: any }) {
   const [providers, setProviders] = useState<any[]>([]);
   const [costData, setCostData] = useState<any>(null);
   const [loading, setLoading] = useState(false);
+  const [error, setError] = useState('');
 
   useEffect(() => {
     // Clear old data when a new query comes in
     setProviders([]);
     setCostData(null);
+    setError('');
     
     if (!contextData?.procedure || !contextData?.location) return;
     const fetchData = async () => {
@@ -23,9 +25,17 @@ export default function InsightsPanel({ contextData }: { contextData: any }) {
         ]);
         const provData = await provRes.json();
         const costEstimate = await costRes.json();
+        if (!provRes.ok || !costRes.ok) {
+          throw new Error(
+            provData?.detail || costEstimate?.detail || 'Clinivue insights service returned an error.'
+          );
+        }
         setProviders(provData.providers || []);
         setCostData(costEstimate);
-      } catch (err) { console.error(err); }
+      } catch (err) {
+        console.error(err);
+        setError(err instanceof Error ? err.message : 'Unable to load smart insights.');
+      }
       finally { setLoading(false); }
     };
     fetchData();
@@ -38,6 +48,16 @@ export default function InsightsPanel({ contextData }: { contextData: any }) {
       <div className="flex flex-col items-center justify-center h-full space-y-3">
         <div className="w-10 h-10 rounded-full border-3 border-teal-100 dark:border-teal-900/50 border-t-teal-500 dark:border-t-teal-400 animate-spin"></div>
         <p className="text-sm text-slate-400 dark:text-slate-500 font-medium">Finding best options for you...</p>
+      </div>
+    );
+  }
+
+  if (error) {
+    return (
+      <div className="flex flex-col items-center justify-center h-full text-center px-8">
+        <AlertTriangle className="w-8 h-8 text-amber-500 mb-3" />
+        <p className="text-sm font-semibold text-slate-700 dark:text-slate-200">Smart Insights unavailable</p>
+        <p className="text-xs text-slate-400 dark:text-slate-500 mt-2">{error}</p>
       </div>
     );
   }
