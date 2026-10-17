@@ -2,6 +2,7 @@ import React, { useState, useRef, useEffect } from 'react';
 import { Send, Bot, User, Loader2, ShieldCheck, Heart, MapPin, PlusCircle } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { saveSessionMessages, subscribeHistory, type ChatMessage } from '../lib/searchHistory';
+import { CLINIVUE_API } from '../lib/api';
 
 type Message = {
   id: string;
@@ -112,7 +113,7 @@ export default function ChatInterface({ onContextUpdate, userUid, sessionId, onN
     setLoading(true);
 
     try {
-      const response = await fetch('http://127.0.0.1:8001/api/v1/chat/', {
+      const response = await fetch(`${CLINIVUE_API}/api/v1/chat/`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ message: userMessage.content, session_id: 'demo-session-id' })

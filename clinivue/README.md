@@ -24,6 +24,9 @@ cd D:\MajorProject\AmbulanceRouting\clinivue\backend
 Clinivue API documentation is available at
 `http://127.0.0.1:8001/docs`.
 
+The frontend also needs `VITE_FIREBASE_API_KEY` and
+`VITE_CLINIVUE_API_URL=http://127.0.0.1:8001` in `frontend\.env`.
+
 ## Frontend
 
 Start the primary frontend from `frontend`:

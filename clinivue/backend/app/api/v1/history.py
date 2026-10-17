@@ -1,10 +1,11 @@
 import os
 import json
+from pathlib import Path
 from fastapi import APIRouter
 from pydantic import BaseModel
 
 router = APIRouter()
-HISTORY_FILE = "data/history.json"
+HISTORY_FILE = Path(__file__).resolve().parents[3] / "data" / "history.json"
 
 class HistoryEntry(BaseModel):
     user_uid: str
@@ -14,14 +15,14 @@ def load_history():
     if not os.path.exists(HISTORY_FILE):
         return {}
     try:
-        with open(HISTORY_FILE, "r") as f:
+        with HISTORY_FILE.open("r", encoding="utf-8") as f:
             return json.load(f)
-    except:
+    except (OSError, json.JSONDecodeError):
         return {}
 
 def save_history(data):
-    os.makedirs(os.path.dirname(HISTORY_FILE), exist_ok=True)
-    with open(HISTORY_FILE, "w") as f:
+    HISTORY_FILE.parent.mkdir(parents=True, exist_ok=True)
+    with HISTORY_FILE.open("w", encoding="utf-8") as f:
         json.dump(data, f)
 
 @router.get("/{user_uid}")

@@ -1,4 +1,5 @@
 import { encryptData, decryptData } from './encryption';
+import { CLINIVUE_API } from './api';
 
 export type ChatMessage = {
   role: 'user' | 'assistant';
@@ -27,7 +28,7 @@ export type HistoryData = {
   searches: SearchEntry[];
 };
 
-const API_BASE = 'http://127.0.0.1:8001/api/v1/history';
+const API_BASE = `${CLINIVUE_API}/api/v1/history`;
 
 const historyListeners = new Set<(data: HistoryData) => void>();
 

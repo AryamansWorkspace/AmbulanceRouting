@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { ShieldCheck, IndianRupee, MapPin, Building2, AlertTriangle, Star } from 'lucide-react';
 import { motion } from 'framer-motion';
+import { CLINIVUE_API } from '../lib/api';
 
 export default function InsightsPanel({ contextData }: { contextData: any }) {
   const [providers, setProviders] = useState<any[]>([]);
@@ -17,8 +18,8 @@ export default function InsightsPanel({ contextData }: { contextData: any }) {
       setLoading(true);
       try {
         const [provRes, costRes] = await Promise.all([
-          fetch('http://127.0.0.1:8001/api/v1/providers/', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ procedure: contextData.procedure, location: contextData.location, budget_inr: contextData.budget_inr }) }),
-          fetch('http://127.0.0.1:8001/api/v1/cost-estimate/', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ procedure: contextData.procedure, city: contextData.location, age: contextData.age, comorbidities: contextData.comorbidities }) })
+          fetch(`${CLINIVUE_API}/api/v1/providers/`, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ procedure: contextData.procedure, location: contextData.location, budget_inr: contextData.budget_inr }) }),
+          fetch(`${CLINIVUE_API}/api/v1/cost-estimate/`, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ procedure: contextData.procedure, city: contextData.location, age: contextData.age, comorbidities: contextData.comorbidities }) })
         ]);
         const provData = await provRes.json();
         const costEstimate = await costRes.json();

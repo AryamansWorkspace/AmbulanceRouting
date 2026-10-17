@@ -12,20 +12,31 @@ const firebaseConfig = {
 };
 
 const app = initializeApp(firebaseConfig);
-const auth = getAuth(app);
+const auth = firebaseConfig.apiKey ? getAuth(app) : null;
 const db = getFirestore(app);
 const googleProvider = new GoogleAuthProvider();
 
 export async function signInWithGoogle() {
+  if (!auth) {
+    throw new Error('Firebase authentication is not configured. Add VITE_FIREBASE_API_KEY to frontend/.env.');
+  }
+
   const result = await signInWithPopup(auth, googleProvider);
   return result.user;
 }
 
 export async function logOut() {
-  await signOut(auth);
+  if (auth) {
+    await signOut(auth);
+  }
 }
 
 export function onAuthChange(callback: (user: User | null) => void) {
+  if (!auth) {
+    callback(null);
+    return () => {};
+  }
+
   return onAuthStateChanged(auth, callback);
 }
 

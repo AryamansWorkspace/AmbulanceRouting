@@ -3,6 +3,7 @@ import { Upload, FileText, Loader2, CheckCircle2, AlertTriangle, XCircle, ArrowD
 import ReactMarkdown from 'react-markdown';
 import { motion, AnimatePresence } from 'framer-motion';
 import { saveSearch } from '../lib/searchHistory';
+import { CLINIVUE_API } from '../lib/api';
 
 type ReportParam = { name: string; value: number; unit: string; status: string; severity: string; reference_range: number[]; explanation: string; };
 type ReportData = { report_id: string; status: string; parsed_at?: string; confidence?: number; parameters?: ReportParam[]; summary?: string; recommendation?: string; home_remedies?: string[]; action_plan?: string[]; health_risks?: string[]; disclaimer?: string; progress_pct?: number; };
@@ -42,7 +43,7 @@ export default function ReportUploader({ userUid }: { userUid: string }) {
     setHospitalError(null);
     try {
       // Defaulting procedure to 'Specialist Consultation' as it's the safest bet for a generic lab report issue.
-      const res = await fetch('http://127.0.0.1:8001/api/v1/providers/', {
+      const res = await fetch(`${CLINIVUE_API}/api/v1/providers/`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ procedure: 'Specialist Consultation', location, budget_inr: null })
@@ -69,7 +70,7 @@ export default function ReportUploader({ userUid }: { userUid: string }) {
       if (cancelledRef.current) return;
       attempt++;
       try {
-        const res = await fetch(`http://127.0.0.1:8001/api/v1/report/${reportId}`);
+        const res = await fetch(`${CLINIVUE_API}/api/v1/report/${reportId}`);
         const data = await res.json();
         if (cancelledRef.current) return;
         if (data.status === 'complete' || data.status === 'failed' || data.status === 'cancelled') {
@@ -102,7 +103,7 @@ export default function ReportUploader({ userUid }: { userUid: string }) {
     const reportId = currentReportId.current;
     if (reportId) {
       try {
-        await fetch(`http://127.0.0.1:8001/api/v1/report/${reportId}/cancel`, { method: 'POST' });
+        await fetch(`${CLINIVUE_API}/api/v1/report/${reportId}/cancel`, { method: 'POST' });
       } catch {}
     }
     setUploading(false);
@@ -121,7 +122,7 @@ export default function ReportUploader({ userUid }: { userUid: string }) {
     const formData = new FormData();
     formData.append('file', file);
     try {
-      const res = await fetch('http://127.0.0.1:8001/api/v1/report/upload', { method: 'POST', body: formData });
+      const res = await fetch(`${CLINIVUE_API}/api/v1/report/upload`, { method: 'POST', body: formData });
       if (!res.ok) { const e = await res.json(); throw new Error(e.detail || 'Upload failed'); }
       const data = await res.json();
       currentReportId.current = data.report_id;
