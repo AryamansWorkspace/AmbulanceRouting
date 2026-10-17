@@ -2,6 +2,8 @@
 import { useEffect, useState } from "react";
 import MapView from "./MapView";
 import EmergencyForm from "./EmergencyForm";
+import { logOut, onAuthChange } from "./lib/firebase";
+import LoginPage from "./LoginPage";
 import "./App.css";
 
 const API = "http://127.0.0.1:8000";
@@ -37,7 +39,7 @@ const getStatusStyle = (status) => {
   return styles[(status || "").toLowerCase()] || styles.offline;
 };
 
-export default function App() {
+function DashboardApp({ user }) {
   const [page, setPage] = useState("Dashboard");
   const [emergencies, setEmergencies] = useState([]);
   const [ambulances, setAmbulances] = useState([]);
@@ -93,9 +95,12 @@ export default function App() {
   }
 
   useEffect(() => {
-    refreshData();
+    const initialRefresh = setTimeout(refreshData, 0);
     const timer = setInterval(refreshData, 15000);
-    return () => clearInterval(timer);
+    return () => {
+      clearTimeout(initialRefresh);
+      clearInterval(timer);
+    };
   }, []);
 
   const activeEmergencies = emergencies.filter(
@@ -592,9 +597,17 @@ export default function App() {
           <strong>🚑 Emergency Management Digital Twin</strong>
           <div className="small-label">Nagpur · Simulation Dashboard</div>
         </div>
-        <span className="small-label">
-          {online ? "🟢 Backend Online" : "🔴 Backend Offline"}
-        </span>
+        <div className="topbar-actions">
+          <span className="small-label">
+            {online ? "🟢 Backend Online" : "🔴 Backend Offline"}
+          </span>
+          <span className="user-chip">
+            {user.displayName || user.email || "Authenticated user"}
+          </span>
+          <button className="sign-out-button" onClick={logOut}>
+            Sign out
+          </button>
+        </div>
       </header>
 
       <div className="app-layout">
@@ -715,4 +728,16 @@ export default function App() {
       </div>
     </div>
   );
+}
+
+export default function App() {
+  const [user, setUser] = useState(undefined);
+
+  useEffect(() => onAuthChange(setUser), []);
+
+  if (user === undefined) {
+    return <div className="auth-loading">Loading your secure workspace...</div>;
+  }
+
+  return user ? <DashboardApp user={user} /> : <LoginPage />;
 }

@@ -1,16 +1,38 @@
-# React + Vite
+# Ambulance Routing Frontend
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This React/Vite frontend is the primary AmbulanceRouting dashboard with the
+clean Clinivue visual style and Clinivue Firebase Google authentication.
 
-Currently, two official plugins are available:
+## Local setup
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+```powershell
+cd D:\MajorProject\AmbulanceRouting\frontend
+npm ci
+Copy-Item .env.example .env
+```
 
-## React Compiler
+Set `VITE_FIREBASE_API_KEY` in `.env` using the Clinivue Firebase Web API key.
+The API key is intentionally not committed to Git.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+Start the frontend after starting the backend:
 
-## Expanding the ESLint configuration
+```powershell
+npm run dev
+```
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+The dashboard is available at `http://localhost:5173`.
+
+## Validation
+
+```powershell
+npm run lint
+npm run build
+```
+
+The backend remains the primary ambulance-routing API and runs from the
+repository root:
+
+```powershell
+cd ..
+.\backend\.venv\Scripts\python.exe -m uvicorn backend.main:app --reload --host 127.0.0.1 --port 8000
+```
