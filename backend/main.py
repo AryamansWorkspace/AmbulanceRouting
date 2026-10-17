@@ -1,4 +1,3 @@
-
 import json
 import sqlite3
 from pathlib import Path
@@ -11,7 +10,8 @@ from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel, Field
 
 from backend.database import get_connection, init_db
-from backend.routing import calculate_route
+from backend.routing import calculate_route, load_graph
+from backend.traffic_simulation import get_traffic_segments
 from backend.hospital_recommendation import recommend_hospitals
 from backend.emergency_nlp import categorize_emergency
 
@@ -25,6 +25,9 @@ app.add_middleware(
 )
 
 HOSPITALS_FILE = Path(__file__).resolve().parent / "data" / "hospitals.json"
+
+ROUTE_SCENARIOS = {"baseline", "normal", "congested", "blockage"}
+TRAFFIC_SCENARIOS = {"normal", "congested", "blockage"}
 
 
 class EmergencyRequest(BaseModel):
@@ -47,7 +50,6 @@ class DispatchRequest(BaseModel):
     hospital_id: str = Field(min_length=1, max_length=100)
 
 
-# NEW: Validate manually requested ambulance statuses.
 class AmbulanceStatusRequest(BaseModel):
     status: str = Field(
         pattern="^(available|assigned|maintenance|offline)$"
@@ -64,9 +66,19 @@ def hospitals():
         raise HTTPException(500, f"Hospital data error: {exc}")
 
 
-def route_or_error(*coords):
+def route_or_error(
+    start_lat, start_lon, end_lat, end_lon, scenario="baseline"
+):
+    if scenario not in ROUTE_SCENARIOS:
+        raise HTTPException(
+            422,
+            "Unsupported scenario. Use baseline, normal, congested, or blockage.",
+        )
+
     try:
-        return calculate_route(*coords)
+        return calculate_route(
+            start_lat, start_lon, end_lat, end_lon, scenario=scenario
+        )
     except ValueError as exc:
         raise HTTPException(422, str(exc))
     except FileNotFoundError:
@@ -150,8 +162,32 @@ def get_route(
     start_lon: float,
     end_lat: float,
     end_lon: float,
+    scenario: str = Query(default="baseline"),
 ):
-    return route_or_error(start_lat, start_lon, end_lat, end_lon)
+    """Calculate a shortest-distance or simulated traffic-aware route."""
+    return route_or_error(
+        start_lat, start_lon, end_lat, end_lon, scenario
+    )
+
+
+@app.get("/traffic-simulation")
+def traffic_simulation(
+    scenario: str = Query(default="normal"),
+    limit: int = Query(default=180, ge=1, le=1000),
+):
+    """Return sampled road segments with simulated traffic conditions."""
+    if scenario not in TRAFFIC_SCENARIOS:
+        raise HTTPException(
+            422, "Use normal, congested, or blockage for traffic simulation."
+        )
+
+    try:
+        graph = load_graph()
+        return get_traffic_segments(graph, scenario, limit=limit)
+    except FileNotFoundError:
+        raise HTTPException(500, "Road network graph not found.")
+    except ValueError as exc:
+        raise HTTPException(422, str(exc))
 
 
 @app.post("/recommend-hospitals")
@@ -216,7 +252,6 @@ def get_ambulances():
     }
 
 
-# NEW: Update an ambulance's status in SQLite.
 @app.patch("/ambulances/{ambulance_id}/status")
 def update_ambulance_status(
     ambulance_id: int,
@@ -270,8 +305,10 @@ def create_dispatch(request: DispatchRequest):
     ]
 
     hospital = next(
-        (item for item in candidates
-         if str(item.get("id")) == request.hospital_id),
+        (
+            item for item in candidates
+            if str(item.get("id")) == request.hospital_id
+        ),
         None,
     )
 
@@ -280,11 +317,13 @@ def create_dispatch(request: DispatchRequest):
             422, "Hospital is not in the recommended list."
         )
 
+    # Keep dispatch creation compatible with the existing baseline route.
     route = route_or_error(
         ambulance["latitude"],
         ambulance["longitude"],
         emergency["latitude"],
         emergency["longitude"],
+        "baseline",
     )
 
     try:
