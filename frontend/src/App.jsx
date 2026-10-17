@@ -1,4 +1,3 @@
-
 import { useEffect, useState } from "react";
 import MapView from "./MapView";
 import EmergencyForm from "./EmergencyForm";
@@ -37,6 +36,13 @@ const getStatusStyle = (status) => {
   return styles[(status || "").toLowerCase()] || styles.offline;
 };
 
+const TRAFFIC_SCENARIOS = [
+  { value: "baseline", label: "Baseline — Shortest Distance" },
+  { value: "normal", label: "Normal Traffic" },
+  { value: "congested", label: "Congested Traffic" },
+  { value: "blockage", label: "Road Blockage Scenario" },
+];
+
 export default function App() {
   const [page, setPage] = useState("Dashboard");
   const [emergencies, setEmergencies] = useState([]);
@@ -52,12 +58,14 @@ export default function App() {
   const [selectedHospital, setSelectedHospital] = useState("");
   const [recommendations, setRecommendations] = useState([]);
   const [route, setRoute] = useState(null);
+  const [routeRequest, setRouteRequest] = useState(null);
+  const [trafficScenario, setTrafficScenario] = useState("baseline");
+
   const [dispatchError, setDispatchError] = useState("");
   const [dispatchMessage, setDispatchMessage] = useState("");
   const [loadingHospitals, setLoadingHospitals] = useState(false);
   const [submitting, setSubmitting] = useState(false);
 
-  // NEW: Track ambulance status update progress and messages.
   const [updatingAmbulanceId, setUpdatingAmbulanceId] = useState(null);
   const [ambulanceStatusError, setAmbulanceStatusError] = useState("");
   const [ambulanceStatusMessage, setAmbulanceStatusMessage] = useState("");
@@ -65,7 +73,11 @@ export default function App() {
   async function refreshData() {
     try {
       const endpoints = [
-        "health", "emergencies", "ambulances", "hospitals", "dispatches",
+        "health",
+        "emergencies",
+        "ambulances",
+        "hospitals",
+        "dispatches",
       ];
 
       const responses = await Promise.all(
@@ -98,6 +110,40 @@ export default function App() {
     return () => clearInterval(timer);
   }, []);
 
+  // Request a route using the selected traffic scenario.
+  async function fetchRouteForScenario(request, scenario) {
+    const params = new URLSearchParams({
+      ...request,
+      scenario,
+    });
+
+    const response = await fetch(`${API}/route?${params}`);
+    const data = await response.json();
+
+    if (!response.ok) {
+      throw new Error(data.detail || "Could not calculate this route.");
+    }
+
+    setRoute(data);
+    return data;
+  }
+
+  // Used by the traffic selector in MapView.
+  async function changeTrafficScenario(scenario) {
+    setTrafficScenario(scenario);
+    setDispatchError("");
+
+    if (!routeRequest) return;
+
+    try {
+      await fetchRouteForScenario(routeRequest, scenario);
+    } catch (err) {
+      setDispatchError(
+        `Route recalculation failed: ${err.message || "Unknown error"}`
+      );
+    }
+  }
+
   const activeEmergencies = emergencies.filter(
     (item) =>
       !["resolved", "completed", "closed"].includes(
@@ -124,7 +170,6 @@ export default function App() {
     (item.name || "").toLowerCase().includes(search.toLowerCase())
   );
 
-  // NEW: Save a status change through the backend API.
   async function updateAmbulanceStatus(ambulanceId, newStatus) {
     const ambulance = ambulances.find(
       (item) => item.id === ambulanceId
@@ -132,7 +177,6 @@ export default function App() {
 
     if (!ambulance || ambulance.status === newStatus) return;
 
-    // Warn before making an assigned ambulance available again.
     if (
       ambulance.status === "assigned" &&
       newStatus === "available" &&
@@ -239,6 +283,25 @@ export default function App() {
       return;
     }
 
+    const emergency = emergencies.find(
+      (item) => String(item.id) === selectedEmergency
+    );
+    const ambulance = ambulances.find(
+      (item) => String(item.id) === selectedAmbulance
+    );
+
+    if (!emergency || !ambulance) {
+      setDispatchError("The selected emergency or ambulance could not be found.");
+      return;
+    }
+
+    const request = {
+      start_lat: ambulance.latitude,
+      start_lon: ambulance.longitude,
+      end_lat: emergency.latitude,
+      end_lon: emergency.longitude,
+    };
+
     setSubmitting(true);
     setDispatchError("");
     setDispatchMessage("");
@@ -260,11 +323,25 @@ export default function App() {
         throw new Error(data.detail || "Dispatch could not be created.");
       }
 
+      // Store coordinates so the route can be recalculated later.
+      setRouteRequest(request);
       setRoute(data.route || null);
       setDispatchMessage(`Dispatch #${data.dispatch_id} created successfully.`);
       setRecommendations([]);
       setSelectedHospital("");
       setSelectedAmbulance("");
+
+      // Keep dispatch successful even if an optional scenario recalculation fails.
+      if (trafficScenario !== "baseline") {
+        try {
+          await fetchRouteForScenario(request, trafficScenario);
+        } catch (routeErr) {
+          setDispatchError(
+            `Dispatch created, but route recalculation failed: ${routeErr.message}`
+          );
+        }
+      }
+
       await refreshData();
     } catch (err) {
       setDispatchError(err.message || "Dispatch failed.");
@@ -282,7 +359,9 @@ export default function App() {
 
     return (
       <>
-        {page === "Emergencies" && <EmergencyForm onReported={refreshData} />}
+        {page === "Emergencies" && (
+          <EmergencyForm onReported={refreshData} />
+        )}
 
         {page === "Hospitals" && (
           <input
@@ -389,15 +468,13 @@ export default function App() {
                             }
                           >
                             {AMBULANCE_STATUSES.map((option) => (
-                              <option
-                                key={option.value}
-                                value={option.value}
-                              >
+                              <option key={option.value} value={option.value}>
                                 {option.label}
                               </option>
                             ))}
                           </select>
                         </label>
+
                         {updatingAmbulanceId === item.id && (
                           <span className="small-label">
                             Saving status...
@@ -413,7 +490,10 @@ export default function App() {
                   ) : (
                     <>
                       <p className="incident-description">
-                        {item.description || item.status || item.category || "Hospital candidate"}
+                        {item.description ||
+                          item.status ||
+                          item.category ||
+                          "Hospital candidate"}
                       </p>
                       <span className="small-label">
                         Status: {item.status || "Unverified"} · Location:{" "}
@@ -457,6 +537,7 @@ export default function App() {
                   setDispatchError("");
                   setDispatchMessage("");
                   setRoute(null);
+                  setRouteRequest(null);
                 }}
               >
                 <option value="">Select a reported emergency</option>
@@ -489,7 +570,9 @@ export default function App() {
               onClick={findHospitals}
               disabled={loadingHospitals}
             >
-              {loadingHospitals ? "Finding hospitals..." : "Find Recommended Hospitals"}
+              {loadingHospitals
+                ? "Finding hospitals..."
+                : "Find Recommended Hospitals"}
             </button>
           </div>
 
@@ -514,14 +597,17 @@ export default function App() {
                       name="recommended-hospital"
                       value={String(hospital.id)}
                       checked={selectedHospital === String(hospital.id)}
-                      onChange={(event) => setSelectedHospital(event.target.value)}
+                      onChange={(event) =>
+                        setSelectedHospital(event.target.value)
+                      }
                     />{" "}
                     <strong>{hospital.name || "Unnamed candidate"}</strong>
                     <p className="incident-description">
                       Road distance: {hospital.road_distance_km} km
                     </p>
                     <span className="small-label">
-                      {hospital.relevance_hint || "No clear name-based relevance hint"}
+                      {hospital.relevance_hint ||
+                        "No clear name-based relevance hint"}
                     </span>
                   </label>
                 ))}
@@ -539,24 +625,60 @@ export default function App() {
           )}
 
           {dispatchError && (
-            <p role="alert" style={{ color: "#b91c1c" }}>{dispatchError}</p>
+            <p role="alert" style={{ color: "#b91c1c" }}>
+              {dispatchError}
+            </p>
           )}
           {dispatchMessage && (
-            <p style={{ color: "#166534" }}>{dispatchMessage}</p>
+            <p role="status" style={{ color: "#166534" }}>
+              {dispatchMessage}
+            </p>
           )}
         </section>
 
         {route && (
           <section className="panel panel-body">
             <h3>Calculated Ambulance Route</h3>
+
+            <label style={{ display: "block", maxWidth: "420px" }}>
+              Traffic scenario
+              <select
+                className="search-input"
+                value={trafficScenario}
+                onChange={(event) =>
+                  changeTrafficScenario(event.target.value)
+                }
+              >
+                {TRAFFIC_SCENARIOS.map((scenario) => (
+                  <option key={scenario.value} value={scenario.value}>
+                    {scenario.label}
+                  </option>
+                ))}
+              </select>
+            </label>
+
             <p>
               Road distance: <strong>{route.distance_km} km</strong>
             </p>
+
+            {route.estimated_time_min != null && (
+              <p>
+                Estimated simulated travel time:{" "}
+                <strong>{route.estimated_time_min} minutes</strong>
+              </p>
+            )}
+
             <p className="small-label">
-              Simulated shortest-distance route. Live traffic and travel time
-              are not calculated.
+              {trafficScenario === "baseline"
+                ? "Shortest-distance route. Traffic is not included in this route calculation."
+                : "Traffic-aware route based on the Random Forest model trained on synthetic traffic data. This is a simulation, not live traffic."}
             </p>
-            <MapView route={route} />
+
+            <MapView
+              route={route}
+              trafficScenario={trafficScenario}
+              onTrafficScenarioChange={changeTrafficScenario}
+            />
           </section>
         )}
 
@@ -566,7 +688,10 @@ export default function App() {
             <p>No dispatches recorded yet.</p>
           ) : (
             dispatches.map((item, index) => (
-              <div className="incident" key={item.dispatch_id ?? item.id ?? index}>
+              <div
+                className="incident"
+                key={item.dispatch_id ?? item.id ?? index}
+              >
                 <div className="incident-title">
                   Dispatch #{item.dispatch_id ?? item.id ?? index + 1}
                 </div>
@@ -667,6 +792,7 @@ export default function App() {
                     ))}
                   </div>
                 )}
+
                 <button
                   className="nav-item"
                   onClick={() => setPage("Ambulances")}
@@ -678,7 +804,36 @@ export default function App() {
 
               <section className="panel panel-body">
                 <h3>Nagpur Emergency Map</h3>
-                <MapView route={route} />
+
+                <label style={{ display: "block", maxWidth: "420px" }}>
+                  Traffic scenario
+                  <select
+                    className="search-input"
+                    value={trafficScenario}
+                    onChange={(event) =>
+                      changeTrafficScenario(event.target.value)
+                    }
+                  >
+                    {TRAFFIC_SCENARIOS.map((scenario) => (
+                      <option key={scenario.value} value={scenario.value}>
+                        {scenario.label}
+                      </option>
+                    ))}
+                  </select>
+                </label>
+
+                {route?.estimated_time_min != null && (
+                  <p>
+                    Estimated simulated travel time:{" "}
+                    <strong>{route.estimated_time_min} minutes</strong>
+                  </p>
+                )}
+
+                <MapView
+                  route={route}
+                  trafficScenario={trafficScenario}
+                  onTrafficScenarioChange={changeTrafficScenario}
+                />
               </section>
 
               <section className="panel panel-body">
@@ -691,7 +846,9 @@ export default function App() {
                       <div className="incident-title">
                         🚨 {item.category || `Emergency #${item.id}`}
                       </div>
-                      <p className="incident-description">{item.description}</p>
+                      <p className="incident-description">
+                        {item.description}
+                      </p>
                       <span className="small-label">
                         Status: {item.status || "Reported"}
                       </span>

@@ -125,3 +125,4 @@ if __name__ == "__main__":
     ]
     for example in examples:
         print(f"\n{example}\n{categorize_emergency(example)}")
+ 
