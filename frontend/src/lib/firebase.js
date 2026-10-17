@@ -13,7 +13,7 @@ const firebaseConfig = {
 };
 
 const app = initializeApp(firebaseConfig);
-const auth = getAuth(app);
+const auth = apiKey ? getAuth(app) : null;
 const googleProvider = new GoogleAuthProvider();
 
 export function signInWithGoogle() {
@@ -27,9 +27,14 @@ export function signInWithGoogle() {
 }
 
 export function logOut() {
-  return signOut(auth);
+  return auth ? signOut(auth) : Promise.resolve();
 }
 
 export function onAuthChange(callback) {
+  if (!auth) {
+    callback(null);
+    return () => {};
+  }
+
   return onAuthStateChanged(auth, callback);
 }

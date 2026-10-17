@@ -3,7 +3,11 @@ import { signInWithGoogle } from "./lib/firebase";
 
 export default function LoginPage() {
   const [loading, setLoading] = useState(false);
-  const [error, setError] = useState("");
+  const [error, setError] = useState(
+    import.meta.env.VITE_FIREBASE_API_KEY
+      ? ""
+      : "Firebase authentication is not configured. Create frontend/.env and add VITE_FIREBASE_API_KEY."
+  );
 
   async function handleLogin() {
     setLoading(true);
