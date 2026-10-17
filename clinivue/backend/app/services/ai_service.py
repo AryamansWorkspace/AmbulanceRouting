@@ -9,6 +9,8 @@ from app.core.config import settings
 from app.schemas.intent import IntentOutput
 
 def initialize_client():
+    if not settings.GEMINI_API_KEY:
+        return None
     return genai.Client(api_key=settings.GEMINI_API_KEY)
 
 
@@ -173,7 +175,7 @@ Important rules:
 Respond with ONLY valid JSON matching this structure."""
 
     # Try Gemini with retries
-    data = _try_gemini_extract(client, prompt)
+    data = _try_gemini_extract(client, prompt) if client else None
 
     if data:
         try:
@@ -222,6 +224,8 @@ def generate_chat_reply(user_message: str, intent: IntentOutput) -> str:
     # Casual talk (no procedure or condition detected)
     try:
         client = initialize_client()
+        if not client:
+            return "I'm here to help with your healthcare query. How can I assist you today?"
         prompt = f"You are Clinivue Assistant, a friendly and helpful healthcare AI guide. The user said: '{user_message}'. Respond naturally, nicely, and concisely (1-2 sentences). Do not provide any medical advice. If they say hi, greet them back and ask how you can help with their healthcare needs."
         
         for attempt in range(2):
