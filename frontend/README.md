@@ -22,6 +22,15 @@ npm run dev
 
 The dashboard is available at `http://localhost:5173`.
 
+After authentication, use the `Clinivue` navigation item to access the
+integrated AI assistant, cost and provider insights, lab report analyzer, and
+encrypted history. Those features require the secondary Clinivue service:
+
+```powershell
+cd D:\MajorProject\AmbulanceRouting\clinivue\backend
+..\..\backend\.venv\Scripts\python.exe -m uvicorn app.main:app --reload --host 127.0.0.1 --port 8001
+```
+
 ## Validation
 
 ```powershell

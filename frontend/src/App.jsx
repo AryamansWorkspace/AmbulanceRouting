@@ -4,10 +4,20 @@ import MapView from "./MapView";
 import EmergencyForm from "./EmergencyForm";
 import { logOut, onAuthChange } from "./lib/firebase";
 import LoginPage from "./LoginPage";
+import ClinivueFeature from "./clinivue/ClinivueFeature";
+import "./clinivue/clinivue.css";
+import "./clinivue/clinivue-components.css";
 import "./App.css";
 
 const API = "http://127.0.0.1:8000";
-const NAV = ["Dashboard", "Emergencies", "Ambulances", "Hospitals", "Dispatches"];
+const NAV = [
+  "Dashboard",
+  "Emergencies",
+  "Ambulances",
+  "Hospitals",
+  "Dispatches",
+  "Clinivue",
+];
 
 const AMBULANCE_STATUSES = [
   { value: "available", label: "Available" },
@@ -628,7 +638,9 @@ function DashboardApp({ user }) {
           <h2>{page}</h2>
           {error && <p role="alert">{error}</p>}
 
-          {page === "Dashboard" ? (
+          {page === "Clinivue" ? (
+            <ClinivueFeature user={user} />
+          ) : page === "Dashboard" ? (
             <>
               <div className="stats-grid">
                 {[
